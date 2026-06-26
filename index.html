@@ -3,6 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google tag (gtag.js) — Google Ads AW-18226261330 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18226261330"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18226261330');
+</script>
+<!-- Snippet de evento — conversão "Visualização de página" (dispara ao carregar esta página) -->
+<script>
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18226261330/DC56CL648bscENLa-vJD',
+    'value': 1.0,
+    'currency': 'BRL'
+  });
+</script>
+
 <title>UAN no Dia a Dia — Gestão de Unidades de Alimentação e Nutrição</title>
 <meta name="description" content="Ebooks, planilhas, mentoria e o sistema UAN Cardápio Pro. Ferramentas práticas de gestão de UAN para nutricionistas, estudantes e gestores. Por Osmar Almeida — Nutricionista CRN 12979.">
 <meta property="og:title" content="UAN no Dia a Dia — Gestão de UAN na prática">
@@ -525,7 +543,7 @@ var PRODUTOS = [
     desc:"O Guia Essencial somado a 10 bônus práticos. O pacote mais completo para quem quer estruturar a gestão da UAN de uma vez.",
     bullets:["Guia Essencial completo","10 bônus profissionais","Pronto para aplicar na rotina"],
     cur:"R$", val:"290", note:"Guia + 10 Bônus",
-    link: "https://go.hotmart.com/H102817272S?dp=1"
+    link: LINK_GERAL
   },
   {
     id:"7640894", kind:"E-book", feat:false, ribbon:"",
@@ -533,15 +551,15 @@ var PRODUTOS = [
     desc:"O ponto de partida: organiza os fundamentos da gestão de UAN com base na regulamentação que a fiscalização cobra.",
     bullets:["Base regulatória (RDC 216/2004)","Rotina e POPs organizados","Leitura direta ao ponto"],
     cur:"R$", val:"147", note:"Acesso imediato",
-    link: "https://go.hotmart.com/N105592583Y?dp=1"
+    link: LINK_GERAL
   },
   {
-    id:"7784054", kind:"Formação · UAN no Dia a Dia", feat:false, ribbon:"",
-    nome:"Formação UAN no Dia a Dia",
-    desc:"A faculdade te forma nutricionista — esta formação te prepara para liderar a operação. Em 6 módulos práticos você aprende a rotina real da UAN: gestão de equipe, custos, cardápio, compras, estoque, qualidade e carreira.",
-    bullets:["Primeiros 30 dias na UAN + liderança de equipe","Cardápio e custo per capita real","Compras, estoque, POPs, 5S e auditorias"],
-    cur:"R$", val:"297", note:"Formação completa · 6 módulos",
-    link: "https://go.hotmart.com/N105935385L?dp=1"
+    id:"7784054", kind:"E-book · Formação", feat:false, ribbon:"",
+    nome:"Formação",
+    desc:"Formação profissional voltada à prática de quem atua — ou vai atuar — na gestão de Unidades de Alimentação e Nutrição.",
+    bullets:["Conteúdo de formação prática","Foco na atuação real","Bônus do Lote Fundadores do Cardápio Pro"],
+    cur:"", val:"", note:"Ver oferta na Hotmart",
+    link: LINK_GERAL
   },
   {
     id:"6630746", kind:"Mentoria · 12 meses", feat:false, ribbon:"",
@@ -549,12 +567,13 @@ var PRODUTOS = [
     desc:"Acompanhamento profissional ao longo de um ano para aplicar tudo no seu contexto — com suporte e direcionamento individual.",
     bullets:["Acompanhamento por 12 meses","Suporte profissional direto","Para decisões reais da sua UAN"],
     cur:"R$", val:"1.297", note:"Acompanhamento anual",
-    link: "https://go.hotmart.com/W102925018C?dp=1"
+    link: LINK_GERAL
   }
 ];
 
-/* link do Cardápio Pro → página de vendas exclusiva do produto. */
-var LINK_CARDAPIO_PRO = "https://uannodiaadia-gif.github.io/uan-cardapio-vendas/";
+/* link do Cardápio Pro (lista de espera / oferta de lançamento).
+   Troque pelo link específico quando o produto estiver ativo na Hotmart. */
+var LINK_CARDAPIO_PRO = LINK_GERAL;
 
 var check = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A847" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>';
 
