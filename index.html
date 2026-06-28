@@ -266,6 +266,34 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
 .cookie-bar .btn{padding:10px 24px;font-size:13px}
 .cookie-bar.hide{display:none}
 
+/* modal lista de espera */
+.modal-overlay{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
+  padding:20px;background:rgba(4,12,8,.8);backdrop-filter:blur(6px)}
+.modal-overlay.open{display:flex}
+.modal{position:relative;width:100%;max-width:440px;
+  background:linear-gradient(165deg,#0c3528,#08231a);border:1px solid var(--line);border-radius:20px;
+  padding:34px 30px 28px;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:modalIn .3s cubic-bezier(.2,.7,.2,1)}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:12px;right:16px;background:none;border:0;color:var(--txt-mut);
+  font-size:27px;line-height:1;cursor:pointer;transition:color .2s}
+.modal-close:hover{color:var(--txt)}
+.modal-emblem{width:44px;margin-bottom:6px}
+.modal .eyebrow{font-size:11px}
+.modal h3{font-family:var(--serif);font-weight:600;font-size:25px;margin:12px 0 0;line-height:1.15}
+.modal-sub{color:var(--txt-mut);font-size:14px;margin:10px 0 22px;line-height:1.5}
+.modal form{display:flex;flex-direction:column;gap:12px}
+.modal input[type=text],.modal input[type=email],.modal input[type=tel]{
+  width:100%;padding:13px 15px;border-radius:11px;border:1px solid var(--line);
+  background:rgba(6,22,15,.6);color:var(--txt);font-family:var(--sans);font-size:14.5px;transition:border-color .2s}
+.modal input::placeholder{color:var(--txt-dim)}
+.modal input:focus{outline:none;border-color:var(--gold)}
+.modal-check{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:var(--txt-mut);cursor:pointer;line-height:1.45}
+.modal-check input{margin-top:2px;accent-color:var(--gold);flex:none}
+.modal .btn{width:100%;justify-content:center;margin-top:6px}
+.modal-msg{font-size:13px;margin:6px 0 0;text-align:center}
+.modal-msg.ok{color:var(--g400);font-weight:600}
+.modal-msg.err{color:#e8a07a}
+
 /* reveal */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
@@ -339,7 +367,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
           <small>Lançamento exclusivo</small>
           <strong>UAN Cardápio Pro · 10 de julho de 2026</strong>
         </div>
-        <a href="#cardapio-pro">Entrar na lista →</a>
+        <a href="#cardapio-pro" id="heroWait">Entrar na lista →</a>
       </div>
       <p class="hero-tag"><b>Visão crítica e iniciativa</b> · Guerreiros da UAN</p>
     </div>
@@ -538,6 +566,34 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
   </div>
 </footer>
 
+<!-- Modal: lista de espera (FormSubmit) -->
+<div class="modal-overlay" id="waitModal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="waitTitle">
+    <button class="modal-close" id="waitClose" aria-label="Fechar">&times;</button>
+    <svg class="modal-emblem" viewBox="0 0 200 200" aria-hidden="true">
+      <polygon points="100,42 150,71 150,129 100,158 50,129 50,71" fill="#0F4D36" stroke="#C8A847" stroke-width="6"/>
+      <path d="M82,86 L82,116 C82,128 88,134 100,134 C112,134 118,128 118,116 L118,86" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+      <path d="M82,86 L100,98 L118,86" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="eyebrow">Lançamento 10.07.2026</span>
+    <h3 id="waitTitle">Entrar na lista de espera</h3>
+    <p class="modal-sub">Seja avisado em primeira mão quando o UAN Cardápio Pro abrir — e garanta as condições do Lote Fundadores.</p>
+    <form id="waitForm" novalidate>
+      <input type="text" name="Nome" placeholder="Seu nome" required>
+      <input type="email" name="E-mail" placeholder="Seu melhor e-mail" required>
+      <input type="tel" name="WhatsApp" placeholder="WhatsApp com DDD" required>
+      <label class="modal-check"><input type="checkbox" required> Concordo em receber novidades sobre o lançamento.</label>
+      <input type="hidden" name="_subject" value="Nova inscrição — Lista de espera UAN Cardápio Pro">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_autoresponse" value="Recebemos sua inscrição na lista de espera do UAN Cardápio Pro! Você será avisado em primeira mão no lançamento (10/07/2026), com as condições do Lote Fundadores. — Osmar Almeida, Nutricionista CRN 12979">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit" class="btn btn-gold" id="waitSubmit">Quero ser avisado <span class="arr">→</span></button>
+      <p class="modal-msg" id="waitMsg" role="status"></p>
+    </form>
+  </div>
+</div>
+
 <!-- Aviso de cookies (LGPD) -->
 <div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Aviso de cookies">
   <p>Usamos cookies e tecnologias de medição (incluindo Google) para entender os acessos e melhorar sua experiência. Ao continuar navegando, você concorda com a nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.</p>
@@ -560,7 +616,7 @@ var PRODUTOS = [
     desc:"O Guia Essencial somado a 10 bônus práticos. O pacote mais completo para quem quer estruturar a gestão da UAN de uma vez.",
     bullets:["Guia Essencial completo","10 bônus profissionais","Pronto para aplicar na rotina"],
     cur:"R$", val:"290", note:"Guia + 10 Bônus",
-    link: LINK_GERAL
+    link: "https://go.hotmart.com/H102817272S?dp=1"
   },
   {
     id:"7640894", kind:"E-book", feat:false, ribbon:"",
@@ -568,7 +624,7 @@ var PRODUTOS = [
     desc:"O ponto de partida: organiza os fundamentos da gestão de UAN com base na regulamentação que a fiscalização cobra.",
     bullets:["Base regulatória (RDC 216/2004)","Rotina e POPs organizados","Leitura direta ao ponto"],
     cur:"R$", val:"147", note:"Acesso imediato",
-    link: LINK_GERAL
+    link: "https://go.hotmart.com/N105592583Y?dp=1"
   },
   {
     id:"7784054", kind:"E-book · Formação", feat:false, ribbon:"",
@@ -576,7 +632,7 @@ var PRODUTOS = [
     desc:"Formação profissional voltada à prática de quem atua — ou vai atuar — na gestão de Unidades de Alimentação e Nutrição.",
     bullets:["Conteúdo de formação prática","Foco na atuação real","Bônus do Lote Fundadores do Cardápio Pro"],
     cur:"", val:"", note:"Ver oferta na Hotmart",
-    link: LINK_GERAL
+    link: "https://go.hotmart.com/N105935385L?dp=1"
   },
   {
     id:"6630746", kind:"Mentoria · 12 meses", feat:false, ribbon:"",
@@ -584,13 +640,15 @@ var PRODUTOS = [
     desc:"Acompanhamento profissional ao longo de um ano para aplicar tudo no seu contexto — com suporte e direcionamento individual.",
     bullets:["Acompanhamento por 12 meses","Suporte profissional direto","Para decisões reais da sua UAN"],
     cur:"R$", val:"1.297", note:"Acompanhamento anual",
-    link: LINK_GERAL
+    link: "https://go.hotmart.com/W102925018C?dp=1"
   }
 ];
 
-/* link do Cardápio Pro (lista de espera / oferta de lançamento).
-   Troque pelo link específico quando o produto estiver ativo na Hotmart. */
-var LINK_CARDAPIO_PRO = LINK_GERAL;
+/* CARDÁPIO PRO
+   Antes do lançamento (10/07/2026), o botão abre a janela de LISTA DE ESPERA (FormSubmit).
+   Depois do lançamento, ele vira "Comprar agora" e usa o link abaixo.
+   >>> COLE AQUI o link de compra do Cardápio Pro quando o produto estiver ativo na Hotmart. */
+var LINK_CARDAPIO_PRO = LINK_GERAL; // <-- TROCAR pelo link de compra (pós-lançamento)
 
 var check = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A847" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>';
 
@@ -652,6 +710,58 @@ function tick(){
 tick();
 
 document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ---- modal lista de espera (FormSubmit) ---- */
+(function(){
+  var FORM_EMAIL = "uannodiaadia@gmail.com"; // e-mail que recebe as inscrições
+  var overlay=document.getElementById('waitModal');
+  var form=document.getElementById('waitForm');
+  var msg=document.getElementById('waitMsg');
+  var sb=document.getElementById('waitSubmit');
+  var lastFocus=null;
+  function openModal(){
+    lastFocus=document.activeElement;
+    msg.textContent=''; msg.className='modal-msg';
+    sb.style.display=''; sb.disabled=false; sb.innerHTML='Quero ser avisado <span class="arr">→</span>';
+    overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    var first=form.querySelector('input'); if(first) first.focus();
+  }
+  function closeModal(){
+    overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    if(lastFocus) lastFocus.focus();
+  }
+  document.getElementById('waitClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && overlay.classList.contains('open')) closeModal(); });
+
+  // botão da seção do Cardápio Pro: abre a modal antes do lançamento; depois vira "Comprar agora"
+  var pro=document.getElementById('proCta');
+  if(pro) pro.addEventListener('click', function(e){ if(Date.now()<target){ e.preventDefault(); openModal(); } });
+  // ribbon do hero
+  var hw=document.getElementById('heroWait');
+  if(hw) hw.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    sb.disabled=true; sb.textContent='Enviando...';
+    fetch('https://formsubmit.co/ajax/'+FORM_EMAIL, {
+      method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)
+    }).then(function(r){ return r.json(); })
+      .then(function(){
+        msg.textContent='✓ Inscrição confirmada! Você será avisado no lançamento.';
+        msg.className='modal-msg ok'; form.reset(); sb.style.display='none';
+      })
+      .catch(function(){
+        msg.textContent='Não foi possível enviar agora. Tente de novo em instantes.';
+        msg.className='modal-msg err';
+        sb.disabled=false; sb.innerHTML='Quero ser avisado <span class="arr">→</span>';
+      });
+  });
+})();
+
 
 /* ---- aviso de cookies ---- */
 (function(){
