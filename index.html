@@ -199,17 +199,30 @@ section{position:relative}
 .count .lab{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-dim);margin-top:8px;font-weight:600}
 .count.done{display:block;color:var(--g400);font-weight:600;font-family:var(--serif);font-size:22px}
 
-/* lotes */
-.lotes{display:flex;flex-direction:column;gap:11px;margin-top:30px}
-.lote{display:flex;align-items:center;gap:16px;padding:15px 18px;border:1px solid var(--line);border-radius:14px;
-  background:rgba(8,35,26,.4);transition:border-color .25s,background .25s}
-.lote.hot{border-color:rgba(200,168,71,.5);background:rgba(200,168,71,.06)}
-.lote .n{font-family:var(--serif);font-weight:700;color:var(--gold);font-size:18px;width:24px;flex:none}
-.lote .info{flex:1}
-.lote .info b{font-weight:600;font-size:14.5px;display:block}
-.lote .info small{color:var(--txt-dim);font-size:12.5px}
-.lote .pr{font-family:var(--serif);font-weight:700;font-size:18px;color:var(--txt);white-space:nowrap}
-.lote .pr small{font-size:11px;color:var(--txt-dim);font-weight:400;font-family:var(--sans)}
+/* oferta de lançamento */
+.offer{margin-top:30px;padding:24px 26px;border:1px solid rgba(200,168,71,.5);border-radius:18px;
+  background:rgba(200,168,71,.06)}
+.offer-tag{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--gold);border:1px solid rgba(200,168,71,.45);border-radius:999px;padding:4px 13px;margin-bottom:16px}
+.offer-price{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.offer-price .from{font-size:16px;color:var(--txt-dim);text-decoration:line-through;font-family:var(--sans)}
+.offer-price .to{font-family:var(--serif);font-weight:700;font-size:40px;color:var(--txt);line-height:1}
+.offer-price .to small{font-size:15px;color:var(--txt-dim);font-weight:400;font-family:var(--sans)}
+.offer-note{margin:14px 0 0;font-size:14px;color:var(--txt-mut);line-height:1.5}
+.offer-note b{color:var(--gold);font-weight:600}
+
+/* depoimentos */
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px}
+@media(max-width:760px){.testi-grid{grid-template-columns:1fr}}
+.testi{background:linear-gradient(165deg,rgba(15,77,54,.35),rgba(11,61,46,.2));
+  border:1px solid var(--line);border-radius:18px;padding:28px 26px;position:relative}
+.testi .quote-mark{font-family:var(--serif);font-size:52px;color:rgba(200,168,71,.35);line-height:1;margin-bottom:6px}
+.testi p{color:var(--txt);font-size:15px;line-height:1.65}
+.testi .who{margin-top:18px;display:flex;align-items:center;gap:12px}
+.testi .avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(150deg,var(--g500),var(--gold));
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;color:#0B3D2E;flex:none}
+.testi .who b{font-size:14px;color:var(--txt)}
+.testi .who span{display:block;font-size:12.5px;color:var(--txt-dim)}
 
 .launch-visual{position:relative;display:flex;flex-direction:column;align-items:center;gap:24px}
 .mockup-frame{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);
@@ -443,22 +456,13 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
         <div class="unit"><div class="num" id="cs">00</div><div class="lab">Seg</div></div>
       </div>
 
-      <div class="lotes rv d3">
-        <div class="lote hot">
-          <span class="n">1</span>
-          <div class="info"><b>Lote Fundadores — 50 vagas</b><small>+ e-book FORMAÇÃO de bônus</small></div>
-          <span class="pr">R$ 297<small>/ano</small></span>
+      <div class="offer rv d3">
+        <span class="offer-tag">Oferta de lançamento</span>
+        <div class="offer-price">
+          <span class="from">De R$ 397</span>
+          <span class="to">R$ 317,60<small>/ano</small></span>
         </div>
-        <div class="lote">
-          <span class="n">2</span>
-          <div class="info"><b>Early Adopters — 100 vagas</b><small>Acesso antecipado</small></div>
-          <span class="pr">R$ 397<small>/ano</small></span>
-        </div>
-        <div class="lote">
-          <span class="n">3</span>
-          <div class="info"><b>Mercado aberto</b><small>Vagas ilimitadas</small></div>
-          <span class="pr">R$ 497<small>/ano</small></span>
-        </div>
+        <p class="offer-note">Com o cupom <b>UANPRO20</b> — 20% de desconto de lançamento.</p>
       </div>
 
       <div class="launch-cta rv">
@@ -505,6 +509,32 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <div class="sign">
         <b>Osmar Almeida</b>
         <span>Nutricionista CRN 12979 · @uannodiaadia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="sec" id="depoimentos">
+  <div class="wrap">
+    <span class="eyebrow rv">O que dizem os alunos</span>
+    <h2 class="rv d1">Quem já está aplicando na prática.</h2>
+    <div class="testi-grid">
+      <div class="testi rv d1">
+        <div class="quote-mark">&ldquo;</div>
+        <p>Consegui acessar sim, estou gostando bastante da didática do material e do conteúdo, realmente sensacional.</p>
+        <div class="who">
+          <div class="avatar">G</div>
+          <div><b>Gabriel Ferreira</b><span>Aluno · UAN no Dia a Dia</span></div>
+        </div>
+      </div>
+      <div class="testi rv d2">
+        <div class="quote-mark">&ldquo;</div>
+        <p>O material é sensacional. Pensei muito antes de comprar, porque o ebook é direcionado para acadêmicos e recém-formados, e eu já estou nessa caminhada da UAN há alguns anos — mas foi uma das melhores compras que já fiz. No mesmo dia li o módulo 1 e achei muito bom, e agora estou mergulhada no módulo 2, me atualizando sobre custos e cardápio.</p>
+        <div class="who">
+          <div class="avatar">L</div>
+          <div><b>Letícia</b><span>Aluna · UAN no Dia a Dia</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -577,7 +607,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
     </svg>
     <span class="eyebrow">Lançamento 10.07.2026</span>
     <h3 id="waitTitle">Entrar na lista de espera</h3>
-    <p class="modal-sub">Seja avisado em primeira mão quando o UAN Cardápio Pro abrir — e garanta as condições do Lote Fundadores.</p>
+    <p class="modal-sub">Seja avisado em primeira mão quando o UAN Cardápio Pro abrir — e garanta o desconto de lançamento.</p>
     <form id="waitForm" novalidate>
       <input type="text" name="Nome" placeholder="Seu nome" required>
       <input type="email" name="E-mail" placeholder="Seu melhor e-mail" required>
@@ -586,7 +616,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <input type="hidden" name="_subject" value="Nova inscrição — Lista de espera UAN Cardápio Pro">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_autoresponse" value="Recebemos sua inscrição na lista de espera do UAN Cardápio Pro! Você será avisado em primeira mão no lançamento (10/07/2026), com as condições do Lote Fundadores. — Osmar Almeida, Nutricionista CRN 12979">
+      <input type="hidden" name="_autoresponse" value="Recebemos sua inscrição na lista de espera do UAN Cardápio Pro! Você será avisado em primeira mão no lançamento (10/07/2026), com o desconto de lançamento garantido. — Osmar Almeida, Nutricionista CRN 12979">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
       <button type="submit" class="btn btn-gold" id="waitSubmit">Quero ser avisado <span class="arr">→</span></button>
       <p class="modal-msg" id="waitMsg" role="status"></p>
@@ -630,7 +660,7 @@ var PRODUTOS = [
     id:"7784054", kind:"E-book · Formação", feat:false, ribbon:"",
     nome:"Formação",
     desc:"Formação profissional voltada à prática de quem atua — ou vai atuar — na gestão de Unidades de Alimentação e Nutrição.",
-    bullets:["Conteúdo de formação prática","Foco na atuação real","Bônus do Lote Fundadores do Cardápio Pro"],
+    bullets:["Conteúdo de formação prática","Foco na atuação real","Voltado para quem atua ou vai atuar em UAN"],
     cur:"", val:"", note:"Ver oferta na Hotmart",
     link: "https://go.hotmart.com/N105935385L?dp=1"
   },
@@ -648,7 +678,7 @@ var PRODUTOS = [
    Antes do lançamento (10/07/2026), o botão abre a janela de LISTA DE ESPERA (FormSubmit).
    Depois do lançamento, ele vira "Comprar agora" e usa o link abaixo.
    >>> COLE AQUI o link de compra do Cardápio Pro quando o produto estiver ativo na Hotmart. */
-var LINK_CARDAPIO_PRO = LINK_GERAL; // <-- TROCAR pelo link de compra (pós-lançamento)
+var LINK_CARDAPIO_PRO = "https://go.hotmart.com/D106340119Y?dp=1"; // link de compra (ativa automaticamente a partir de 10/07/2026)
 
 var check = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A847" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>';
 
@@ -698,6 +728,9 @@ function tick(){
     box.classList.add('done');
     box.innerHTML='✦ Disponível agora — sistema no ar!';
     proCta.innerHTML='Comprar agora <span class="arr">→</span>';
+    var hwB=document.getElementById('heroWait'); if(hwB) hwB.innerHTML='Comprar agora →';
+    var rSmall=document.querySelector('.launch-ribbon small'); if(rSmall) rSmall.textContent='Já disponível';
+    var rStrong=document.querySelector('.launch-ribbon strong'); if(rStrong) rStrong.textContent='UAN Cardápio Pro · Vendas abertas';
     return;
   }
   var d=Math.floor(diff/864e5), h=Math.floor(diff%864e5/36e5), m=Math.floor(diff%36e5/6e4), s=Math.floor(diff%6e4/1e3);
@@ -739,9 +772,12 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   // botão da seção do Cardápio Pro: abre a modal antes do lançamento; depois vira "Comprar agora"
   var pro=document.getElementById('proCta');
   if(pro) pro.addEventListener('click', function(e){ if(Date.now()<target){ e.preventDefault(); openModal(); } });
-  // ribbon do hero
+  // ribbon do hero: abre a modal antes do lançamento; depois vira link de compra
   var hw=document.getElementById('heroWait');
-  if(hw) hw.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+  if(hw){
+    hw.href=LINK_CARDAPIO_PRO; hw.setAttribute('target','_blank'); hw.setAttribute('rel','noopener');
+    hw.addEventListener('click', function(e){ if(Date.now()<target){ e.preventDefault(); openModal(); } });
+  }
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
