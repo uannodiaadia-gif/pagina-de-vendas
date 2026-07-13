@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM Comercial para Nutricionistas · UAN no Dia a Dia</title>
+<meta name="description" content="Receba gratuitamente o CRM Comercial para nutricionistas: controle de visitas, funil de prospecção e painel de indicadores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde-escuro:#0B3D2E;
+    --verde-medio:#0F4D36;
+    --verde-vivo:#1D9E75;
+    --ouro:#C8A847;
+    --creme:#F5E6C4;
+    --preto:#071F17;
+    --texto:#EAF1EC;
+    --texto-suave:#9ECFB4;
+    --linha:rgba(200,168,71,.28);
+    --erro:#B9532E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--texto);
+    background:
+      radial-gradient(900px 520px at 78% -8%, rgba(29,158,117,.20) 0%, transparent 58%),
+      linear-gradient(165deg, #0F4D36 0%, #0B3D2E 48%, #071F17 100%);
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding:36px 18px; line-height:1.55;
+  }
+
+  .card{
+    width:100%; max-width:600px;
+    background:linear-gradient(170deg, rgba(15,77,54,.62) 0%, rgba(7,31,23,.62) 100%);
+    border:1px solid var(--linha);
+    border-radius:22px;
+    padding:44px 40px 34px;
+    box-shadow:0 26px 64px rgba(0,0,0,.40);
+    position:relative; overflow:hidden;
+  }
+  .card::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(400px 200px at 100% 0%, rgba(200,168,71,.08), transparent 70%);
+    pointer-events:none;
+  }
+
+  /* ---------- Emblema hexagonal ---------- */
+  .emblema{display:flex;justify-content:center;margin-bottom:20px}
+  .emblema svg{width:84px;height:84px}
+
+  /* ---------- Cabeçalho ---------- */
+  .badge{
+    display:block; width:max-content; margin:0 auto 18px;
+    border:1px solid rgba(200,168,71,.55);
+    color:var(--ouro);
+    font-size:11px; font-weight:700; letter-spacing:2.6px; text-transform:uppercase;
+    padding:8px 18px; border-radius:40px;
+  }
+  h1{
+    font-family:'Playfair Display', serif;
+    font-size:38px; line-height:1.12; font-weight:800;
+    text-align:center; color:#fff; letter-spacing:-.5px;
+  }
+  h1 em{color:var(--ouro); font-style:italic;}
+  .sub{
+    text-align:center; color:var(--texto-suave);
+    font-size:16px; margin-top:14px; max-width:460px; margin-left:auto; margin-right:auto;
+  }
+
+  /* ---------- Lista do que vem ---------- */
+  .itens{
+    margin:26px 0 30px;
+    border-top:1px solid rgba(158,207,180,.18);
+    border-bottom:1px solid rgba(158,207,180,.18);
+    padding:20px 0;
+    display:grid; gap:11px;
+  }
+  .item{display:flex; gap:11px; align-items:flex-start; font-size:15px;}
+  .item .m{color:var(--ouro); flex:none; font-size:13px; line-height:1.7;}
+  .item b{color:#fff; font-weight:600;}
+  .item span{color:var(--texto-suave);}
+
+  /* ---------- Formulário ---------- */
+  .campo{margin-bottom:16px}
+  label{
+    display:block; font-size:12px; font-weight:600;
+    letter-spacing:.8px; text-transform:uppercase;
+    color:var(--texto-suave); margin-bottom:7px;
+  }
+  input[type=text], input[type=email], input[type=tel], select{
+    width:100%;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(158,207,180,.26);
+    border-radius:11px;
+    padding:14px 15px;
+    color:#fff; font-size:16px; font-family:'Inter',sans-serif;
+    transition:border-color .18s, background .18s;
+  }
+  input::placeholder{color:rgba(158,207,180,.55)}
+  input:focus, select:focus{
+    outline:none;
+    border-color:var(--ouro);
+    background:rgba(255,255,255,.09);
+    box-shadow:0 0 0 3px rgba(200,168,71,.16);
+  }
+  select{appearance:none; cursor:pointer;
+    background-image:linear-gradient(45deg,transparent 50%,var(--ouro) 50%),linear-gradient(135deg,var(--ouro) 50%,transparent 50%);
+    background-position:calc(100% - 20px) 22px, calc(100% - 15px) 22px;
+    background-size:5px 5px, 5px 5px;
+    background-repeat:no-repeat;
+  }
+  select option{background:var(--verde-escuro); color:#fff}
+  .linha2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+
+  /* ---------- LGPD ---------- */
+  .lgpd{
+    display:flex; gap:11px; align-items:flex-start;
+    margin:20px 0 22px; font-size:13px; color:var(--texto-suave); line-height:1.5;
+  }
+  .lgpd input{
+    flex:none; width:19px; height:19px; margin-top:2px;
+    accent-color:var(--ouro); cursor:pointer;
+  }
+  .lgpd label{
+    text-transform:none; letter-spacing:0; font-size:13px;
+    font-weight:400; color:var(--texto-suave); margin:0; cursor:pointer;
+  }
+
+  /* ---------- Botão ---------- */
+  .btn{
+    width:100%;
+    background:linear-gradient(135deg,#C8A847 0%, #E0C46B 100%);
+    color:var(--preto);
+    border:none; border-radius:13px;
+    padding:18px; font-size:17px; font-weight:800;
+    font-family:'Inter',sans-serif; letter-spacing:.3px;
+    cursor:pointer;
+    transition:transform .15s, box-shadow .15s, filter .15s;
+    box-shadow:0 12px 28px rgba(0,0,0,.28);
+  }
+  .btn:hover{transform:translateY(-2px); box-shadow:0 16px 34px rgba(0,0,0,.36)}
+  .btn:focus-visible{outline:3px solid #fff; outline-offset:2px}
+  .btn:disabled{filter:grayscale(.5) brightness(.85); cursor:wait; transform:none}
+
+  .nota{
+    text-align:center; font-size:12px; color:rgba(158,207,180,.75);
+    margin-top:14px; line-height:1.5;
+  }
+  .erro-msg{
+    display:none; background:rgba(185,83,46,.16);
+    border:1px solid rgba(185,83,46,.5);
+    color:#F0C4B4; font-size:14px;
+    padding:13px 15px; border-radius:10px; margin-bottom:16px;
+  }
+
+  /* ---------- Assinatura ---------- */
+  .assinatura{
+    text-align:center; margin-top:26px; padding-top:20px;
+    border-top:1px solid rgba(158,207,180,.14);
+    font-size:12px; color:rgba(158,207,180,.7); line-height:1.7;
+  }
+  .assinatura b{color:#fff; font-weight:600; display:block; font-size:13px}
+
+  /* ---------- Estado de sucesso ---------- */
+  #sucesso{display:none; text-align:center; animation:sobe .5s ease both}
+  @keyframes sobe{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+  .check{
+    width:74px; height:74px; margin:0 auto 22px;
+    border-radius:50%;
+    background:rgba(29,158,117,.16);
+    border:2px solid var(--verde-vivo);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .check svg{width:34px; height:34px}
+  #sucesso h2{
+    font-family:'Playfair Display',serif; font-size:32px; color:#fff;
+    font-weight:700; line-height:1.2;
+  }
+  #sucesso h2 em{color:var(--ouro); font-style:italic}
+  #sucesso .txt{color:var(--texto-suave); font-size:16px; margin-top:12px}
+  .btn-crm{
+    display:block; margin-top:26px; text-decoration:none;
+    background:linear-gradient(135deg,#C8A847 0%, #E0C46B 100%);
+    color:var(--preto); border-radius:13px;
+    padding:19px; font-size:17px; font-weight:800;
+    box-shadow:0 12px 28px rgba(0,0,0,.28);
+    transition:transform .15s;
+  }
+  .btn-crm:hover{transform:translateY(-2px)}
+  .btn-crm:focus-visible{outline:3px solid #fff; outline-offset:2px}
+  .passos{
+    text-align:left; margin-top:24px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(158,207,180,.2);
+    border-radius:13px; padding:20px 22px;
+    font-size:14px; color:var(--texto-suave); line-height:1.7;
+  }
+  .passos b{color:#fff; display:block; margin-bottom:8px; font-size:13px;
+    text-transform:uppercase; letter-spacing:1px;}
+
+  @media (max-width:560px){
+    .card{padding:34px 24px 28px; border-radius:18px}
+    h1{font-size:31px}
+    .linha2{grid-template-columns:1fr}
+    #sucesso h2{font-size:27px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- ================= FORMULÁRIO ================= -->
+  <div id="form-area">
+
+    <div class="emblema">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <polygon points="50,10 85,30 85,70 50,90 15,70 15,30"
+                 fill="#0F4D36" stroke="#C8A847" stroke-width="2.5"/>
+        <path d="M38 38 v20 a12 12 0 0 0 24 0 v-20"
+              stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+        <path d="M38 38 l12 10 l12 -10" stroke="#fff" stroke-width="3.4"
+              stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="50" cy="48" r="3.4" fill="#C8A847"/>
+        <circle cx="50" cy="6"  r="3" fill="#C8A847"/>
+        <circle cx="89" cy="28" r="3" fill="#C8A847"/>
+        <circle cx="89" cy="72" r="3" fill="#C8A847"/>
+        <circle cx="50" cy="94" r="3" fill="#C8A847"/>
+        <circle cx="11" cy="72" r="3" fill="#C8A847"/>
+        <circle cx="11" cy="28" r="3" fill="#C8A847"/>
+      </svg>
+    </div>
+
+    <span class="badge">Ferramenta gratuita</span>
+
+    <h1>CRM Comercial<br>para o <em>nutricionista</em></h1>
+
+    <p class="sub">
+      Pare de controlar visitas, propostas e follow-ups na memória.
+      Preencha abaixo e receba a planilha na hora.
+    </p>
+
+    <div class="itens">
+      <div class="item"><span class="m">◆</span><div><b>Contatos</b> <span>— empresas, decisores, segmento e status</span></div></div>
+      <div class="item"><span class="m">◆</span><div><b>Funil</b> <span>— do lead ao contrato, com valor ponderado automático</span></div></div>
+      <div class="item"><span class="m">◆</span><div><b>Visitas</b> <span>— resultado e próximo passo com data</span></div></div>
+      <div class="item"><span class="m">◆</span><div><b>Tarefas</b> <span>— follow-ups; o que vence fica em vermelho</span></div></div>
+      <div class="item"><span class="m">◆</span><div><b>Painel</b> <span>— conversão, valor em negociação e visitas do mês</span></div></div>
+    </div>
+
+    <div class="erro-msg" id="erro" role="alert"></div>
+
+    <form id="form" novalidate>
+      <div class="campo">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="Nome" placeholder="Como podemos te chamar?" required autocomplete="name">
+      </div>
+
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="E-mail" placeholder="seu@email.com" required autocomplete="email">
+      </div>
+
+      <div class="linha2">
+        <div class="campo">
+          <label for="whats">WhatsApp</label>
+          <input type="tel" id="whats" name="WhatsApp" placeholder="(00) 00000-0000" required autocomplete="tel">
+        </div>
+        <div class="campo">
+          <label for="uf">Estado</label>
+          <select id="uf" name="Estado" required>
+            <option value="">Selecione</option>
+            <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+            <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+            <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+            <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+            <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+            <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+            <option>SP</option><option>SE</option><option>TO</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="momento">Momento na carreira</label>
+        <select id="momento" name="Momento na carreira" required>
+          <option value="">Selecione</option>
+          <option>Estudante de Nutrição</option>
+          <option>Recém-formado, buscando a primeira UAN</option>
+          <option>Nutricionista atuando em UAN</option>
+          <option>Nutricionista na área comercial / prospecção</option>
+          <option>Coordenador ou gestor de contratos</option>
+          <option>Consultor autônomo</option>
+        </select>
+      </div>
+
+      <div class="campo">
+        <label for="tipo">Tipo de UAN em que atua</label>
+        <select id="tipo" name="Tipo de UAN" required>
+          <option value="">Selecione</option>
+          <option>Industrial</option>
+          <option>Hospitalar</option>
+          <option>Escolar</option>
+          <option>Prisional</option>
+          <option>Comercial / Restaurante</option>
+          <option>Corporativo / Administrativo</option>
+          <option>Ainda não atuo em UAN</option>
+        </select>
+      </div>
+
+      <div class="lgpd">
+        <input type="checkbox" id="aceite" name="Consentimento LGPD" value="Autorizado" required>
+        <label for="aceite">
+          Autorizo o envio das ferramentas gratuitas, vagas e novidades dos produtos do
+          UAN no Dia a Dia no meu e-mail e WhatsApp. Posso cancelar quando quiser.
+        </label>
+      </div>
+
+      <button type="submit" class="btn" id="btn">Receber o CRM agora</button>
+
+      <p class="nota">Sem custo. Sem cartão. O acesso aparece nesta tela.</p>
+    </form>
+
+    <div class="assinatura">
+      <b>@uannodiaadia</b>
+      Osmar Almeida · Nutricionista CRN 12979<br>
+      Visão crítica e iniciativa · Guerreiros da UAN
+    </div>
+  </div>
+
+  <!-- ================= SUCESSO ================= -->
+  <div id="sucesso">
+    <div class="check">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 12.5 L9.5 18 L20 6" stroke="#1D9E75" stroke-width="2.6"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <h2>Pronto, <em>é seu.</em></h2>
+    <p class="txt">Cadastro confirmado. Clique no botão para abrir o CRM.</p>
+
+    <a class="btn-crm" id="link-crm"
+       href="https://docs.google.com/spreadsheets/d/1B6oGnYgQRU9Tk9VL_A-5LzLOPKyYqFbMywqTykN8Fco/copy"
+       target="_blank" rel="noopener">
+       Abrir e copiar o CRM
+    </a>
+
+    <div class="passos">
+      <b>Como usar</b>
+      1. Clique no botão acima e depois em <strong>"Fazer uma cópia"</strong>.<br>
+      2. A planilha vai direto para o seu Google Drive, já editável.<br>
+      3. Comece pela aba <strong>Início</strong>, que traz as instruções.<br>
+      4. Apague as linhas de exemplo e cadastre seus clientes.
+    </div>
+
+    <div class="assinatura">
+      <b>@uannodiaadia</b>
+      Osmar Almeida · Nutricionista CRN 12979
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const form    = document.getElementById('form');
+  const btn     = document.getElementById('btn');
+  const erro    = document.getElementById('erro');
+  const area    = document.getElementById('form-area');
+  const sucesso = document.getElementById('sucesso');
+
+  // >>> TROQUE AQUI se mudar o e-mail de destino <<<
+  const DESTINO = 'https://formsubmit.co/ajax/uannodiaadia@gmail.com';
+
+  function mostrarErro(msg){
+    erro.textContent = msg;
+    erro.style.display = 'block';
+    erro.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    erro.style.display = 'none';
+
+    // validação
+    const obrigatorios = form.querySelectorAll('[required]');
+    for (const c of obrigatorios){
+      if ((c.type === 'checkbox' && !c.checked) || (c.type !== 'checkbox' && !c.value.trim())){
+        mostrarErro('Preencha todos os campos e marque a autorização para continuar.');
+        c.focus();
+        return;
+      }
+    }
+    const email = document.getElementById('email').value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      mostrarErro('Confira o e-mail digitado — ele parece incompleto.');
+      document.getElementById('email').focus();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    // monta os dados
+    const dados = {};
+    new FormData(form).forEach((v,k) => dados[k] = v);
+    dados['_subject']  = 'Novo cadastro — CRM Comercial';
+    dados['Origem']    = 'Formulário CRM Comercial';
+    dados['_template'] = 'table';
+    dados['_captcha']  = 'false';
+
+    try{
+      const r = await fetch(DESTINO, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json', 'Accept':'application/json'},
+        body: JSON.stringify(dados)
+      });
+      if (!r.ok) throw new Error('falha');
+      area.style.display    = 'none';
+      sucesso.style.display = 'block';
+      window.scrollTo({top:0, behavior:'smooth'});
+    } catch(err){
+      btn.disabled = false;
+      btn.textContent = 'Receber o CRM agora';
+      mostrarErro('Não conseguimos enviar agora. Tente novamente em instantes ou chame no direct @uannodiaadia.');
+    }
+  });
+})();
+</script>
+</body>
+</html>
