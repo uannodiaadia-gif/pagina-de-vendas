@@ -371,9 +371,13 @@
       <div class="success" id="success">
         <div class="circle"><svg viewBox="0 0 32 32" fill="none"><path d="M7 16.5 13 22 25 9" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Prontinho, Guerreiro da UAN!</h3>
-        <p id="successName">Suas 8 fichas técnicas estão a caminho.</p>
-        <p>Abra seu e-mail para baixar o PDF.</p>
-        <p class="mailhint">Não chegou em alguns minutos? Confira a caixa de <strong>spam / promoções</strong> e marque como "não é spam" para receber os próximos materiais.</p>
+        <p id="successName">Suas 8 fichas técnicas estão liberadas.</p>
+        <p>O download começa automaticamente. Se não iniciar, use o botão abaixo.</p>
+        <a href="#" class="btn block" id="downloadBtn" style="margin-top:18px" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-right:2px"><path d="M8 2v8m0 0 3.2-3.2M8 10 4.8 6.8M3 13h10" stroke="#071F17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Baixar as 8 fichas (PDF)
+        </a>
+        <p class="mailhint">Guarde o arquivo. Em breve você recebe mais materiais do UAN no Dia a Dia pelos contatos que você deixou.</p>
       </div>
     </div>
 
@@ -402,6 +406,12 @@
 
   // ⚠️ TROQUE pelo seu endpoint FormSubmit (veja instruções na conversa)
   var FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/uannodiaadia@gmail.com';
+
+  // ⚠️⚠️ COLE AQUI O LINK DE DOWNLOAD DIRETO DO PDF NO GOOGLE DRIVE ⚠️⚠️
+  // Formato correto (força o download):
+  //   https://drive.google.com/uc?export=download&id=SEU_ID_DO_ARQUIVO
+  // Enquanto estiver "COLE_AQUI", o botão não baixa nada.
+  var PDF_URL = 'COLE_AQUI_O_LINK_DIRETO_DO_DRIVE';
 
   // máscara simples de telefone BR
   var wpp = document.getElementById('whatsapp');
@@ -448,8 +458,18 @@
     .then(function(){
       panel.classList.add('done');
       success.classList.add('on');
-      successName.innerHTML = 'Suas 8 fichas técnicas estão a caminho, <strong>'+data.nome.split(' ')[0]+'</strong>.';
+      successName.innerHTML = 'Suas 8 fichas técnicas estão liberadas, <strong>'+data.nome.split(' ')[0]+'</strong>.';
       success.scrollIntoView({behavior:'smooth',block:'center'});
+
+      // aponta o botão de reserva e dispara o download automático
+      var dl = document.getElementById('downloadBtn');
+      if(PDF_URL && PDF_URL.indexOf('COLE_AQUI') === -1){
+        dl.setAttribute('href', PDF_URL);
+        // dispara o download automaticamente após breve pausa
+        setTimeout(function(){ window.location.href = PDF_URL; }, 1200);
+      } else {
+        dl.setAttribute('href', '#');
+      }
     })
     .catch(function(){
       btn.disabled = false;
