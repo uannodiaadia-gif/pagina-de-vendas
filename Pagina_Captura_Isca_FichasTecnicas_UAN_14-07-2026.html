@@ -407,6 +407,9 @@
   // ⚠️ TROQUE pelo seu endpoint FormSubmit (veja instruções na conversa)
   var FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/uannodiaadia@gmail.com';
 
+  // Webhook do Make → cria o contato no Brevo automaticamente
+  var MAKE_WEBHOOK = 'https://hook.us2.make.com/caghe7sapq41ufbe1pz6ad1mha5ij7bn';
+
   // ⚠️⚠️ LINK DE DOWNLOAD DIRETO DO PDF NO GOOGLE DRIVE ⚠️⚠️
   // (formato que força o download e evita a tela de verificação de vírus)
   var PDF_URL = 'https://drive.google.com/uc?export=download&id=1Qm5T-Mf2j02xQsGZfhp7CnuqhgVZVFGg';
@@ -446,6 +449,22 @@
       _subject: 'Novo lead ISCA Fichas Técnicas — ' + form.nome.value.trim(),
       _template: 'table'
     };
+
+    // Envia para o Make (Brevo) em paralelo — não trava o fluxo se falhar
+    if (MAKE_WEBHOOK && MAKE_WEBHOOK.indexOf('COLE_AQUI') === -1) {
+      fetch(MAKE_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome: data.nome,
+          email: data.email,
+          whatsapp: data.whatsapp,
+          estado: data.estado,
+          momento_carreira: data.momento_carreira,
+          tipo_uan: data.tipo_uan
+        })
+      }).catch(function(){ /* silencioso: FormSubmit garante o backup */ });
+    }
 
     fetch(FORMSUBMIT_ENDPOINT, {
       method:'POST',
