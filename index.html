@@ -149,6 +149,78 @@ section{position:relative}
 .sec-head p{color:var(--txt-mut);margin-top:16px;font-size:17px;max-width:600px}
 
 /* ---------- PRODUCTS ---------- */
+/* ===== dossiês de produto ===== */
+.dossie-list{display:flex;flex-direction:column;gap:20px;margin-top:44px}
+.dossie{position:relative;display:grid;grid-template-columns:96px 1fr;gap:0;
+  border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  background:linear-gradient(150deg,rgba(15,77,54,.30),rgba(11,61,46,.12));
+  transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .45s,box-shadow .45s}
+.dossie::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:radial-gradient(560px 240px at 12% 0%,rgba(200,168,71,.16),transparent 65%);
+  transition:opacity .5s}
+.dossie:hover,.dossie:focus-within{transform:translateY(-6px);border-color:rgba(200,168,71,.55);
+  box-shadow:0 26px 60px rgba(0,0,0,.42)}
+.dossie:hover::after,.dossie:focus-within::after{opacity:1}
+
+.dossie-rail{position:relative;display:flex;flex-direction:column;align-items:center;
+  justify-content:flex-start;padding:34px 0;border-right:1px solid var(--line);
+  background:rgba(6,26,18,.35)}
+.dossie-rail .idx{font-family:var(--serif);font-weight:700;font-size:30px;color:var(--txt-dim);
+  line-height:1;transition:color .4s,transform .4s}
+.dossie:hover .idx{color:var(--gold);transform:scale(1.14)}
+.dossie-rail .bar{position:absolute;left:-1px;top:0;width:2px;height:0;background:var(--gold);
+  transition:height .55s cubic-bezier(.2,.7,.2,1)}
+.dossie:hover .bar,.dossie:focus-within .bar{height:100%}
+.dossie-rail .mini{margin-top:16px;writing-mode:vertical-rl;transform:rotate(180deg);
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--txt-dim);font-weight:700}
+
+.dossie-body{padding:32px 34px 30px}
+@media(max-width:780px){
+  .dossie{grid-template-columns:1fr}
+  .dossie-rail{flex-direction:row;justify-content:flex-start;gap:14px;padding:16px 22px;
+    border-right:0;border-bottom:1px solid var(--line)}
+  .dossie-rail .mini{writing-mode:horizontal-tb;transform:none;margin-top:0}
+  .dossie-rail .bar{width:0;height:2px;top:auto;bottom:-1px;left:0;transition:width .55s}
+  .dossie:hover .bar{width:100%;height:2px}
+  .dossie-body{padding:24px 22px 26px}
+}
+.dossie .kicker{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:var(--g400)}
+.dossie h3{font-family:var(--serif);font-weight:700;font-size:clamp(23px,2.7vw,31px);
+  margin:9px 0 0;line-height:1.15;letter-spacing:-.01em}
+.dossie .tagline{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--gold);
+  margin:8px 0 0}
+.dossie .texto{font-size:14.5px;color:var(--txt-mut);line-height:1.68;margin:16px 0 0;max-width:66ch}
+.dossie .inclui{list-style:none;padding:0;margin:20px 0 0;display:grid;
+  grid-template-columns:1fr 1fr;gap:9px 22px}
+@media(max-width:640px){.dossie .inclui{grid-template-columns:1fr}}
+.dossie .inclui li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--txt);
+  line-height:1.45}
+.dossie .inclui svg{flex:none;margin-top:2px;transition:transform .35s}
+.dossie:hover .inclui svg{transform:scale(1.15)}
+.dossie .quem{margin:20px 0 0;padding:13px 16px;border-left:2px solid rgba(200,168,71,.5);
+  background:rgba(200,168,71,.05);border-radius:0 10px 10px 0;font-size:13px;
+  color:var(--txt-mut);line-height:1.55}
+.dossie .quem b{color:var(--gold);font-weight:600}
+.dossie-foot{margin-top:24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  justify-content:space-between}
+.dossie-foot .btn{flex:0 0 auto}
+.dossie-foot .garantia{font-size:12px;color:var(--txt-dim);line-height:1.5;
+  flex:1 1 230px;min-width:0;text-align:right;overflow-wrap:break-word}
+@media(max-width:640px){.dossie-foot .garantia{text-align:left;flex:1 1 100%}}
+.dossie .btn .arr{transition:transform .35s}
+.dossie:hover .btn .arr{transform:translateX(5px)}
+.dossie.destaque{border-color:rgba(200,168,71,.42);
+  background:linear-gradient(150deg,rgba(200,168,71,.10),rgba(15,77,54,.22))}
+.dossie .fita{position:absolute;top:0;right:26px;background:var(--gold);color:#0B3D2E;
+  font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  padding:6px 14px;border-radius:0 0 9px 9px;z-index:2}
+@media(prefers-reduced-motion:reduce){
+  .dossie,.dossie::after,.dossie .idx,.dossie .bar,.dossie .inclui svg,.dossie .btn .arr{
+    transition:none}
+  .dossie:hover{transform:none}
+}
+
 .prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .card{position:relative;border:1px solid var(--line);border-radius:20px;padding:30px;
   background:linear-gradient(165deg,rgba(15,77,54,.32),rgba(8,35,26,.55));
@@ -524,7 +596,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
     <div class="sec-head rv">
       <span class="eyebrow">Materiais & Mentoria</span>
       <h2>Escolha por onde começar a colocar a UAN em ordem.</h2>
-      <p>Quatro caminhos para gestores e nutricionistas que precisam de ferramenta pronta para usar na rotina — do guia que organiza tudo ao acompanhamento individual.</p>
+      <p>Cinco caminhos para nutricionistas e gestores que precisam de ferramenta pronta para a rotina — do guia que organiza os fundamentos ao software que gerencia a operação inteira.</p>
     </div>
 
     <div class="prod-grid" id="prodGrid"><!-- cards injected by JS --></div>
@@ -928,36 +1000,59 @@ var LINK_GERAL = "https://hotm.io/r2ZzaYD";
 
 var PRODUTOS = [
   {
-    id:"6587672", kind:"E-book · Kit completo", feat:true, ribbon:"Mais vendido",
-    nome:"Kit Profissional Completo",
-    desc:"O Guia Essencial somado a 10 bônus práticos. O pacote mais completo para quem quer estruturar a gestão da UAN de uma vez.",
-    bullets:["Guia Essencial completo","10 bônus profissionais","Pronto para aplicar na rotina"],
-    cur:"R$", val:"290", note:"Guia + 10 Bônus",
-    link: "https://go.hotmart.com/H102817272S?dp=1"
+    idx:"01", kicker:"E-book · Ponto de partida", nome:"Guia Essencial",
+    mini:"Guia",
+    tagline:"Do modo sobrevivência à gestão com autoridade.",
+    texto:"Gerir uma UAN não é só sobre comida — é sobre equipe, fiscalização da vigilância sanitária, controle de custos e fichas técnicas. O guia profissional para você sair de apagar incêndios e assumir de vez o papel de nutricionista gestor(a), com processos claros e segurança técnica. Leitura prática, baseada em experiência real de campo, com linguagem direta.",
+    inclui:["Organização de processos","Liderança de equipe","Controle de custos","Segurança alimentar"],
+    quem:"Nutricionistas que atuam — ou querem atuar — em UANs hospitalares, escolares, corporativas ou institucionais, e querem evoluir da execução para a gestão estratégica.",
+    selo:"Garantia incondicional de 7 dias · Acesso imediato · Qualquer dispositivo",
+    cta:"Conhecer o Guia", destaque:false, fita:"",
+    link:"https://go.hotmart.com/N105592583Y?dp=1"
   },
   {
-    id:"7640894", kind:"E-book", feat:false, ribbon:"",
-    nome:"Guia Essencial",
-    desc:"O ponto de partida: organiza os fundamentos da gestão de UAN com base na regulamentação que a fiscalização cobra.",
-    bullets:["Base regulatória (RDC 216/2004)","Rotina e POPs organizados","Leitura direta ao ponto"],
-    cur:"R$", val:"147", note:"Acesso imediato",
-    link: "https://go.hotmart.com/N105592583Y?dp=1"
+    idx:"02", kicker:"E-book + 10 ferramentas", nome:"Kit Profissional Completo",
+    mini:"Kit",
+    tagline:"O guia somado às ferramentas que resolvem a semana.",
+    texto:"Tudo do Guia Essencial mais o arsenal prático da rotina: planilhas, listas de auditoria e checklists prontos para usar. O pacote mais completo para estruturar a gestão da UAN de uma vez — sem montar nada do zero.",
+    inclui:["Guia \u201cO Nutricionista Gestor de UAN\u201d (PDF)","Controle de Manutenção Preventiva (Excel)","Lista de Auditoria da Vigilância Sanitária","Encarte de Leis Trabalhistas para UAN","Checklist dos 30 pontos críticos (bônus)","Ficha Técnica editável (bônus)"],
+    quem:"Nutricionistas de UANs institucionais, hospitalares, escolares ou corporativas que querem evoluir da execução para a gestão estratégica.",
+    selo:"Garantia incondicional de 7 dias — 100% do valor, sem perguntas · Acesso imediato",
+    cta:"Quero o Kit Completo", destaque:true, fita:"Mais vendido",
+    link:"https://go.hotmart.com/H102817272S?dp=1"
   },
   {
-    id:"7784054", kind:"E-book · Formação", feat:false, ribbon:"",
-    nome:"Formação",
-    desc:"Formação profissional voltada à prática de quem atua — ou vai atuar — na gestão de Unidades de Alimentação e Nutrição.",
-    bullets:["Conteúdo de formação prática","Foco na atuação real","Voltado para quem atua ou vai atuar em UAN"],
-    cur:"", val:"", note:"Ver oferta na Hotmart",
-    link: "https://go.hotmart.com/N105935385L?dp=1"
+    idx:"03", kicker:"Formação profissional", nome:"Formação",
+    mini:"Formação",
+    tagline:"A gestão de UAN estruturada em programa completo.",
+    texto:"Programa de formação voltado à prática de quem atua — ou vai atuar — na gestão de Unidades de Alimentação e Nutrição. Linguagem prática e baseada em campo, para organizar processos, liderar equipes, controlar custos e garantir segurança alimentar com muito mais eficiência.",
+    inclui:["Planejamento e organização","Processos e POPs","Liderança e boas práticas","Ferramentas de apoio incluídas"],
+    quem:"Nutricionistas e estudantes que querem uma formação estruturada em gestão de UAN, do fundamento à aplicação.",
+    selo:"Garantia incondicional de 7 dias · Acesso imediato · Conteúdo digital",
+    cta:"Ver a Formação", destaque:false, fita:"",
+    link:"https://go.hotmart.com/N105935385L?dp=1"
   },
   {
-    id:"6630746", kind:"Mentoria · 12 meses", feat:false, ribbon:"",
-    nome:"Mentoria Anual",
-    desc:"Acompanhamento profissional ao longo de um ano para aplicar tudo no seu contexto — com suporte e direcionamento individual.",
-    bullets:["Acompanhamento por 12 meses","Suporte profissional direto","Para decisões reais da sua UAN"],
-    cur:"R$", val:"1.297", note:"Acompanhamento anual",
-    link: "https://go.hotmart.com/W102925018C?dp=1"
+    idx:"04", kicker:"Mentoria · 12 meses", nome:"Mentoria Anual",
+    mini:"Mentoria",
+    tagline:"Acelere em 12 meses o que leva anos para dominar sozinho.",
+    texto:"A prática não se aprende só na teoria: liderar trinta pessoas, negociar com o fiscal, calcular o custo real da refeição e passar em auditoria sem dor de cabeça. Aqui você tem o material completo mais acompanhamento direto comigo durante um ano inteiro, aplicado ao seu contexto real.",
+    inclui:["E-book completo — 9 capítulos","Kit com 10 ferramentas prontas","Planilha de Custo por Refeição","Banco de Substituições (100+ trocas)","WhatsApp direto por 12 meses","Apoio em auditorias e crises"],
+    quem:"Estudantes, recém-formados e nutricionistas de UAN, clínica, consultoria e auditoria que querem encurtar a curva de aprendizado.",
+    selo:"Garantia de 7 dias · Acesso imediato ao e-book e kit · Agenda enviada em 24h",
+    cta:"Falar sobre a Mentoria", destaque:false, fita:"Acompanhamento direto",
+    link:"https://go.hotmart.com/W102925018C?dp=1"
+  },
+  {
+    idx:"05", kicker:"Software licenciado · Windows", nome:"UAN Cardápio Pro",
+    mini:"Software",
+    tagline:"Do cardápio ao lucro. A sua UAN inteira, em um app só.",
+    texto:"O software que gera cardápios profissionais de 6 semanas em segundos — feito por um nutricionista de UAN, para nutricionistas de UAN. E que agora acompanha o ciclo inteiro: produção, desperdício, fechamento e o lucro real do contrato.",
+    inclui:["Cardápio de 6 semanas em segundos","Respeita frequências contratuais","8.000+ combinações aprovadas","Análise nutricional (base TACO)","Custo por refeição na sua meta","Fichas técnicas com PDF","Lista de compras por fornecedor","100% offline, dados só no seu PC"],
+    quem:"UAN industrial, hospitalar, escolar, comercial e prisional. Licença anual com todas as atualizações incluídas — compatível com Windows 10 e 11.",
+    selo:"Entrega: download imediato + licença por e-mail em até 24h · Suporte no WhatsApp",
+    cta:"Conhecer o Cardápio Pro", destaque:false, fita:"Atualizado",
+    link:"https://go.hotmart.com/D106340119Y?dp=1"
   }
 ];
 
@@ -969,22 +1064,23 @@ var LINK_CARDAPIO_PRO = "https://go.hotmart.com/D106340119Y?dp=1"; // link de co
 
 var check = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A847" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>';
 
-function priceBlock(p){
-  if(!p.val) return '<div class="price"><span class="note">'+p.note+'</span></div>';
-  return '<div class="price"><span class="cur">'+p.cur+'</span><span class="val">'+p.val+'</span></div><div class="price" style="margin:-12px 0 18px"><span class="note">'+p.note+'</span></div>';
-}
-
+document.getElementById('prodGrid').className = 'dossie-list';
 document.getElementById('prodGrid').innerHTML = PRODUTOS.map(function(p){
-  return '<article class="card'+(p.feat?' feat':'')+'">'
-    + (p.ribbon? '<div class="ribbon">'+p.ribbon+'</div>' : '')
-    + '<span class="kind">'+p.kind+'</span>'
+  return '<article class="dossie rv'+(p.destaque?' destaque':'')+'">'
+    + (p.fita? '<div class="fita">'+p.fita+'</div>' : '')
+    + '<div class="dossie-rail"><span class="bar"></span><span class="idx">'+p.idx+'</span>'
+    + '<span class="mini">'+p.mini+'</span></div>'
+    + '<div class="dossie-body">'
+    + '<span class="kicker">'+p.kicker+'</span>'
     + '<h3>'+p.nome+'</h3>'
-    + '<p class="desc">'+p.desc+'</p>'
-    + '<ul>'+p.bullets.map(function(b){return '<li>'+check+'<span>'+b+'</span></li>';}).join('')+'</ul>'
-    + priceBlock(p)
-    + '<div class="cta"><a class="btn '+(p.feat?'btn-gold':'btn-ghost')+'" href="'+p.link+'" target="_blank" rel="noopener">'
-    + (p.feat?'Quero o kit completo':'Acessar oferta')+' <span class="arr">→</span></a></div>'
-    + '</article>';
+    + '<p class="tagline">'+p.tagline+'</p>'
+    + '<p class="texto">'+p.texto+'</p>'
+    + '<ul class="inclui">'+p.inclui.map(function(b){return '<li>'+check+'<span>'+b+'</span></li>';}).join('')+'</ul>'
+    + '<p class="quem"><b>Para quem é:</b> '+p.quem+'</p>'
+    + '<div class="dossie-foot">'
+    + '<a class="btn '+(p.destaque?'btn-gold':'btn-ghost')+'" href="'+p.link+'" target="_blank" rel="noopener">'+p.cta+' <span class="arr">\u2192</span></a>'
+    + '<span class="garantia">'+p.selo+'</span>'
+    + '</div></div></article>';
 }).join('');
 
 /* ---- header scroll ---- */
