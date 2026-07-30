@@ -296,6 +296,27 @@ section{position:relative}
 .testi .who b{font-size:14px;color:var(--txt)}
 .testi .who span{display:block;font-size:12.5px;color:var(--txt-dim)}
 
+/* depoimento em destaque */
+.testi.destaque{grid-column:1 / -1;padding:34px 34px 30px;
+  background:linear-gradient(150deg,rgba(200,168,71,.10),rgba(15,77,54,.28));
+  border-color:rgba(200,168,71,.45)}
+.testi.destaque p{font-size:16.5px;line-height:1.7;max-width:74ch}
+.testi.destaque .quote-mark{font-size:62px;color:rgba(200,168,71,.45)}
+.testi.destaque .avatar{width:46px;height:46px;font-size:17px}
+.testi .selo-prod{position:absolute;top:0;right:26px;background:var(--gold);color:#0B3D2E;
+  font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  padding:5px 13px;border-radius:0 0 9px 9px}
+.testi .marco{display:inline-flex;align-items:center;gap:10px;margin-top:16px;
+  padding:9px 15px;border-radius:999px;border:1px solid rgba(200,168,71,.4);
+  background:rgba(200,168,71,.07);font-size:12.5px;color:var(--txt-mut);font-weight:500}
+.testi .marco b{color:var(--gold);font-weight:700}
+.testi .marco svg{flex:none;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:640px){
+  .testi.destaque{padding:28px 22px 26px}
+  .testi.destaque p{font-size:15.5px}
+  .testi .marco{flex-direction:column;align-items:flex-start;gap:5px;border-radius:12px;text-align:left}
+}
+
 /* ferramentas gratuitas */
 .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
 @media(max-width:900px){.tools-grid{grid-template-columns:1fr}}
@@ -837,10 +858,24 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
 <!-- ============ DEPOIMENTOS ============ -->
 <section class="sec" id="depoimentos">
   <div class="wrap">
-    <span class="eyebrow rv">O que dizem os alunos</span>
+    <span class="eyebrow rv">O que dizem alunos e mentorandos</span>
     <h2 class="rv d1">Quem já está aplicando na prática.</h2>
     <div class="testi-grid">
-      <div class="testi rv d1">
+      <div class="testi destaque rv d1">
+        <div class="selo-prod">Mentoria Anual</div>
+        <div class="quote-mark">&ldquo;</div>
+        <p>Para as nutris que estão chegando na UAN, a mentoria do Osmar é perfeita — super indico! Sou mentoranda dele: estou saindo de uma UAN de 400 refeições para ser RT de uma rede de resort internacional. Saber que tem alguém nos apoiando, dando suporte e tirando nossas dúvidas é super importante para o nosso início de carreira.</p>
+        <div class="marco">
+          <svg width="15" height="15" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          <span>De <b>UAN de 400 refeições</b> para <b>RT de rede de resort internacional</b></span>
+        </div>
+        <div class="who">
+          <div class="avatar">A</div>
+          <div><b>Ana Paula</b><span>Mentoranda · Mentoria Anual</span></div>
+        </div>
+      </div>
+
+      <div class="testi rv d2">
         <div class="quote-mark">&ldquo;</div>
         <p>Consegui acessar sim, estou gostando bastante da didática do material e do conteúdo, realmente sensacional.</p>
         <div class="who">
@@ -848,7 +883,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
           <div><b>Gabriel Ferreira</b><span>Aluno · UAN no Dia a Dia</span></div>
         </div>
       </div>
-      <div class="testi rv d2">
+      <div class="testi rv d3">
         <div class="quote-mark">&ldquo;</div>
         <p>O material é sensacional. Pensei muito antes de comprar, porque o ebook é direcionado para acadêmicos e recém-formados, e eu já estou nessa caminhada da UAN há alguns anos — mas foi uma das melhores compras que já fiz. No mesmo dia li o módulo 1 e achei muito bom, e agora estou mergulhada no módulo 2, me atualizando sobre custos e cardápio.</p>
         <div class="who">
