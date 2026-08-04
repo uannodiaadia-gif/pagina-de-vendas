@@ -204,6 +204,83 @@ section{position:relative}
 .dossie .quem b{color:var(--gold);font-weight:600}
 .dossie-foot{margin-top:24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
   justify-content:space-between}
+
+/* ===== campanha Mês do Nutricionista ===== */
+/* faixa do Mês do Nutricionista na capa */
+.nutri-faixa{position:relative;overflow:hidden;display:block;margin:0 0 24px;padding:18px 24px;
+  border-radius:16px;border:1px solid rgba(200,168,71,.55);text-decoration:none;
+  background:linear-gradient(120deg,rgba(200,168,71,.20),rgba(15,77,54,.35) 60%);
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s}
+.nutri-faixa:hover{transform:translateY(-3px);border-color:rgba(200,168,71,.85);
+  box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.nutri-faixa::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(360px 130px at 92% 10%,rgba(200,168,71,.22),transparent 70%)}
+.nutri-faixa .nf-top{position:relative;z-index:1;display:flex;align-items:center;gap:11px;
+  font-size:12px;letter-spacing:.20em;text-transform:uppercase;font-weight:800;color:var(--gold)}
+.nutri-faixa .st{font-size:15px;animation:stPulse 2.6s ease-in-out infinite}
+@keyframes stPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.86)}}
+.nutri-faixa .nf-main{position:relative;z-index:1;font-family:var(--serif);font-weight:700;
+  font-size:clamp(19px,2.2vw,24px);color:var(--txt);margin-top:8px;line-height:1.25}
+.nutri-faixa .nf-main em{font-style:normal;color:var(--gold)}
+.nutri-faixa .nf-sub{position:relative;z-index:1;margin-top:7px;font-size:13px;
+  color:var(--txt-mut);display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.nutri-faixa .nf-sub .arr{color:var(--gold);font-weight:700;transition:transform .35s}
+.nutri-faixa:hover .nf-sub .arr{transform:translateX(4px)}
+@media(prefers-reduced-motion:reduce){
+  .nutri-faixa,.nutri-faixa .st,.nutri-faixa .nf-sub .arr{transition:none;animation:none}
+  .nutri-faixa:hover{transform:none}}
+
+.campanha{position:relative;overflow:hidden;margin:0 0 8px;padding:26px 30px;border-radius:20px;
+  border:1px solid rgba(200,168,71,.45);
+  background:linear-gradient(135deg,rgba(200,168,71,.13),rgba(15,77,54,.30));
+  display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.campanha::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(520px 200px at 88% 0%,rgba(200,168,71,.16),transparent 70%)}
+.campanha .cp-txt{position:relative;z-index:1;flex:1 1 300px;min-width:0}
+.campanha .cp-eyebrow{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:800;color:var(--g400)}
+.campanha h3{font-family:var(--serif);font-weight:700;font-size:clamp(19px,2.2vw,25px);
+  margin:8px 0 0;line-height:1.2}
+.campanha p{font-size:13.5px;color:var(--txt-mut);margin:8px 0 0;line-height:1.55}
+.campanha .cupom{display:inline-flex;align-items:center;gap:10px;margin-top:14px;
+  padding:9px 16px;border-radius:11px;border:1px dashed rgba(200,168,71,.65);
+  background:rgba(200,168,71,.10)}
+.campanha .cupom b{font-family:var(--sans);font-weight:800;letter-spacing:.16em;
+  font-size:16px;color:var(--gold)}
+.campanha .cupom span{font-size:12px;color:var(--txt-mut)}
+.campanha .cupom{margin-right:10px}
+.campanha .cupom.mentoria{border-color:rgba(29,158,117,.6)}
+.campanha .cupom.mentoria b{color:var(--g400);font-size:14.5px}
+.cp-clock{position:relative;z-index:1;display:flex;gap:10px;flex:none}
+.cp-clock .u{min-width:62px;padding:11px 8px 9px;border-radius:13px;text-align:center;
+  background:rgba(6,26,18,.55);border:1px solid rgba(200,168,71,.32)}
+.cp-clock .u b{display:block;font-family:var(--serif);font-weight:700;font-size:27px;
+  color:var(--txt);line-height:1}
+.cp-clock .u span{display:block;margin-top:5px;font-size:9.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--txt-dim)}
+@media(max-width:640px){
+  .campanha{padding:22px 20px}
+  .cp-clock{gap:7px;width:100%}
+  .cp-clock .u{flex:1;min-width:0}
+  .cp-clock .u b{font-size:22px}
+}
+
+/* selo de cupom no card do produto */
+.dossie .chip-cupom{display:inline-flex;align-items:center;gap:9px;margin-top:18px;
+  padding:8px 14px;border-radius:10px;border:1px dashed rgba(200,168,71,.6);
+  background:rgba(200,168,71,.09);font-size:12.5px;color:var(--txt-mut)}
+.dossie .chip-cupom b{font-weight:800;letter-spacing:.14em;color:var(--gold);font-size:13.5px}
+.dossie .chip-cupom.embutido{border-style:solid;border-color:rgba(29,158,117,.5);
+  background:rgba(29,158,117,.10)}
+.dossie .chip-cupom.embutido b{color:var(--g400);letter-spacing:.04em}
+
+/* produto agendado */
+.dossie.agendado{opacity:.82;border-color:rgba(200,168,71,.26)}
+.dossie.agendado:hover{transform:none;box-shadow:none;border-color:rgba(200,168,71,.26)}
+.dossie.agendado .btn{opacity:.5;pointer-events:none;background:none;
+  border:1px solid rgba(200,168,71,.35);color:var(--txt-dim);box-shadow:none}
+.dossie .fita.espera{background:rgba(6,26,18,.9);color:var(--gold);
+  border:1px solid rgba(200,168,71,.5);border-top:0}
 .dossie-foot .btn{flex:0 0 auto}
 .dossie-foot .garantia{font-size:12px;color:var(--txt-dim);line-height:1.5;
   flex:1 1 230px;min-width:0;text-align:right;overflow-wrap:break-word}
@@ -573,6 +650,14 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
   <div class="hex-bg"></div>
   <div class="wrap hero-grid">
     <div>
+      <a class="nutri-faixa" id="nutriFaixa" href="#produtos">
+        <div class="nf-top"><span class="st">★</span> Agosto · Mês do Nutricionista</div>
+        <div class="nf-main">O mês é de quem <em>alimenta gente todo dia</em>.</div>
+        <div class="nf-sub" id="nfSub">
+          <span>Dia 31 é o Dia do Nutricionista · descontos em toda a linha de 23 a 31/08</span>
+          <span class="arr">→</span>
+        </div>
+      </a>
       <span class="eyebrow">Ecossistema UAN no Dia a Dia</span>
       <h1>A UAN sob controle, do <em>operacional</em> ao <em>estratégico</em>.</h1>
       <p class="lead">Ebooks, planilhas, mentoria e o sistema que gera cardápios de 6 semanas em segundos. Ferramentas criadas por quem vive a rotina da Unidade de Alimentação e Nutrição — não a teoria dela.</p>
@@ -588,7 +673,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
         </div>
         <a href="#cardapio-pro" id="heroWait">Entrar na lista →</a>
       </div>
-      <p class="hero-tag"><b>Visão crítica e iniciativa</b> · Guerreiros da UAN</p>
+      <p class="hero-tag"><b>Visão crítica e iniciativa</b> · 31 de agosto é o Dia do Nutricionista</p>
     </div>
 
     <div class="emblem-wrap">
@@ -632,6 +717,28 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <span class="eyebrow">Materiais & Mentoria</span>
       <h2>Escolha por onde começar a colocar a UAN em ordem.</h2>
       <p>Cinco caminhos para nutricionistas e gestores que precisam de ferramenta pronta para a rotina — do guia que organiza os fundamentos ao software que gerencia a operação inteira.</p>
+    </div>
+
+    <div class="campanha rv" id="campanha" hidden>
+      <div class="cp-txt">
+        <div class="cp-eyebrow" id="cpEyebrow">Agosto · Mês do Nutricionista</div>
+        <h3 id="cpTitulo">A janela do Mês do Nutricionista abre em breve.</h3>
+        <p id="cpSub">Descontos em toda a linha, dois lançamentos e o Combo Linha de Frente — de 23 a 31 de agosto.</p>
+        <div class="cupom" id="cpCupom" hidden>
+          <b id="cpCodigo">NUTRI40</b>
+          <span id="cpCupomTxt">40% de desconto · aplique no checkout</span>
+        </div>
+        <div class="cupom mentoria" id="cpCupom2" hidden>
+          <b>MENTORIA25</b>
+          <span>25% · exclusivo da Mentoria Anual (não aceita NUTRI40)</span>
+        </div>
+      </div>
+      <div class="cp-clock" id="cpClock">
+        <div class="u"><b id="cpD">--</b><span>dias</span></div>
+        <div class="u"><b id="cpH">--</b><span>horas</span></div>
+        <div class="u"><b id="cpM">--</b><span>min</span></div>
+        <div class="u"><b id="cpS">--</b><span>seg</span></div>
+      </div>
     </div>
 
     <div class="prod-grid" id="prodGrid"><!-- cards injected by JS --></div>
@@ -1089,6 +1196,7 @@ var PRODUTOS = [
     quem:"Nutricionistas que atuam — ou querem atuar — em UANs hospitalares, escolares, corporativas ou institucionais, e querem evoluir da execução para a gestão estratégica.",
     selo:"Garantia incondicional de 7 dias · Acesso imediato · Qualquer dispositivo",
     cta:"Conhecer o Guia", destaque:false, fita:"",
+    cupom:"NUTRI40", desconto:"40% de desconto",
     link:"https://go.hotmart.com/N105592583Y?dp=1"
   },
   {
@@ -1100,6 +1208,7 @@ var PRODUTOS = [
     quem:"Nutricionistas de UANs institucionais, hospitalares, escolares ou corporativas que querem evoluir da execução para a gestão estratégica.",
     selo:"Garantia incondicional de 7 dias — 100% do valor, sem perguntas · Acesso imediato",
     cta:"Quero o Kit Completo", destaque:true, fita:"Mais vendido",
+    cupom:"NUTRI40", desconto:"40% de desconto",
     link:"https://go.hotmart.com/H102817272S?dp=1"
   },
   {
@@ -1111,6 +1220,7 @@ var PRODUTOS = [
     quem:"Nutricionistas e estudantes que querem uma formação estruturada em gestão de UAN, do fundamento à aplicação.",
     selo:"Garantia incondicional de 7 dias · Acesso imediato · Conteúdo digital",
     cta:"Ver a Formação", destaque:false, fita:"",
+    cupom:"NUTRI40", desconto:"40% de desconto",
     link:"https://go.hotmart.com/N105935385L?dp=1"
   },
   {
@@ -1122,6 +1232,7 @@ var PRODUTOS = [
     quem:"Estudantes, recém-formados e nutricionistas de UAN, clínica, consultoria e auditoria que querem encurtar a curva de aprendizado.",
     selo:"Garantia de 7 dias · Acesso imediato ao e-book e kit · Agenda enviada em 24h",
     cta:"Falar sobre a Mentoria", destaque:false, fita:"Acompanhamento direto",
+    cupom:"MENTORIA25", desconto:"25% de desconto",
     link:"https://go.hotmart.com/W102925018C?dp=1"
   },
   {
@@ -1133,7 +1244,34 @@ var PRODUTOS = [
     quem:"UAN industrial, hospitalar, escolar, comercial e prisional. Licença anual com todas as atualizações incluídas — compatível com Windows 10 e 11.",
     selo:"Entrega: download imediato + licença por e-mail em até 24h · Suporte no WhatsApp",
     cta:"Conhecer o Cardápio Pro", destaque:false, fita:"Atualizado",
+    cupom:"NUTRI40", desconto:"40% de desconto",
     link:"https://go.hotmart.com/D106340119Y?dp=1"
+  },
+  {
+    idx:"06", kicker:"E-book · Lançamento de agosto", nome:"Manual UAN Offshore",
+    mini:"Offshore",
+    tagline:"A norma exige nutricionista a bordo. Por lei.",
+    texto:"Existe uma UAN a 150 quilômetros da costa: não fecha nunca, alimenta gente em confinamento e não tem mercado na esquina para resolver o que faltou. A NR-37 determina, no item 37.13.1.1, que o cardápio a bordo seja elaborado por nutricionista habilitado — e quase ninguém no mercado sabe citar esse item. Este manual preenche exatamente essa lacuna.",
+    inclui:["A NR-37 item por item","Certificações CBSP e HUET","Tipos de unidade: FPSO, flotel, navio-sonda","Logística: planejar sem poder comprar","Alimentar quem trabalha 12h em confinamento","O caminho real até o primeiro embarque"],
+    quem:"Nutricionistas e estudantes que querem entrar no setor offshore, e quem já atua em UAN e precisa entender a norma que rege a alimentação embarcada.",
+    selo:"Garantia incondicional de 7 dias · Acesso imediato · PDF, 31 páginas",
+    cta:"Conhecer o Manual", destaque:false, fita:"Novo",
+    cupom:"NUTRI40", desconto:"40% de desconto",
+    desde:"2026-08-23T00:00:00-03:00", desdeTxt:"23 de agosto",
+    link:"https://go.hotmart.com/L107016489R?dp=1"
+  },
+  {
+    idx:"07", kicker:"Combo · Só até 31 de agosto", nome:"Combo Linha de Frente",
+    mini:"Combo",
+    tagline:"Quatro produtos. Um preço. O desconto já aplicado.",
+    texto:"A linha completa do UAN no Dia a Dia reunida numa única compra, com o desconto já embutido — você não precisa de cupom nenhum. É a forma mais econômica de levar tudo: a formação, as ferramentas da rotina, o software que gera os cardápios e o manual de alimentação offshore.",
+    inclui:["FORMAÇÃO completa · 6 módulos","Kit Profissional Completo","UAN Cardápio Pro · licença de 1 ano","Manual UAN Offshore","Entrega imediata dos 4 materiais","Disponível somente até 31/08"],
+    quem:"Quem quer a linha inteira de uma vez, com a maior economia da campanha — e não pretende montar a estante aos poucos.",
+    selo:"Garantia incondicional de 7 dias · Acesso imediato · Oferta encerra em 31/08",
+    cta:"Ver o Combo", destaque:true, fita:"Maior economia",
+    cupom:"", desconto:"",
+    desde:"2026-08-23T00:00:00-03:00", desdeTxt:"23 de agosto",
+    link:"https://pay.hotmart.com/N107018373P"
   }
 ];
 
@@ -1146,23 +1284,98 @@ var LINK_CARDAPIO_PRO = "https://go.hotmart.com/D106340119Y?dp=1"; // link de co
 var check = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A847" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>';
 
 document.getElementById('prodGrid').className = 'dossie-list';
-document.getElementById('prodGrid').innerHTML = PRODUTOS.map(function(p){
-  return '<article class="dossie rv'+(p.destaque?' destaque':'')+'">'
-    + (p.fita? '<div class="fita">'+p.fita+'</div>' : '')
-    + '<div class="dossie-rail"><span class="bar"></span><span class="idx">'+p.idx+'</span>'
-    + '<span class="mini">'+p.mini+'</span></div>'
-    + '<div class="dossie-body">'
-    + '<span class="kicker">'+p.kicker+'</span>'
-    + '<h3>'+p.nome+'</h3>'
-    + '<p class="tagline">'+p.tagline+'</p>'
-    + '<p class="texto">'+p.texto+'</p>'
-    + '<ul class="inclui">'+p.inclui.map(function(b){return '<li>'+check+'<span>'+b+'</span></li>';}).join('')+'</ul>'
-    + '<p class="quem"><b>Para quem é:</b> '+p.quem+'</p>'
-    + '<div class="dossie-foot">'
-    + '<a class="btn '+(p.destaque?'btn-gold':'btn-ghost')+'" href="'+p.link+'" target="_blank" rel="noopener">'+p.cta+' <span class="arr">\u2192</span></a>'
-    + '<span class="garantia">'+p.selo+'</span>'
-    + '</div></div></article>';
-}).join('');
+
+/* Campanha Mês do Nutricionista */
+var CAMP_INICIO = Date.parse('2026-08-23T00:00:00-03:00');   // abre a janela
+var CAMP_FIM    = Date.parse('2026-08-31T23:59:59-03:00');   // encerra
+var MES_FIM     = Date.parse('2026-09-01T00:00:00-03:00');   // faixa do mês sai da capa
+
+/* faixa do Mês do Nutricionista na capa: sai sozinha em 01/09 */
+(function(){
+  var f=document.getElementById('nutriFaixa');
+  if(!f) return;
+  function ver(){
+    if(Date.now()>=MES_FIM){ f.style.display='none'; return; }
+    var sub=document.getElementById('nfSub');
+    if(sub && Date.now()>=CAMP_INICIO && Date.now()<=CAMP_FIM){
+      sub.innerHTML='<span>Janela aberta \u00b7 cupom NUTRI40 at\u00e9 31/08 \u00b7 Mentoria com MENTORIA25</span><span class="arr">\u2192</span>';
+    }
+  }
+  ver(); setInterval(ver,30000);
+})();
+
+function renderProdutos(){
+  var agora = Date.now();
+  document.getElementById('prodGrid').innerHTML = PRODUTOS.map(function(p){
+    var espera = p.desde && agora < Date.parse(p.desde);
+    var promo  = agora >= CAMP_INICIO && agora <= CAMP_FIM;
+    var fita   = espera ? 'Em breve · '+p.desdeTxt : p.fita;
+    var chip = '';
+    if(promo && !espera){
+      if(p.cupom){
+        chip = '<div class="chip-cupom">Cupom <b>'+p.cupom+'</b> <span>'+p.desconto+' até 31/08</span></div>';
+      } else if(p.nome.indexOf('Combo')>=0){
+        chip = '<div class="chip-cupom embutido"><b>Desconto já embutido</b> <span>não precisa de cupom</span></div>';
+      }
+    }
+    var btn = espera
+      ? '<span class="btn btn-ghost">Disponível em '+p.desdeTxt+'</span>'
+      : '<a class="btn '+(p.destaque?'btn-gold':'btn-ghost')+'" href="'+p.link+'" target="_blank" rel="noopener">'+p.cta+' <span class="arr">\u2192</span></a>';
+    return '<article class="dossie rv'+(p.destaque?' destaque':'')+(espera?' agendado':'')+'">'
+      + (fita? '<div class="fita'+(espera?' espera':'')+'">'+fita+'</div>' : '')
+      + '<div class="dossie-rail"><span class="bar"></span><span class="idx">'+p.idx+'</span>'
+      + '<span class="mini">'+p.mini+'</span></div>'
+      + '<div class="dossie-body">'
+      + '<span class="kicker">'+p.kicker+'</span>'
+      + '<h3>'+p.nome+'</h3>'
+      + '<p class="tagline">'+p.tagline+'</p>'
+      + '<p class="texto">'+p.texto+'</p>'
+      + '<ul class="inclui">'+p.inclui.map(function(b){return '<li>'+check+'<span>'+b+'</span></li>';}).join('')+'</ul>'
+      + '<p class="quem"><b>Para quem é:</b> '+p.quem+'</p>'
+      + chip
+      + '<div class="dossie-foot">'+btn
+      + '<span class="garantia">'+p.selo+'</span>'
+      + '</div></div></article>';
+  }).join('');
+}
+renderProdutos();
+
+/* Contador da campanha */
+(function(){
+  var box=document.getElementById('campanha');
+  if(!box) return;
+  var D=document.getElementById('cpD'), H=document.getElementById('cpH'),
+      M=document.getElementById('cpM'), S=document.getElementById('cpS');
+  var jaAbriu=false;
+  function pad(n){ return (n<10?'0':'')+n; }
+  function tick(){
+    var agora=Date.now();
+    if(agora>CAMP_FIM){ box.hidden=true; return; }           // campanha encerrada
+    box.hidden=false;
+    var pre = agora < CAMP_INICIO;
+    var alvo = pre ? CAMP_INICIO : CAMP_FIM;
+    if(pre){
+      document.getElementById('cpEyebrow').textContent='Agosto · Mês do Nutricionista';
+      document.getElementById('cpTitulo').textContent='A janela do Mês do Nutricionista abre em breve.';
+      document.getElementById('cpSub').textContent='De 23 a 31 de agosto: NUTRI40 com 40% na linha, MENTORIA25 com 25% na Mentoria Anual, mais dois lançamentos e o Combo Linha de Frente.';
+      document.getElementById('cpCupom').hidden=true;
+      document.getElementById('cpCupom2').hidden=true;
+    } else {
+      document.getElementById('cpEyebrow').textContent='Janela aberta · encerra 31/08 às 23h59';
+      document.getElementById('cpTitulo').textContent='Mês do Nutricionista: descontos em toda a linha.';
+      document.getElementById('cpSub').textContent='NUTRI40 vale para Guia Essencial, Kit, FORMAÇÃO, Cardápio Pro e Manual Offshore. A Mentoria Anual não entra nos 40% — ela tem cupom próprio. O Combo já vem com desconto embutido.';
+      document.getElementById('cpCupom').hidden=false;
+      document.getElementById('cpCupom2').hidden=false;
+      if(!jaAbriu){ jaAbriu=true; renderProdutos(); }        // acende cupons e libera os novos
+    }
+    var d=alvo-agora;
+    D.textContent=pad(Math.floor(d/864e5));
+    H.textContent=pad(Math.floor(d/36e5)%24);
+    M.textContent=pad(Math.floor(d/6e4)%60);
+    S.textContent=pad(Math.floor(d/1e3)%60);
+  }
+  tick(); setInterval(tick,1000);
+})();
 
 /* ---- header scroll ---- */
 var hdr=document.getElementById('hdr');
