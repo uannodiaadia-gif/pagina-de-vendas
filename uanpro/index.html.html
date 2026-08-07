@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UAN PRO — a sua UAN inteira sob controle</title>
+<meta name="description" content="Sistema profissional de gestão de Unidades de Alimentação e Nutrição. Cardápio de 6 semanas, custos, qualidade e a pasta da Vigilância pronta para auditoria.">
+<meta property="og:title" content="UAN PRO — a sua UAN inteira sob controle">
+<meta property="og:description" content="Do cardápio de 6 semanas à pasta da Vigilância pronta para auditoria. Produção, custos, qualidade e operação num sistema só.">
+<meta property="og:image" content="img/01-painel.png">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --v950:#04211A; --v900:#093B2F; --v800:#0C4E3C; --v700:#106249;
+  --v500:#16A97F; --v300:#93D9BC; --v100:#D5EFE2;
+  --ouro:#C8A847; --ouro-claro:#E5C76A; --ouro-escuro:#A88A30;
+  --papel:#FAFAF7; --branco:#fff;
+  --cinza-100:#F2F2EF; --cinza-200:#E5E5E0; --cinza-500:#8A8A84; --cinza-600:#666; --cinza-800:#333;
+  --borda:#E5E5E0;
+  --raio:12px; --raio-g:18px;
+  --sombra:0 4px 16px rgba(4,33,26,.08);
+  --sombra-g:0 18px 48px rgba(4,33,26,.20);
+  --fonte:'Helvetica Neue',Arial,'Segoe UI',system-ui,sans-serif;
+  --max:1180px;
+}
+
+/* ---- faixa do cupom Mês do Nutricionista ---- */
+#faixaCupom{display:none;position:fixed;inset:0 0 auto 0;z-index:120;overflow:hidden;
+  background:linear-gradient(115deg,var(--v900),var(--v700) 55%,var(--v800));
+  border-bottom:1px solid rgba(200,168,71,.45)}
+#faixaCupom.on{display:block}
+body.tem-cupom header{top:var(--h-cupom,46px)}
+body.tem-cupom .heroi{padding-top:var(--h-cupom,46px)}
+#faixaCupom .fc{max-width:var(--max);margin:0 auto;padding:13px 22px;
+  display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;text-align:center}
+#faixaCupom .fc-tit{color:var(--ouro-claro);font-weight:700;font-size:13px;
+  letter-spacing:.11em;text-transform:uppercase}
+#faixaCupom .fc-txt{color:var(--v100);font-size:14px}
+#faixaCupom .fc-cod{display:inline-flex;align-items:center;gap:9px;padding:6px 14px;border-radius:9px;
+  border:1px dashed rgba(200,168,71,.75);background:rgba(200,168,71,.14)}
+#faixaCupom .fc-cod b{color:var(--ouro-claro);font-weight:800;letter-spacing:.15em;font-size:15px}
+#faixaCupom .fc-rel{color:var(--v300);font-size:12.5px;font-variant-numeric:tabular-nums}
+#faixaCupom .fc-rel b{color:var(--branco)}
+@media(max-width:700px){
+  #faixaCupom .fc{gap:9px;padding:12px 16px}
+  #faixaCupom .fc-txt{font-size:13px}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fonte);color:var(--v900);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.env{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* ---------- Cabeçalho ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .3s,box-shadow .3s,padding .3s;padding:18px 0}
+header.fixo{background:rgba(9,59,47,.97);box-shadow:0 6px 28px rgba(4,33,26,.28);padding:11px 0}
+.hcont{display:flex;align-items:center;gap:28px}
+.marca{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.marca .sig{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center}
+.marca .sig svg{width:22px;height:22px}
+.marca .nm{font-size:21px;font-weight:900;letter-spacing:.05em;color:#fff;line-height:1}
+.marca .nm b{color:var(--ouro)}
+.marca .tag{font-size:8px;font-weight:700;letter-spacing:.2em;color:var(--v300);text-transform:uppercase;margin-top:3px}
+nav.menu{margin-left:auto;display:flex;gap:26px;align-items:center}
+nav.menu a{color:var(--v300);text-decoration:none;font-size:13.5px;font-weight:600;transition:color .2s}
+nav.menu a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:none;cursor:pointer;font-family:inherit;
+  font-weight:800;letter-spacing:.03em;text-decoration:none;transition:transform .15s,box-shadow .15s,filter .15s}
+.btn-ouro{background:linear-gradient(135deg,var(--ouro),var(--ouro-claro));color:var(--v900);padding:13px 26px;border-radius:999px;font-size:14px;box-shadow:0 6px 20px rgba(200,168,71,.34)}
+.btn-ouro:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,168,71,.45)}
+.btn-ouro.pq{padding:10px 20px;font-size:13px}
+.btn-linha{background:transparent;color:#fff;padding:12px 24px;border-radius:999px;font-size:14px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.btn-linha:hover{box-shadow:inset 0 0 0 1.5px #fff;transform:translateY(-2px)}
+.btn-escuro{background:var(--v900);color:#fff;padding:14px 28px;border-radius:999px;font-size:14.5px}
+.btn-escuro:hover{transform:translateY(-2px);box-shadow:var(--sombra-g)}
+.menu-btn{display:none;margin-left:auto;background:transparent;border:none;color:#fff;font-size:26px;cursor:pointer;line-height:1}
+
+/* ---------- Herói ---------- */
+.heroi{background:linear-gradient(150deg,var(--v950) 0%,var(--v900) 48%,var(--v800) 100%);color:#fff;padding:170px 0 0;position:relative;overflow:hidden}
+.heroi::before{content:'';position:absolute;width:900px;height:900px;border-radius:50%;
+  background:radial-gradient(circle,rgba(22,169,127,.30),transparent 68%);top:-380px;right:-260px}
+.heroi::after{content:'';position:absolute;width:620px;height:620px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,168,71,.14),transparent 70%);bottom:-300px;left:-200px}
+.heroi .env{position:relative;z-index:2}
+.olho{font-size:11.5px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;color:var(--ouro-claro)}
+.heroi h1{font-size:clamp(38px,6.2vw,68px);font-weight:900;line-height:1.03;letter-spacing:-.02em;margin:20px 0 20px;max-width:15ch}
+.heroi h1 span{background:linear-gradient(120deg,var(--ouro-claro),var(--ouro));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.heroi p.sub{font-size:clamp(16px,2vw,19.5px);color:var(--v300);max-width:62ch;line-height:1.62}
+.acoes{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;align-items:center}
+.selo-ac{font-size:12.5px;color:var(--v300);display:flex;align-items:center;gap:7px}
+.selo-ac svg{width:15px;height:15px;flex:none}
+.vitrine{margin-top:64px;position:relative}
+.vitrine .moldura{border-radius:14px 14px 0 0;overflow:hidden;box-shadow:0 -10px 80px rgba(22,169,127,.22),0 -2px 0 rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.14);border-bottom:none;background:#0d0d0d}
+.barra{display:flex;align-items:center;gap:7px;padding:10px 15px;background:#141414}
+.barra i{width:11px;height:11px;border-radius:50%;display:block}
+.barra .t{margin-left:12px;font-size:11.5px;color:#8d8d8d;font-style:normal}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.10);margin-top:0;
+  border:1px solid rgba(255,255,255,.10);border-top:none}
+.nums div{background:var(--v900);padding:26px 18px;text-align:center}
+.nums b{display:block;font-size:34px;font-weight:900;color:var(--ouro-claro);line-height:1}
+.nums span{display:block;font-size:11.5px;color:var(--v300);letter-spacing:.1em;text-transform:uppercase;margin-top:8px}
+
+/* ---------- Seções ---------- */
+section{padding:100px 0}
+.tit{text-align:center;max-width:760px;margin:0 auto 56px}
+.tit h2{font-size:clamp(28px,4.2vw,44px);font-weight:900;letter-spacing:-.015em;line-height:1.14;margin:16px 0 16px}
+.tit p{font-size:17px;color:var(--cinza-600);line-height:1.65}
+.olho-esc{color:var(--ouro-escuro)}
+
+/* dores */
+.dores{background:var(--branco);border-top:1px solid var(--borda);border-bottom:1px solid var(--borda)}
+.gdores{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.dor{background:var(--papel);border:1px solid var(--borda);border-left:3px solid var(--ouro);border-radius:0 var(--raio) var(--raio) 0;padding:24px 26px}
+.dor h3{font-size:16.5px;font-weight:800;margin-bottom:8px;line-height:1.3}
+.dor p{font-size:14.5px;color:var(--cinza-600);line-height:1.6}
+
+/* pilares */
+.abas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:42px}
+.aba{background:var(--branco);border:1px solid var(--borda);border-radius:999px;padding:13px 26px;font-size:14.5px;
+  font-weight:800;cursor:pointer;font-family:inherit;color:var(--cinza-600);transition:all .2s;display:flex;align-items:center;gap:9px}
+.aba:hover{border-color:var(--v500);color:var(--v900)}
+.aba.on{background:var(--v900);color:#fff;border-color:var(--v900);box-shadow:var(--sombra)}
+.aba .ic{width:19px;height:19px}
+.painel-p{display:none;animation:sobe .45s ease}
+.painel-p.on{display:block}
+.pgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:center}
+.pgrid h3{font-size:clamp(24px,3vw,33px);font-weight:900;line-height:1.16;margin:14px 0 16px;letter-spacing:-.01em}
+.pgrid > div > p{font-size:16px;color:var(--cinza-600);line-height:1.68;margin-bottom:24px}
+.lista{list-style:none;display:flex;flex-direction:column;gap:13px}
+.lista li{display:flex;gap:13px;font-size:15px;line-height:1.55}
+.lista .ck{width:21px;height:21px;border-radius:50%;background:var(--v100);color:var(--v700);flex:none;
+  display:flex;align-items:center;justify-content:center;margin-top:1px}
+.lista .ck svg{width:12px;height:12px}
+.shot{border-radius:var(--raio);overflow:hidden;border:1px solid var(--borda);box-shadow:var(--sombra-g);cursor:zoom-in;
+  transition:transform .3s,box-shadow .3s;background:var(--branco)}
+.shot:hover{transform:translateY(-5px) scale(1.008)}
+.shot img{width:100%}
+
+/* destaques */
+.destaques{background:linear-gradient(150deg,var(--v950),var(--v900) 60%,var(--v800));color:#fff}
+.destaques .tit h2{color:#fff}
+.destaques .tit p{color:var(--v300)}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.dcard{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);border-radius:var(--raio-g);padding:30px 28px;transition:transform .25s,background .25s,border-color .25s}
+.dcard:hover{transform:translateY(-6px);background:rgba(255,255,255,.09);border-color:rgba(200,168,71,.42)}
+.dcard .ib{width:46px;height:46px;border-radius:12px;background:rgba(200,168,71,.16);display:flex;align-items:center;justify-content:center;color:var(--ouro-claro);margin-bottom:18px}
+.dcard .ib svg{width:23px;height:23px}
+.dcard h3{font-size:18.5px;font-weight:800;margin-bottom:10px}
+.dcard p{font-size:14.5px;color:var(--v300);line-height:1.62}
+
+/* passos */
+.passos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;counter-reset:p}
+.passo{position:relative;padding-top:14px}
+.passo::before{counter-increment:p;content:counter(p,decimal-leading-zero);font-size:52px;font-weight:900;color:var(--cinza-200);line-height:1;display:block;margin-bottom:12px}
+.passo h3{font-size:19px;font-weight:800;margin-bottom:9px}
+.passo p{font-size:15px;color:var(--cinza-600);line-height:1.62}
+
+/* faq */
+.faq{max-width:820px;margin:0 auto}
+.q{border-bottom:1px solid var(--borda)}
+.q button{width:100%;background:transparent;border:none;font-family:inherit;text-align:left;cursor:pointer;
+  padding:24px 44px 24px 0;font-size:17px;font-weight:800;color:var(--v900);position:relative;line-height:1.4}
+.q button::after{content:'+';position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:400;color:var(--ouro-escuro);transition:transform .25s}
+.q.on button::after{transform:translateY(-50%) rotate(45deg)}
+.r{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.r p{font-size:15.5px;color:var(--cinza-600);line-height:1.72;padding:0 40px 26px 0}
+
+/* cta */
+.cta{background:linear-gradient(135deg,var(--v900),var(--v700) 55%,var(--v800));color:#fff;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(200,168,71,.20),transparent 68%);top:-300px;left:50%;transform:translateX(-50%)}
+.cta .env{position:relative;z-index:2}
+.cta h2{font-size:clamp(30px,4.6vw,50px);font-weight:900;line-height:1.1;margin:18px auto 20px;max-width:18ch;letter-spacing:-.02em}
+.cta p{font-size:17.5px;color:var(--v300);max-width:60ch;margin:0 auto 36px;line-height:1.62}
+
+footer{background:var(--v950);color:var(--v300);padding:54px 0 34px;font-size:13.5px}
+.fgrid{display:flex;gap:34px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.10);padding-bottom:26px;margin-bottom:22px}
+footer a{color:var(--v300);text-decoration:none}
+footer a:hover{color:var(--ouro-claro)}
+.legal{font-size:12px;color:rgba(147,217,188,.6);line-height:1.7}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(4,33,26,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:28px;cursor:zoom-out}
+.lb.on{display:flex;animation:fade .25s ease}
+.lb img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
+.lb .x{position:absolute;top:22px;right:30px;color:#fff;font-size:38px;line-height:1;background:none;border:none;cursor:pointer;font-family:inherit}
+
+/* animação de entrada */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:none}
+@keyframes sobe{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+@media(max-width:900px){
+  .pgrid{grid-template-columns:1fr;gap:32px}
+  .nums{grid-template-columns:repeat(2,1fr)}
+  nav.menu{position:fixed;inset:0 0 auto 0;background:var(--v900);flex-direction:column;gap:0;padding:78px 24px 26px;
+    transform:translateY(-100%);transition:transform .3s;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  nav.menu.aberto{transform:none}
+  nav.menu a{width:100%;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.10);font-size:16px}
+  nav.menu .btn{margin-top:18px;width:100%}
+  .menu-btn{display:block}
+  section{padding:70px 0}
+  .heroi{padding-top:130px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="faixaCupom" role="status">
+  <div class="fc">
+    <span class="fc-tit">★ Mês do Nutricionista</span>
+    <span class="fc-txt">40% de desconto no UAN PRO com o cupom</span>
+    <span class="fc-cod"><b>NUTRI40</b></span>
+    <span class="fc-rel" id="fcRel"></span>
+  </div>
+</div>
+
+<header id="topo">
+  <div class="env hcont">
+    <a href="#" class="marca">
+      <span class="sig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C8A847" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l8.5 4.9v9.8L12 21.6 3.5 16.7V6.9z"/><path d="M9 8.5v5a3 3 0 0 0 6 0v-5"/>
+        </svg>
+      </span>
+      <span>
+        <span class="nm">UAN <b>PRO</b></span>
+        <span class="tag">Gestão de UAN</span>
+      </span>
+    </a>
+    <button class="menu-btn" id="hamb" aria-label="Abrir menu">☰</button>
+    <nav class="menu" id="menu">
+      <a href="#pilares">Módulos</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#como">Como funciona</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="https://go.hotmart.com/D106340119Y?dp=1" class="btn btn-ouro pq" target="_blank" rel="noopener">Quero o UAN PRO</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ---------------- HERÓI ---------------- -->
+<div class="heroi">
+  <div class="env">
+    <div class="olho">Sistema licenciado · Windows</div>
+    <h1>A sua UAN inteira <span>sob controle.</span></h1>
+    <p class="sub">Do cardápio de 6 semanas à pasta da Vigilância pronta para auditoria.
+      Produção, custos, qualidade e operação num sistema só — que roda no seu computador, sem depender de internet.</p>
+    <div class="acoes">
+      <a href="https://go.hotmart.com/D106340119Y?dp=1" class="btn btn-ouro" target="_blank" rel="noopener">Quero o UAN PRO</a>
+      <a href="#pilares" class="btn btn-linha">Ver por dentro</a>
+      <span class="selo-ac">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#93D9BC" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        Funciona offline · seus dados ficam com você
+      </span>
+    </div>
+
+    <div class="vitrine">
+      <div class="moldura">
+        <div class="barra">
+          <i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i>
+          <span class="t">UAN PRO — Painel</span>
+        </div>
+        <img src="img/01-painel.png" alt="Painel do UAN PRO com indicadores do cardápio ativo e alertas de pendências" width="1550" height="894">
+      </div>
+      <div class="nums">
+        <div><b data-n="6">6</b><span>Semanas de cardápio</span></div>
+        <div><b data-n="45">45</b><span>Documentos da RDC 216</span></div>
+        <div><b data-n="76">76</b><span>Substituições prontas</span></div>
+        <div><b data-n="15">15</b><span>Modelos de documento</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ---------------- DORES ---------------- -->
+<section class="dores">
+  <div class="env">
+    <div class="tit rv">
+      <div class="olho olho-esc">O dia a dia de quem gere uma UAN</div>
+      <h2>Você não foi contratada para preencher planilha.</h2>
+      <p>Mas é nisso que o expediente termina: cardápio numa planilha, custo em outra, POP num Word perdido,
+        e a pasta da Vigilância que ninguém sabe onde está — até o auditor bater na porta.</p>
+    </div>
+    <div class="gdores">
+      <div class="dor rv"><h3>O cardápio leva o dia inteiro</h3><p>Montar 6 semanas respeitando frequência contratual, custo por refeição e balanço nutricional, na mão, é trabalho de dias.</p></div>
+      <div class="dor rv"><h3>O insumo falta às 9h da manhã</h3><p>O fornecedor atrasou e você tem 20 minutos para decidir o que vai para o prato — sem quebrar o contrato nem a nutrição.</p></div>
+      <div class="dor rv"><h3>A Vigilância não avisa</h3><p>Alvará vencido, POP desatualizado, ASO faltando. Documento vencido é autuação certa, e ninguém lembra da data.</p></div>
+      <div class="dor rv"><h3>O equipamento quebra no pior dia</h3><p>Sem plano de manutenção, a câmara fria para no dia de maior movimento — e sem registro, a culpa é da unidade.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- PILARES ---------------- -->
+<section id="pilares">
+  <div class="env">
+    <div class="tit rv">
+      <div class="olho olho-esc">Quatro pilares</div>
+      <h2>Um sistema que acompanha o seu fluxo de trabalho</h2>
+      <p>Não é um gerador de cardápio com funções soltas em volta. São quatro módulos que se alimentam:
+        o que você faz num aparece no outro.</p>
+    </div>
+
+    <div class="abas rv" role="tablist">
+      <button class="aba on" data-p="producao" role="tab">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 5h16M4 12h16M4 19h16"/></svg>Produção</button>
+      <button class="aba" data-p="custos" role="tab">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Custos</button>
+      <button class="aba" data-p="qualidade" role="tab">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>Qualidade</button>
+      <button class="aba" data-p="operacao" role="tab">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v3H9zM7 5H5v16h14V5h-2M8.5 13l2.2 2.2L15.5 10"/></svg>Operação</button>
+    </div>
+
+    <div class="painel-p on" id="p-producao">
+      <div class="pgrid">
+        <div>
+          <div class="olho olho-esc">Produção · o que vai para o prato</div>
+          <h3>Cardápio de 6 semanas em 15 segundos</h3>
+          <p>O motor monta o ciclo inteiro respeitando a frequência contratual de proteínas e guarnições,
+            equilibra a nutrição, calcula o custo de cada dia e ainda avalia a qualidade pelo método AQPC.</p>
+          <ul class="lista">
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Arroz, feijão, guarnição, proteína e salada</b> — a estrutura contratual respeitada em todo dia do ciclo.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Cardápio hospitalar de pacientes</b> com dieta branda e para diabéticos derivadas automaticamente.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Fichas técnicas</b> com ingredientes, per capita, fator de correção e custo por porção.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Travar o que você gostou</b> e regerar só o resto, quantas vezes quiser.</span></li>
+          </ul>
+        </div>
+        <div class="shot" data-img="img/02-cardapio.png"><img src="img/02-cardapio.png" alt="Cardápio gerado de 6 semanas com preparações e valores calóricos" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="painel-p" id="p-custos">
+      <div class="pgrid">
+        <div>
+          <div class="olho olho-esc">Custos · quanto custa</div>
+          <h3>A lista de compras sai do cardápio sozinha</h3>
+          <p>Todo insumo do ciclo consolidado em quantidade bruta, já com fator de correção,
+            preço de cadastro, fornecedor sugerido e desconto do que você tem em estoque.</p>
+          <ul class="lista">
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Pedido por fornecedor</b>, pronto para mandar no WhatsApp ou exportar em CSV.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Custo por refeição</b> comparado à sua meta, dia a dia e semana a semana.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Curva ABC, CMV e previsão</b> para você chegar na reunião com número, não com achismo.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Fechamento do contrato</b> com DRE da unidade e margem real.</span></li>
+          </ul>
+        </div>
+        <div class="shot" data-img="img/03-lista-compras.png"><img src="img/03-lista-compras.png" alt="Lista de compras com insumos, per capita, preço e fornecedor" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="painel-p" id="p-qualidade">
+      <div class="pgrid">
+        <div>
+          <div class="olho olho-esc">Qualidade · deu certo?</div>
+          <h3>Três ângulos da mesma pergunta</h3>
+          <p>A nutrição fechou, o comensal comeu, o comensal gostou. Análise nutricional, resto-ingestão
+            e pesquisa de satisfação juntas — o ciclo de feedback que prova o seu trabalho.</p>
+          <ul class="lista">
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Análise nutricional</b> do ciclo: kcal, macros, sódio e fibras contra as suas metas.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Resto-ingestão</b> com índice de resto por dia e o custo do que foi para o lixo.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Pesquisa de satisfação</b> por QR Code ou papel, com tabulação e NPS automáticos.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Onde agir primeiro</b> — o sistema aponta o critério com a pior nota.</span></li>
+          </ul>
+        </div>
+        <div class="shot" data-img="img/06-substituicoes.png"><img src="img/06-substituicoes.png" alt="Banco de substituições com busca instantânea" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="painel-p" id="p-operacao">
+      <div class="pgrid">
+        <div>
+          <div class="olho olho-esc">Operação · a unidade de pé</div>
+          <h3>A pasta que o auditor pede, montada antes dele chegar</h3>
+          <p>45 documentos da RDC 216 organizados em 8 seções, com o que o auditor verifica em cada um,
+            anexo dos arquivos e aviso automático 30 dias antes de cada vencimento.</p>
+          <ul class="lista">
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Pasta Express</b>: os 15 documentos que o auditor pede primeiro, numa lista só.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Controle de validade</b> de alvará, ASO, dedetização e laudos — ele avisa, você renova.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Manutenção preventiva</b> com 20 equipamentos já cadastrados e plano anual automático.</span></li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Documentos com a sua marca</b>: POPs, treinamentos, atas e ocorrências em papel timbrado.</span></li>
+          </ul>
+        </div>
+        <div class="shot" data-img="img/07-pasta-vigilancia.png"><img src="img/07-pasta-vigilancia.png" alt="Pasta da Vigilância Sanitária com anel de prontidão e documentos por seção" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- RECURSOS ---------------- -->
+<section class="destaques" id="recursos">
+  <div class="env">
+    <div class="tit rv">
+      <div class="olho">Por dentro</div>
+      <h2>O que nenhuma planilha faz por você</h2>
+      <p>Cada ferramenta resolve um problema que hoje mora num arquivo solto, num caderno ou na sua memória.</p>
+    </div>
+    <div class="dgrid">
+      <div class="dcard rv">
+        <div class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h13l-3.5-3.5M20 17H7l3.5 3.5"/></svg></div>
+        <h3>Banco de Substituições</h3>
+        <p>76 trocas testadas em UAN. Digite o que faltou e receba a 1ª e a 2ª opção, com impacto no custo e nota de aceitação. Cada improviso fica registrado — evidência para o fiscal do contrato.</p>
+      </div>
+      <div class="dcard rv">
+        <div class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h5"/></svg></div>
+        <h3>Construtor de documentos</h3>
+        <p>15 modelos prontos: os 5 POPs obrigatórios, cronograma e lista de presença de treinamento, atas e registro de ocorrência. Você preenche, o papel timbrado da sua unidade sai pronto em PDF.</p>
+      </div>
+      <div class="dcard rv">
+        <div class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 6.4a4 4 0 0 0-5.3 5.3L3 18l3 3 6.3-6.3a4 4 0 0 0 5.3-5.3l-2.5 2.5-2.5-2.5z"/></svg></div>
+        <h3>Manutenção preventiva</h3>
+        <p>Fogão, câmara fria, coifa, lavadora, balança — 20 equipamentos típicos já cadastrados com frequência sugerida. O plano anual e a próxima data se calculam sozinhos.</p>
+      </div>
+      <div class="dcard rv">
+        <div class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM19 14h2v2h-2zM14 19h2v2h-2zM19 19h2v2h-2z"/></svg></div>
+        <h3>Pesquisa de satisfação</h3>
+        <p>Gera o QR Code e o cartaz A4 para colar na saída do refeitório, ou o formulário impresso com o termo da LGPD. Depois calcula média por critério e NPS.</p>
+      </div>
+      <div class="dcard rv">
+        <div class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg></div>
+        <h3>Consulta de leis trabalhistas</h3>
+        <p>Os 10 artigos que todo gestor de UAN precisa saber de cor — jornada, intervalo, DSR, EPI, PCMSO — com a aplicação prática na unidade e o artigo da CLT ao lado.</p>
+      </div>
+      <div class="dcard rv">
+        <div class="ib"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10"/></svg></div>
+        <h3>Tudo no seu computador</h3>
+        <p>O programa roda offline. Cardápios, custos e documentos ficam na sua máquina, com backup automático diário e exportação completa num arquivo só.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- DOCUMENTO ---------------- -->
+<section>
+  <div class="env">
+    <div class="tit rv">
+      <div class="olho olho-esc">Papel timbrado automático</div>
+      <h2>Todo documento sai com a sua marca</h2>
+      <p>Logo, nome da unidade, código sequencial, versão, data de revisão e bloco de assinatura do RT —
+        preenchidos sozinhos. Você escreve só o conteúdo, e vê a folha A4 se montando ao lado enquanto digita.</p>
+    </div>
+    <div class="shot rv" data-img="img/05-construtor-pop.png" style="max-width:1000px;margin:0 auto">
+      <img src="img/05-construtor-pop.png" alt="Construtor de documento com formulário à esquerda e a folha A4 pronta à direita" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- COMO FUNCIONA ---------------- -->
+<section id="como" class="dores">
+  <div class="env">
+    <div class="tit rv">
+      <div class="olho olho-esc">Do download ao primeiro cardápio</div>
+      <h2>Três passos, menos de dez minutos</h2>
+    </div>
+    <div class="passos">
+      <div class="passo rv"><h3>Instale no seu Windows</h3><p>Você recebe o instalador e a sua licença por e-mail logo após a compra. Instalação normal, com atalho na área de trabalho.</p></div>
+      <div class="passo rv"><h3>Configure a sua unidade</h3><p>Tipo de UAN, número de comensais, metas de custo e caloria, e as frequências contratuais de proteína e guarnição.</p></div>
+      <div class="passo rv"><h3>Gere e ajuste</h3><p>Um clique monta as 6 semanas. Trave o que gostou, troque o que não gostou, exporte em PDF e leve para a reunião.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- FAQ ---------------- -->
+<section id="faq">
+  <div class="env">
+    <div class="tit rv">
+      <div class="olho olho-esc">Antes de decidir</div>
+      <h2>Dúvidas que todo mundo tem</h2>
+    </div>
+    <div class="faq">
+      <div class="q rv"><button>Preciso de internet para usar?</button><div class="r"><p>Não. O UAN PRO roda inteiro no seu computador, offline. A internet só é usada para duas coisas opcionais: baixar atualizações do programa e buscar sugestões de preço de insumos. Seus cardápios, custos e documentos nunca saem da sua máquina.</p></div></div>
+      <div class="q rv"><button>Funciona em Mac ou no celular?</button><div class="r"><p>Hoje o UAN PRO é um programa para <b>Windows</b>. Não há versão para Mac, iPad ou celular — e prefiro dizer isso com clareza a vender uma expectativa que não se cumpre.</p></div></div>
+      <div class="q rv"><button>A licença vale para quantas unidades?</button><div class="r"><p>Uma licença atende <b>uma unidade</b>. Se você é responsável técnica por mais de uma UAN, cada uma precisa da sua própria licença — fale comigo que a gente resolve.</p></div></div>
+      <div class="q rv"><button>O que acontece quando a licença vence?</button><div class="r"><p>A licença é anual. Ao vencer, o programa entra em <b>modo leitura</b>: você continua abrindo, consultando e imprimindo tudo o que já fez, mas deixa de gerar cardápios novos e de editar fichas. Nada é apagado. Renovando, tudo volta a funcionar.</p></div></div>
+      <div class="q rv"><button>Meus dados ficam seguros?</button><div class="r"><p>Ficam no seu computador, protegidos por uma senha que só você define. O programa mantém backup automático diário dos últimos 14 dias e permite exportar tudo num arquivo único, que você guarda onde quiser.</p></div></div>
+      <div class="q rv"><button>O Windows pode avisar que o instalador é desconhecido?</button><div class="r"><p>Pode, e é normal em programas independentes que ainda não têm assinatura digital. O guia de instalação que acompanha a compra mostra o passo a passo com imagens: <b>Mais informações → Executar assim mesmo</b>. Se o seu Windows bloquear de forma mais rígida, me chame que eu te ajudo.</p></div></div>
+      <div class="q rv"><button>Quem está por trás do UAN PRO?</button><div class="r"><p>Osmar Almeida, nutricionista com 16 anos de UAN. O sistema nasceu do próprio dia a dia — cada tela existe porque um problema real apareceu antes dela.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- CTA ---------------- -->
+<section class="cta" id="comprar">
+  <div class="env">
+    <div class="olho">Licença anual · atualizações incluídas</div>
+    <h2>Chega de descobrir o problema tarde demais.</h2>
+    <p>Instale hoje, gere o cardápio da próxima semana ainda esta tarde e comece a montar a sua
+      pasta da Vigilância antes que ela seja necessária.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="https://go.hotmart.com/D106340119Y?dp=1" class="btn btn-ouro" id="cta-compra" target="_blank" rel="noopener">Quero o UAN PRO</a>
+      <a href="https://www.instagram.com/uannodiaadia" class="btn btn-linha" target="_blank" rel="noopener">Falar com o Osmar</a>
+    </div>
+    <p id="cupomCompra" style="display:none;margin:20px auto 0;max-width:520px;padding:13px 18px;
+       border:1px dashed rgba(200,168,71,.7);border-radius:12px;background:rgba(200,168,71,.12);
+       color:var(--v100);font-size:14px;line-height:1.6">
+      No checkout, aplique o cupom <b style="color:var(--ouro-claro);letter-spacing:.12em">NUTRI40</b>
+      e leve com <b>40% de desconto</b>. Válido até 31 de agosto às 23h59.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="env">
+    <div class="fgrid">
+      <div>
+        <div class="marca" style="pointer-events:none">
+          <span class="sig"><svg viewBox="0 0 24 24" fill="none" stroke="#C8A847" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8.5 4.9v9.8L12 21.6 3.5 16.7V6.9z"/><path d="M9 8.5v5a3 3 0 0 0 6 0v-5"/></svg></span>
+          <span><span class="nm">UAN <b>PRO</b></span><span class="tag">Gestão de UAN</span></span>
+        </div>
+      </div>
+      <div style="display:flex;gap:26px;flex-wrap:wrap">
+        <a href="#pilares">Módulos</a><a href="#recursos">Recursos</a><a href="#faq">Dúvidas</a>
+        <a href="https://www.instagram.com/uannodiaadia" target="_blank" rel="noopener">@uannodiaadia</a>
+      </div>
+    </div>
+    <p class="legal">
+      UAN PRO · Osmar Almeida — Nutricionista CRN 12979 · Todos os direitos reservados.<br>
+      Programa para Windows. As imagens desta página são telas reais do sistema, com dados de demonstração.
+      O UAN PRO é uma ferramenta de apoio à gestão e não substitui a responsabilidade técnica do nutricionista,
+      nem orientação jurídica ou contábil.
+    </p>
+  </div>
+</footer>
+
+<div class="lb" id="lb"><button class="x" aria-label="Fechar">&times;</button><img src="" alt=""></div>
+
+<script>
+(function(){
+  var topo=document.getElementById('topo');
+  function rolagem(){ topo.classList.toggle('fixo', window.scrollY>40); }
+  rolagem(); window.addEventListener('scroll', rolagem, {passive:true});
+
+  var hamb=document.getElementById('hamb'), menu=document.getElementById('menu');
+  hamb.addEventListener('click', function(){ menu.classList.toggle('aberto'); });
+  menu.addEventListener('click', function(e){ if(e.target.tagName==='A') menu.classList.remove('aberto'); });
+
+  // abas dos pilares
+  document.querySelectorAll('.aba').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.aba').forEach(function(x){x.classList.remove('on')});
+      document.querySelectorAll('.painel-p').forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on');
+      document.getElementById('p-'+b.dataset.p).classList.add('on');
+    });
+  });
+
+  // perguntas
+  document.querySelectorAll('.q button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var q=b.parentElement, r=q.querySelector('.r'), aberta=q.classList.contains('on');
+      document.querySelectorAll('.q').forEach(function(o){ o.classList.remove('on'); o.querySelector('.r').style.maxHeight=null; });
+      if(!aberta){ q.classList.add('on'); r.style.maxHeight=r.scrollHeight+'px'; }
+    });
+  });
+
+  // ampliar imagem
+  var lb=document.getElementById('lb'), lbi=lb.querySelector('img');
+  document.querySelectorAll('.shot').forEach(function(s){
+    s.addEventListener('click', function(){
+      lbi.src=s.dataset.img; lbi.alt=s.querySelector('img').alt; lb.classList.add('on');
+    });
+  });
+  function fechar(){ lb.classList.remove('on'); }
+  lb.addEventListener('click', fechar);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') fechar(); });
+
+  // entrada por rolagem
+  var alvos=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var ob=new IntersectionObserver(function(ents){
+      ents.forEach(function(en,i){
+        if(en.isIntersecting){ setTimeout(function(){ en.target.classList.add('vis'); }, i*70); ob.unobserve(en.target); }
+      });
+    },{threshold:.12, rootMargin:'0px 0px -60px'});
+    alvos.forEach(function(a){ ob.observe(a); });
+  } else { alvos.forEach(function(a){ a.classList.add('vis'); }); }
+
+  // contadores
+  var nums=document.querySelectorAll('.nums b'), contou=false;
+  function contar(){
+    if(contou) return;
+    var r=document.querySelector('.nums').getBoundingClientRect();
+    if(r.top > window.innerHeight-80) return;
+    contou=true;
+    nums.forEach(function(el){
+      var alvo=parseInt(el.dataset.n,10), atual=0, passo=Math.max(1,Math.round(alvo/28));
+      var t=setInterval(function(){
+        atual+=passo;
+        if(atual>=alvo){ atual=alvo; clearInterval(t); }
+        el.textContent=atual;
+      },28);
+    });
+  }
+  contar(); window.addEventListener('scroll', contar, {passive:true});
+})();
+</script>
+<script>
+/* Campanha Mês do Nutricionista — aparece e some sozinha */
+(function(){
+  var INICIO = Date.parse('2026-08-23T00:00:00-03:00');
+  var FIM    = Date.parse('2026-08-31T23:59:59-03:00');
+  var faixa  = document.getElementById('faixaCupom');
+  var rel    = document.getElementById('fcRel');
+  var bloco  = document.getElementById('cupomCompra');
+  function tick(){
+    var agora = Date.now();
+    var ativo = agora >= INICIO && agora <= FIM;
+    if(faixa) faixa.className = ativo ? 'on' : '';
+    if(bloco) bloco.style.display = ativo ? 'block' : 'none';
+    document.body.classList.toggle('tem-cupom', ativo);
+    if(ativo && faixa){
+      document.documentElement.style.setProperty('--h-cupom', faixa.offsetHeight + 'px');
+    }
+    if(ativo && rel){
+      var d = FIM - agora;
+      var dias = Math.floor(d/864e5), h = Math.floor(d/36e5)%24, m = Math.floor(d/6e4)%60;
+      rel.innerHTML = dias > 0
+        ? 'Termina em <b>' + dias + (dias===1?' dia':' dias') + '</b>'
+        : 'Últimas <b>' + h + 'h' + (m<10?'0':'') + m + '</b>';
+    }
+  }
+  tick(); setInterval(tick, 60000);
+  window.addEventListener('resize', tick);
+})();
+</script>
+</body>
+</html>
