@@ -359,6 +359,10 @@ section{position:relative}
 .offer-price .to small{font-size:15px;color:var(--txt-dim);font-weight:400;font-family:var(--sans)}
 .offer-note{margin:14px 0 0;font-size:14px;color:var(--txt-mut);line-height:1.5}
 .offer-note b{color:var(--gold);font-weight:600}
+.offer-cupom{display:inline-flex;align-items:center;gap:10px;margin-top:16px;padding:9px 16px;border:1px dashed rgba(200,168,71,.65);border-radius:999px;background:rgba(200,168,71,.08);flex-wrap:wrap}
+.offer-cupom b{font-family:var(--sans);font-weight:800;letter-spacing:.14em;color:var(--gold);font-size:13.5px}
+.offer-cupom span{font-size:12.5px;color:var(--txt-mut)}
+.offer-cupom[hidden]{display:none}
 
 /* depoimentos */
 .testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px}
@@ -688,10 +692,10 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <div class="launch-ribbon">
         <span class="pulse" aria-hidden="true"></span>
         <div>
-          <small>Lançamento exclusivo</small>
-          <strong>UAN PRO · 10 de julho de 2026</strong>
+          <small>Sistema no ar</small>
+          <strong>UAN PRO · Licença anual R$ 397</strong>
         </div>
-        <a href="#cardapio-pro" id="heroWait">Entrar na lista →</a>
+        <a href="#cardapio-pro" id="heroWait">Ver o sistema →</a>
       </div>
       <p class="hero-tag"><b>Visão crítica e iniciativa</b> · 31 de agosto é o Dia do Nutricionista</p>
     </div>
@@ -769,7 +773,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
 <section class="sec launch" id="cardapio-pro">
   <div class="wrap launch-grid">
     <div>
-      <span class="launch-badge rv">★ A maior atualização desde o lançamento</span>
+      <span class="launch-badge rv">★ A maior atualização do sistema</span>
       <h2 class="rv">UAN PRO</h2>
       <p class="pro-headline rv">Do cardápio ao lucro.<br>A sua UAN inteira, <em>em um app só.</em></p>
       <p class="sub rv d1">O que era um gerador de cardápios virou a gestão completa da unidade. Um ciclo que acompanha a operação do planejamento ao resultado financeiro — para quem opera e para quem decide.</p>
@@ -804,7 +808,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
         <div class="feat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A847" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>100% offline, backup e atualizações grátis</div>
       </div>
 
-      <div class="count rv d2" id="count" aria-label="Contagem regressiva para o lançamento">
+      <div class="count rv d2" id="count" aria-label="Situação do UAN PRO">
         <div class="unit"><div class="num" id="cd">00</div><div class="lab">Dias</div></div>
         <div class="unit"><div class="num" id="ch">00</div><div class="lab">Horas</div></div>
         <div class="unit"><div class="num" id="cm">00</div><div class="lab">Min</div></div>
@@ -817,12 +821,15 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       </div>
 
       <div class="offer rv d3">
-        <span class="offer-tag">Oferta de lançamento</span>
+        <span class="offer-tag">Licença anual</span>
         <div class="offer-price">
-          <span class="from">De R$ 397</span>
-          <span class="to">R$ 317,60<small>/ano</small></span>
+          <span class="to">R$ 397<small>/ano</small></span>
         </div>
-        <p class="offer-note">Com o cupom <b>UANPRO20</b> — 20% de desconto de lançamento.</p>
+        <p class="offer-note">Licença por unidade · atualizações incluídas · 100% offline.</p>
+        <div class="offer-cupom" id="offerCupom" hidden>
+          <b>UANPRO20</b>
+          <span>20% na Semana do Nutricionista · válido até 31/08</span>
+        </div>
       </div>
 
       <div class="launch-cta rv">
@@ -1028,7 +1035,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <div class="foot-col">
         <h4>Contato</h4>
         <a href="https://instagram.com/uannodiaadia" target="_blank" rel="noopener">@uannodiaadia</a>
-        <a href="mailto:uannodiaadia@gmail.com">uannodiaadia@gmail.com</a>
+        <a href="mailto:contato@uannodiaadia.com">contato@uannodiaadia.com</a>
         <a href="https://www.linkedin.com/in/osmar-almeida-202105116/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
@@ -1055,20 +1062,20 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <path d="M82,86 L82,116 C82,128 88,134 100,134 C112,134 118,128 118,116 L118,86" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
       <path d="M82,86 L100,98 L118,86" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    <span class="eyebrow">Lançamento 10.07.2026</span>
-    <h3 id="waitTitle">Entrar na lista de espera</h3>
-    <p class="modal-sub">Seja avisado em primeira mão quando o UAN PRO abrir — e garanta o desconto de lançamento.</p>
+    <span class="eyebrow">UAN PRO · Novidades</span>
+    <h3 id="waitTitle">Receber novidades do UAN PRO</h3>
+    <p class="modal-sub">Receba em primeira mão as novas versões, condições e materiais do UAN PRO.</p>
     <form id="waitForm" novalidate>
       <input type="text" name="Nome" placeholder="Seu nome" required>
       <input type="email" name="E-mail" placeholder="Seu melhor e-mail" required>
       <input type="tel" name="WhatsApp" placeholder="WhatsApp com DDD" required>
-      <label class="modal-check"><input type="checkbox" required> Concordo em receber novidades sobre o lançamento.</label>
-      <input type="hidden" name="_subject" value="Nova inscrição — Lista de espera UAN PRO">
+      <label class="modal-check"><input type="checkbox" required> Concordo em receber novidades sobre o UAN PRO.</label>
+      <input type="hidden" name="_subject" value="Novo contato — Novidades UAN PRO">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_autoresponse" value="Recebemos sua inscrição na lista de espera do UAN PRO! Você será avisado em primeira mão no lançamento (10/07/2026), com o desconto de lançamento garantido. — Osmar Almeida, Nutricionista CRN 12979">
+      <input type="hidden" name="_autoresponse" value="Recebemos o seu cadastro! Você vai receber em primeira mão as novidades, atualizações e condições do UAN PRO. — Osmar Almeida, Nutricionista CRN 12979">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-      <button type="submit" class="btn btn-gold" id="waitSubmit">Quero ser avisado <span class="arr">→</span></button>
+      <button type="submit" class="btn btn-gold" id="waitSubmit">Quero receber <span class="arr">→</span></button>
       <p class="modal-msg" id="waitMsg" role="status"></p>
     </form>
   </div>
@@ -1188,7 +1195,7 @@ var PRODUTOS = [
     cta:"Conhecer o UAN PRO", destaque:false, fita:"Atualizado",
     cupom:"NUTRI40", desconto:"40% de desconto",
     interno:true,
-    link:"https://uannodiaadia-gif.github.io/pagina-de-vendas/uanpro/"
+    link:"https://uannodiaadia.com/uanpro/"
   },
   {
     idx:"06", kicker:"E-book · Lançamento de agosto", nome:"Manual UAN Offshore",
@@ -1222,7 +1229,7 @@ var PRODUTOS = [
    Antes do lançamento (10/07/2026), o botão abre a janela de LISTA DE ESPERA (FormSubmit).
    Depois do lançamento, ele leva à página dedicada do UAN PRO.
    >>> COLE AQUI o link de compra do UAN PRO quando o produto estiver ativo na Hotmart. */
-var LINK_CARDAPIO_PRO = "https://uannodiaadia-gif.github.io/pagina-de-vendas/uanpro/"; // página dedicada do UAN PRO (dentro do próprio site)
+var LINK_CARDAPIO_PRO = "https://uannodiaadia.com/uanpro/"; // página dedicada do UAN PRO (dentro do próprio site)
 
 var check = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A847" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>';
 
@@ -1320,6 +1327,17 @@ renderProdutos();
   tick(); setInterval(tick,1000);
 })();
 
+/* Selo do cupom UANPRO20 no bloco de preço: aparece 23/08 00h, some 31/08 23h59 */
+(function(){
+  var selo=document.getElementById('offerCupom');
+  if(!selo) return;
+  function ver(){
+    var agora=Date.now();
+    selo.hidden = !(agora>=CAMP_INICIO && agora<=CAMP_FIM);
+  }
+  ver(); setInterval(ver,30000);
+})();
+
 /* ---- header scroll ---- */
 var hdr=document.getElementById('hdr');
 function onScroll(){ hdr.classList.toggle('scrolled', window.scrollY>30); }
@@ -1366,7 +1384,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 
 /* ---- modal lista de espera (FormSubmit) ---- */
 (function(){
-  var FORM_EMAIL = "uannodiaadia@gmail.com"; // e-mail que recebe as inscrições
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/71e76791deb0994a620b3aafc9a837d0";
   var overlay=document.getElementById('waitModal');
   var form=document.getElementById('waitForm');
   var msg=document.getElementById('waitMsg');
@@ -1375,7 +1393,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   function openModal(){
     lastFocus=document.activeElement;
     msg.textContent=''; msg.className='modal-msg';
-    sb.style.display=''; sb.disabled=false; sb.innerHTML='Quero ser avisado <span class="arr">→</span>';
+    sb.style.display=''; sb.disabled=false; sb.innerHTML='Quero receber <span class="arr">→</span>';
     overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
     var first=form.querySelector('input'); if(first) first.focus();
@@ -1403,17 +1421,19 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     e.preventDefault();
     if(!form.checkValidity()){ form.reportValidity(); return; }
     sb.disabled=true; sb.textContent='Enviando...';
-    fetch('https://formsubmit.co/ajax/'+FORM_EMAIL, {
-      method:'POST', headers:{'Accept':'application/json'}, body:new FormData(form)
+    var fdWait=new FormData(form);
+    fdWait.append('_url', window.location.href);
+    fetch(FORM_ENDPOINT, {
+      method:'POST', headers:{'Accept':'application/json'}, body:fdWait
     }).then(function(r){ return r.json(); })
       .then(function(){
-        msg.textContent='✓ Inscrição confirmada! Você será avisado no lançamento.';
+        msg.textContent='✓ Cadastro confirmado! Você vai receber as novidades do UAN PRO.';
         msg.className='modal-msg ok'; form.reset(); sb.style.display='none';
       })
       .catch(function(){
         msg.textContent='Não foi possível enviar agora. Tente de novo em instantes.';
         msg.className='modal-msg err';
-        sb.disabled=false; sb.innerHTML='Quero ser avisado <span class="arr">→</span>';
+        sb.disabled=false; sb.innerHTML='Quero receber <span class="arr">→</span>';
       });
   });
 })();
@@ -1421,7 +1441,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 
 /* ---- ferramentas gratuitas: captura + download automático ---- */
 (function(){
-  var FORM_EMAIL   = "uannodiaadia@gmail.com";
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/71e76791deb0994a620b3aafc9a837d0";
   var MAKE_WEBHOOK = "https://hook.us2.make.com/caghe7sapq41ufbe1pz6ad1mha5ij7bn";
 
   /* Links de entrega de cada ferramenta */
@@ -1546,6 +1566,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     var fd=new FormData(form);
     var dados={}; fd.forEach(function(v,k){ if(k.charAt(0)!=='_') dados[k]=v; });
     dados.Origem='Site — Ferramentas gratuitas';
+    fd.append('_url', window.location.href);
 
     // 1) Make -> Brevo (em paralelo, não trava o fluxo)
     try{
@@ -1554,7 +1575,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     }catch(e){}
 
     // 2) FormSubmit (aviso por e-mail) -> libera o download
-    fetch('https://formsubmit.co/ajax/'+FORM_EMAIL,{
+    fetch(FORM_ENDPOINT,{
       method:'POST', headers:{'Accept':'application/json'}, body:fd
     }).then(function(r){ return r.json(); })
       .then(function(){ form.reset(); mostrarDownload(); })
