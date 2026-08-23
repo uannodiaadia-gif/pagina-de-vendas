@@ -747,14 +747,14 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <div class="cp-txt">
         <div class="cp-eyebrow" id="cpEyebrow">Agosto · Mês do Nutricionista</div>
         <h3 id="cpTitulo">A janela do Mês do Nutricionista abre em breve.</h3>
-        <p id="cpSub">Descontos em toda a linha, dois lançamentos e o Combo Linha de Frente — de 23 a 31 de agosto.</p>
+        <p id="cpSub">Até 40% na linha, cupons próprios para UAN PRO e Mentoria, dois lançamentos e o Combo Linha de Frente — de 23 a 31 de agosto.</p>
         <div class="cupom" id="cpCupom" hidden>
           <b id="cpCodigo">NUTRI40</b>
           <span id="cpCupomTxt">40% de desconto · aplique no checkout</span>
         </div>
         <div class="cupom mentoria" id="cpCupom2" hidden>
           <b>MENTORIA25</b>
-          <span>25% · exclusivo da Mentoria Anual (não aceita NUTRI40)</span>
+          <span>25% · exclusivo da Mentoria Anual (não acumula com NUTRI40)</span>
         </div>
       </div>
       <div class="cp-clock" id="cpClock">
@@ -1193,7 +1193,7 @@ var PRODUTOS = [
     quem:"UAN industrial, hospitalar, escolar, comercial e prisional. Licença anual com todas as atualizações incluídas — compatível com Windows 10 e 11.",
     selo:"Entrega: download imediato + licença por e-mail em até 24h · Suporte no WhatsApp",
     cta:"Conhecer o UAN PRO", destaque:false, fita:"Atualizado",
-    cupom:"NUTRI40", desconto:"40% de desconto",
+    cupom:"UANPRO20", desconto:"20% de desconto",
     interno:true,
     link:"https://uannodiaadia.com/uanpro/"
   },
@@ -1248,7 +1248,7 @@ var MES_FIM     = Date.parse('2026-09-01T00:00:00-03:00');   // faixa do mês sa
     if(Date.now()>=MES_FIM){ f.style.display='none'; return; }
     var sub=document.getElementById('nfSub');
     if(sub && Date.now()>=CAMP_INICIO && Date.now()<=CAMP_FIM){
-      sub.innerHTML='<span>Janela aberta \u00b7 cupom NUTRI40 at\u00e9 31/08 \u00b7 Mentoria com MENTORIA25</span><span class="arr">\u2192</span>';
+      sub.innerHTML='<span>Janela aberta \u00b7 at\u00e9 40% na linha \u00b7 UAN PRO com UANPRO20</span><span class="arr">\u2192</span>';
     }
   }
   ver(); setInterval(ver,30000);
@@ -1307,13 +1307,13 @@ renderProdutos();
     if(pre){
       document.getElementById('cpEyebrow').textContent='Agosto · Mês do Nutricionista';
       document.getElementById('cpTitulo').textContent='A janela do Mês do Nutricionista abre em breve.';
-      document.getElementById('cpSub').textContent='De 23 a 31 de agosto: NUTRI40 com 40% na linha, MENTORIA25 com 25% na Mentoria Anual, mais dois lançamentos e o Combo Linha de Frente.';
+      document.getElementById('cpSub').textContent='De 23 a 31 de agosto: até 40% na linha com NUTRI40, 20% no UAN PRO com UANPRO20, 25% na Mentoria com MENTORIA25, mais dois lançamentos e o Combo Linha de Frente.';
       document.getElementById('cpCupom').hidden=true;
       document.getElementById('cpCupom2').hidden=true;
     } else {
       document.getElementById('cpEyebrow').textContent='Janela aberta · encerra 31/08 às 23h59';
       document.getElementById('cpTitulo').textContent='Mês do Nutricionista: descontos em toda a linha.';
-      document.getElementById('cpSub').textContent='NUTRI40 vale para Guia Essencial, Kit, FORMAÇÃO, UAN PRO e Manual Offshore. A Mentoria Anual não entra nos 40% — ela tem cupom próprio. O Combo já vem com desconto embutido.';
+      document.getElementById('cpSub').textContent='NUTRI40 vale para Guia Essencial, Kit, FORMAÇÃO e Manual Offshore. O UAN PRO tem cupom próprio (UANPRO20, 20%) e a Mentoria Anual também (MENTORIA25, 25%). O Combo já vem com desconto embutido.';
       document.getElementById('cpCupom').hidden=false;
       document.getElementById('cpCupom2').hidden=false;
       if(!jaAbriu){ jaAbriu=true; renderProdutos(); }        // acende cupons e libera os novos
