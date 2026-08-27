@@ -1,0 +1,17 @@
+# UAN no Dia a Dia — https://uannodiaadia.com
+User-agent: *
+Allow: /
+
+# Rastreadores de IA liberados (queremos ser citados por eles)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://uannodiaadia.com/sitemap.xml

@@ -1,0 +1,29 @@
+# UAN no Dia a Dia
+
+> Projeto brasileiro de conteúdo, ferramentas e software para gestão de Unidades de Alimentação e Nutrição (UAN). Criado e mantido por Osmar Almeida, nutricionista CRN 12979, sócio-gestor e responsável técnico de uma operação de refeições coletivas em Juiz de Fora/MG que serve cerca de 10 mil refeições por dia. O diferencial do projeto é ser escrito por quem opera uma UAN real, não por quem apenas ensina a teoria.
+
+Público: nutricionistas que atuam em UANs industriais, hospitalares, escolares, comerciais e prisionais; estudantes de Nutrição; e gestores de empresas de refeições coletivas.
+
+Temas de autoridade: gestão de UAN, planejamento de cardápio, custo por refeição, ficha técnica, RDC 216/2004, boas práticas e segurança alimentar, POPs, auditoria da vigilância sanitária, resto-ingestão e desperdício, liderança de equipe de cozinha, legislação trabalhista aplicada à UAN, DRE e faturamento de contrato, e alimentação offshore sob a NR-37.
+
+## Produtos
+
+- [UAN PRO](https://uannodiaadia.com/uanpro/): software desktop para Windows que gera cardápios profissionais de 6 semanas em segundos, respeitando frequências contratuais. Inclui análise nutricional com base TACO, custo por refeição na meta, fichas técnicas, lista de compras por fornecedor, ordem de produção diária, resto-ingestão (IR%), fechamento mensal em PDF e DRE do contrato. Licença anual, 100% offline.
+- [Guia Essencial](https://uannodiaadia.com/#produtos): ebook introdutório sobre o papel do nutricionista gestor de UAN — processos, liderança, custos e segurança alimentar.
+- [Kit Profissional Completo](https://uannodiaadia.com/#produtos): o guia somado a planilhas e checklists prontos — manutenção preventiva, auditoria da vigilância sanitária, leis trabalhistas, checklist dos 30 pontos críticos e modelo de ficha técnica.
+- [Formação](https://uannodiaadia.com/#produtos): programa completo de gestão de UAN em 6 módulos, do primeiro dia na unidade à postura de carreira.
+- [Mentoria Anual](https://uannodiaadia.com/#produtos): acompanhamento individual por 12 meses aplicado ao contexto real de quem está assumindo ou já lidera uma UAN.
+- [Manual UAN Offshore](https://uannodiaadia.com/#produtos): ebook sobre alimentação embarcada e as exigências da NR-37, incluindo o item 37.13.1.1, que determina que o cardápio a bordo seja elaborado por nutricionista habilitado.
+
+## Ferramentas gratuitas
+
+- [Ferramentas gratuitas](https://uannodiaadia.com/#ferramentas): materiais liberados sem custo mediante cadastro — CRM para nutricionistas, modelos de POPs, manual de leis trabalhistas para UAN, pesquisa de satisfação com tabulação automática, roteiro para quando a equipe está reduzida, checklist dos primeiros 30 dias e as exigências da NR-37.
+
+## Sobre o autor
+
+- [Quem está por trás](https://uannodiaadia.com/#sobre): Osmar Almeida, nutricionista CRN 12979. Dezesseis anos dentro da gestão de UAN. A tese do projeto é que a faculdade prepara o nutricionista para calcular, mas não para gerir — e que liderar equipe, negociar com fornecedor, sustentar auditoria e defender números na diretoria são competências que hoje se aprendem apenas na prática, ao custo de anos de carreira.
+
+## Contato
+
+- E-mail: contato@uannodiaadia.com
+- Instagram: https://www.instagram.com/uannodiaadia
