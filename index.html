@@ -257,77 +257,15 @@ section{position:relative}
   background:rgba(200,168,71,.05);border-radius:0 10px 10px 0;font-size:13px;
   color:var(--txt-mut);line-height:1.55}
 .dossie .quem b{color:var(--gold);font-weight:600}
-.dossie-foot{margin-top:24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+.dossie .preco{margin-top:20px;display:flex;align-items:baseline;gap:6px}
+.dossie .preco b{font-family:var(--serif);font-weight:700;font-size:31px;color:var(--gold2);line-height:1}
+.dossie .preco span{font-size:14px;color:var(--txt-dim)}
+.dossie-foot{margin-top:20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
   justify-content:space-between}
 
-/* ===== campanha Mês do Nutricionista ===== */
-/* faixa do Mês do Nutricionista na capa */
-.nutri-faixa{position:relative;overflow:hidden;display:block;margin:0 0 24px;padding:18px 24px;
-  border-radius:16px;border:1px solid rgba(200,168,71,.55);text-decoration:none;
-  background:linear-gradient(120deg,rgba(200,168,71,.20),rgba(15,77,54,.35) 60%);
-  transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s}
-.nutri-faixa:hover{transform:translateY(-3px);border-color:rgba(200,168,71,.85);
-  box-shadow:0 16px 40px rgba(0,0,0,.35)}
-.nutri-faixa::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(360px 130px at 92% 10%,rgba(200,168,71,.22),transparent 70%)}
-.nutri-faixa .nf-top{position:relative;z-index:1;display:flex;align-items:center;gap:11px;
-  font-size:12px;letter-spacing:.20em;text-transform:uppercase;font-weight:800;color:var(--gold)}
-.nutri-faixa .st{font-size:15px;animation:stPulse 2.6s ease-in-out infinite}
-@keyframes stPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.86)}}
-.nutri-faixa .nf-main{position:relative;z-index:1;font-family:var(--serif);font-weight:700;
-  font-size:clamp(19px,2.2vw,24px);color:var(--txt);margin-top:8px;line-height:1.25}
-.nutri-faixa .nf-main em{font-style:normal;color:var(--gold)}
-.nutri-faixa .nf-sub{position:relative;z-index:1;margin-top:7px;font-size:13px;
-  color:var(--txt-mut);display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-.nutri-faixa .nf-sub .arr{color:var(--gold);font-weight:700;transition:transform .35s}
-.nutri-faixa:hover .nf-sub .arr{transform:translateX(4px)}
-@media(prefers-reduced-motion:reduce){
-  .nutri-faixa,.nutri-faixa .st,.nutri-faixa .nf-sub .arr{transition:none;animation:none}
-  .nutri-faixa:hover{transform:none}}
-
-.campanha{position:relative;overflow:hidden;margin:0 0 8px;padding:26px 30px;border-radius:20px;
-  border:1px solid rgba(200,168,71,.45);
-  background:linear-gradient(135deg,rgba(200,168,71,.13),rgba(15,77,54,.30));
-  display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
-.campanha::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(520px 200px at 88% 0%,rgba(200,168,71,.16),transparent 70%)}
-.campanha .cp-txt{position:relative;z-index:1;flex:1 1 300px;min-width:0}
-.campanha .cp-eyebrow{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
-  font-weight:800;color:var(--g400)}
-.campanha h3{font-family:var(--serif);font-weight:700;font-size:clamp(19px,2.2vw,25px);
-  margin:8px 0 0;line-height:1.2}
-.campanha p{font-size:13.5px;color:var(--txt-mut);margin:8px 0 0;line-height:1.55}
-.campanha .cupom{display:inline-flex;align-items:center;gap:10px;margin-top:14px;
-  padding:9px 16px;border-radius:11px;border:1px dashed rgba(200,168,71,.65);
-  background:rgba(200,168,71,.10)}
-.campanha .cupom b{font-family:var(--sans);font-weight:800;letter-spacing:.16em;
-  font-size:16px;color:var(--gold)}
-.campanha .cupom span{font-size:12px;color:var(--txt-mut)}
-.campanha .cupom{margin-right:10px}
-.campanha .cupom.mentoria{border-color:rgba(29,158,117,.6)}
-.campanha .cupom.mentoria b{color:var(--g400);font-size:14.5px}
-.cp-clock{position:relative;z-index:1;display:flex;gap:10px;flex:none}
-.cp-clock .u{min-width:62px;padding:11px 8px 9px;border-radius:13px;text-align:center;
-  background:rgba(6,26,18,.55);border:1px solid rgba(200,168,71,.32)}
-.cp-clock .u b{display:block;font-family:var(--serif);font-weight:700;font-size:27px;
-  color:var(--txt);line-height:1}
-.cp-clock .u span{display:block;margin-top:5px;font-size:9.5px;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--txt-dim)}
-@media(max-width:640px){
-  .campanha{padding:22px 20px}
-  .cp-clock{gap:7px;width:100%}
-  .cp-clock .u{flex:1;min-width:0}
-  .cp-clock .u b{font-size:22px}
 }
 
 /* selo de cupom no card do produto */
-.dossie .chip-cupom{display:inline-flex;align-items:center;gap:9px;margin-top:18px;
-  padding:8px 14px;border-radius:10px;border:1px dashed rgba(200,168,71,.6);
-  background:rgba(200,168,71,.09);font-size:12.5px;color:var(--txt-mut)}
-.dossie .chip-cupom b{font-weight:800;letter-spacing:.14em;color:var(--gold);font-size:13.5px}
-.dossie .chip-cupom.embutido{border-style:solid;border-color:rgba(29,158,117,.5);
-  background:rgba(29,158,117,.10)}
-.dossie .chip-cupom.embutido b{color:var(--g400);letter-spacing:.04em}
 
 /* produto agendado */
 .dossie.agendado{opacity:.82;border-color:rgba(200,168,71,.26)}
@@ -607,7 +545,6 @@ section{position:relative}
 .sign b{font-size:18px}
 .sign span{display:block;font-family:var(--sans);font-size:13px;color:var(--gold);letter-spacing:.1em;margin-top:4px;font-weight:600}
 
-
 /* ===== apresentação do Osmar ===== */
 .bio{padding-top:26px}
 .bio-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center}
@@ -761,14 +698,6 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
   <div class="hex-bg"></div>
   <div class="wrap hero-grid">
     <div>
-      <a class="nutri-faixa" id="nutriFaixa" href="#produtos">
-        <div class="nf-top"><span class="st">★</span> Agosto · Mês do Nutricionista</div>
-        <div class="nf-main">O mês é de quem <em>alimenta gente todo dia</em>.</div>
-        <div class="nf-sub" id="nfSub">
-          <span>Dia 31 é o Dia do Nutricionista · descontos em toda a linha de 23 a 31/08</span>
-          <span class="arr">→</span>
-        </div>
-      </a>
       <span class="eyebrow">Ecossistema UAN no Dia a Dia</span>
       <h1>A UAN sob controle, do <em>operacional</em> ao <em>estratégico</em>.</h1>
       <p class="lead">Ebooks, planilhas, mentoria e o sistema que gera cardápios de 6 semanas em segundos. Ferramentas criadas por quem vive a rotina da Unidade de Alimentação e Nutrição — não a teoria dela.</p>
@@ -784,7 +713,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
         </div>
         <a href="#cardapio-pro" id="heroWait">Ver o sistema →</a>
       </div>
-      <p class="hero-tag"><b>Visão crítica e iniciativa</b> · 31 de agosto é o Dia do Nutricionista</p>
+      <p class="hero-tag"><b>Visão crítica e iniciativa</b> · Osmar Almeida · Nutricionista CRN 12979</p>
     </div>
 
     <div class="emblem-wrap">
@@ -865,28 +794,6 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <p>Cinco caminhos para nutricionistas e gestores que precisam de ferramenta pronta para a rotina — do guia que organiza os fundamentos ao software que gerencia a operação inteira.</p>
     </div>
 
-    <div class="campanha rv" id="campanha" hidden>
-      <div class="cp-txt">
-        <div class="cp-eyebrow" id="cpEyebrow">Agosto · Mês do Nutricionista</div>
-        <h3 id="cpTitulo">A janela do Mês do Nutricionista abre em breve.</h3>
-        <p id="cpSub">Até 40% na linha, cupons próprios para UAN PRO e Mentoria, dois lançamentos e o Combo Linha de Frente — de 23 a 31 de agosto.</p>
-        <div class="cupom" id="cpCupom" hidden>
-          <b id="cpCodigo">NUTRI40</b>
-          <span id="cpCupomTxt">40% de desconto · aplique no checkout</span>
-        </div>
-        <div class="cupom mentoria" id="cpCupom2" hidden>
-          <b>MENTORIA25</b>
-          <span>25% · exclusivo da Mentoria Anual (não acumula com NUTRI40)</span>
-        </div>
-      </div>
-      <div class="cp-clock" id="cpClock">
-        <div class="u"><b id="cpD">--</b><span>dias</span></div>
-        <div class="u"><b id="cpH">--</b><span>horas</span></div>
-        <div class="u"><b id="cpM">--</b><span>min</span></div>
-        <div class="u"><b id="cpS">--</b><span>seg</span></div>
-      </div>
-    </div>
-
     <div class="prod-grid" id="prodGrid"><!-- cards injected by JS --></div>
   </div>
 </section>
@@ -899,7 +806,6 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <h2 class="rv">UAN PRO</h2>
       <p class="pro-headline rv">Do cardápio ao lucro.<br>A sua UAN inteira, <em>em um app só.</em></p>
       <p class="sub rv d1">O que era um gerador de cardápios virou a gestão completa da unidade. Um ciclo que acompanha a operação do planejamento ao resultado financeiro — para quem opera e para quem decide.</p>
-
 
       <div class="novo rv d1">
         <span class="novo-tag">NOVO nesta versão</span>
@@ -945,7 +851,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <div class="offer rv d3">
         <span class="offer-tag">Licença anual</span>
         <div class="offer-price">
-          <span class="to">R$ 397<small>/ano</small></span>
+          <span class="to">R$ 447<small>/ano</small></span>
         </div>
         <p class="offer-note">Licença por unidade · atualizações incluídas · 100% offline.</p>
         <div class="offer-cupom" id="offerCupom" hidden>
@@ -1225,137 +1131,97 @@ var LINK_GERAL = "https://hotm.io/r2ZzaYD";
 
 var PRODUTOS = [
   {
-    idx:"01", kicker:"E-book · Ponto de partida", nome:"Guia Essencial",
-    mini:"Guia",
-    tagline:"Do modo sobrevivência à gestão com autoridade.",
-    texto:"Gerir uma UAN não é só sobre comida — é sobre equipe, fiscalização da vigilância sanitária, controle de custos e fichas técnicas. O guia profissional para você sair de apagar incêndios e assumir de vez o papel de nutricionista gestor(a), com processos claros e segurança técnica. Leitura prática, baseada em experiência real de campo, com linguagem direta.",
-    inclui:["Organização de processos","Liderança de equipe","Controle de custos","Segurança alimentar"],
-    quem:"Nutricionistas que atuam — ou querem atuar — em UANs hospitalares, escolares, corporativas ou institucionais, e querem evoluir da execução para a gestão estratégica.",
-    selo:"Garantia incondicional de 7 dias · Acesso imediato · Qualquer dispositivo",
-    cta:"Conhecer o Guia", destaque:false, fita:"",
-    cupom:"NUTRI40", desconto:"40% de desconto",
-    link:"https://go.hotmart.com/N105592583Y?dp=1"
-  },
-  {
-    idx:"02", kicker:"E-book + 10 ferramentas", nome:"Kit Profissional Completo",
-    mini:"Kit",
-    tagline:"O guia somado às ferramentas que resolvem a semana.",
-    texto:"Tudo do Guia Essencial mais o arsenal prático da rotina: planilhas, listas de auditoria e checklists prontos para usar. O pacote mais completo para estruturar a gestão da UAN de uma vez — sem montar nada do zero.",
-    inclui:["Guia \u201cO Nutricionista Gestor de UAN\u201d (PDF)","Controle de Manutenção Preventiva (Excel)","Lista de Auditoria da Vigilância Sanitária","Encarte de Leis Trabalhistas para UAN","Checklist dos 30 pontos críticos (bônus)","Ficha Técnica editável (bônus)"],
-    quem:"Nutricionistas de UANs institucionais, hospitalares, escolares ou corporativas que querem evoluir da execução para a gestão estratégica.",
-    selo:"Garantia incondicional de 7 dias — 100% do valor, sem perguntas · Acesso imediato",
-    cta:"Quero o Kit Completo", destaque:true, fita:"Mais vendido",
-    cupom:"NUTRI40", desconto:"40% de desconto",
-    link:"https://go.hotmart.com/H102817272S?dp=1"
-  },
-  {
-    idx:"03", kicker:"Formação profissional", nome:"Formação",
-    mini:"Formação",
-    tagline:"A gestão de UAN estruturada em programa completo.",
-    texto:"Programa de formação voltado à prática de quem atua — ou vai atuar — na gestão de Unidades de Alimentação e Nutrição. Linguagem prática e baseada em campo, para organizar processos, liderar equipes, controlar custos e garantir segurança alimentar com muito mais eficiência.",
-    inclui:["Planejamento e organização","Processos e POPs","Liderança e boas práticas","Ferramentas de apoio incluídas"],
-    quem:"Nutricionistas e estudantes que querem uma formação estruturada em gestão de UAN, do fundamento à aplicação.",
-    selo:"Garantia incondicional de 7 dias · Acesso imediato · Conteúdo digital",
-    cta:"Ver a Formação", destaque:false, fita:"",
-    cupom:"NUTRI40", desconto:"40% de desconto",
-    link:"https://go.hotmart.com/N105935385L?dp=1"
-  },
-  {
-    idx:"04", kicker:"Mentoria · 12 meses", nome:"Mentoria Anual",
-    mini:"Mentoria",
-    tagline:"Acelere em 12 meses o que leva anos para dominar sozinho.",
-    texto:"A prática não se aprende só na teoria: liderar trinta pessoas, negociar com o fiscal, calcular o custo real da refeição e passar em auditoria sem dor de cabeça. Aqui você tem o material completo mais acompanhamento direto comigo durante um ano inteiro, aplicado ao seu contexto real.",
-    inclui:["E-book completo — 9 capítulos","Kit com 10 ferramentas prontas","Planilha de Custo por Refeição","Banco de Substituições (100+ trocas)","WhatsApp direto por 12 meses","Apoio em auditorias e crises"],
-    quem:"Estudantes, recém-formados e nutricionistas de UAN, clínica, consultoria e auditoria que querem encurtar a curva de aprendizado.",
-    selo:"Garantia de 7 dias · Acesso imediato ao e-book e kit · Agenda enviada em 24h",
-    cta:"Falar sobre a Mentoria", destaque:false, fita:"Acompanhamento direto",
-    cupom:"MENTORIA25", desconto:"25% de desconto",
-    link:"https://go.hotmart.com/W102925018C?dp=1"
-  },
-  {
-    idx:"05", kicker:"Software licenciado · Windows", nome:"UAN PRO",
-    mini:"Software",
-    tagline:"Do cardápio ao lucro. A sua UAN inteira, em um app só.",
-    texto:"O software que gera cardápios profissionais de 6 semanas em segundos — feito por um nutricionista de UAN, para nutricionistas de UAN. E que agora acompanha o ciclo inteiro: produção, desperdício, fechamento e o lucro real do contrato.",
-    inclui:["Cardápio de 6 semanas em segundos","Respeita frequências contratuais","8.000+ combinações aprovadas","Análise nutricional (base TACO)","Custo por refeição na sua meta","Fichas técnicas com PDF","Lista de compras por fornecedor","100% offline, dados só no seu PC"],
-    quem:"UAN industrial, hospitalar, escolar, comercial e prisional. Licença anual com todas as atualizações incluídas — compatível com Windows 10 e 11.",
-    selo:"Entrega: download imediato + licença por e-mail em até 24h · Suporte no WhatsApp",
-    cta:"Conhecer o UAN PRO", destaque:false, fita:"Atualizado",
-    cupom:"UANPRO20", desconto:"20% de desconto",
-    interno:true,
-    link:"https://uannodiaadia.com/uanpro/"
-  },
-  {
-    idx:"06", kicker:"E-book · Lançamento de agosto", nome:"Manual UAN Offshore",
-    mini:"Offshore",
+    idx:"01", kicker:"E-book · Porta de entrada", nome:"Manual UAN Offshore",
+    mini:"Offshore", preco:"R$ 67",
     tagline:"A norma exige nutricionista a bordo. Por lei.",
     texto:"Existe uma UAN a 150 quilômetros da costa: não fecha nunca, alimenta gente em confinamento e não tem mercado na esquina para resolver o que faltou. A NR-37 determina, no item 37.13.1.1, que o cardápio a bordo seja elaborado por nutricionista habilitado — e quase ninguém no mercado sabe citar esse item. Este manual preenche exatamente essa lacuna.",
     inclui:["A NR-37 item por item","Certificações CBSP e HUET","Tipos de unidade: FPSO, flotel, navio-sonda","Logística: planejar sem poder comprar","Alimentar quem trabalha 12h em confinamento","O caminho real até o primeiro embarque"],
     quem:"Nutricionistas e estudantes que querem entrar no setor offshore, e quem já atua em UAN e precisa entender a norma que rege a alimentação embarcada.",
     selo:"Garantia incondicional de 7 dias · Acesso imediato · PDF, 31 páginas",
-    cta:"Conhecer o Manual", destaque:false, fita:"Novo",
-    cupom:"NUTRI40", desconto:"40% de desconto",
-    desde:"2026-08-23T00:00:00-03:00", desdeTxt:"23 de agosto",
-    link:"https://go.hotmart.com/L107016489R?dp=1"
+    cta:"Conhecer o Manual", destaque:false, fita:"",
+    link:"https://pay.hotmart.com/L107016489R"
   },
   {
-    idx:"07", kicker:"Combo · Só até 31 de agosto", nome:"Combo Linha de Frente",
-    mini:"Combo",
-    tagline:"Quatro produtos. Um preço. O desconto já aplicado.",
-    texto:"A linha completa do UAN no Dia a Dia reunida numa única compra, com o desconto já embutido — você não precisa de cupom nenhum. É a forma mais econômica de levar tudo: a formação, as ferramentas da rotina, o software que gera os cardápios e o manual de alimentação offshore.",
-    inclui:["FORMAÇÃO completa · 6 módulos","Kit Profissional Completo","UAN PRO · licença de 1 ano","Manual UAN Offshore","Entrega imediata dos 4 materiais","Disponível somente até 31/08"],
-    quem:"Quem quer a linha inteira de uma vez, com a maior economia da campanha — e não pretende montar a estante aos poucos.",
-    selo:"Garantia incondicional de 7 dias · Acesso imediato · Oferta encerra em 31/08",
+    idx:"02", kicker:"Formação profissional", nome:"UAN de Ponta a Ponta",
+    mini:"Formação", preco:"R$ 197",
+    tagline:"Do primeiro dia na unidade à gestão com autoridade.",
+    texto:"Gerir uma UAN não é só sobre comida — é sobre equipe, fiscalização da vigilância sanitária, controle de custos e fichas técnicas. A formação que leva você do modo sobrevivência à gestão estratégica, com processos claros e segurança técnica. Linguagem prática, baseada em experiência real de campo.",
+    inclui:["Organização de processos","Liderança de equipe","Controle de custos","Segurança alimentar e RDC 216","Postura e carreira","Acesso imediato e vitalício"],
+    quem:"Nutricionistas que atuam — ou querem atuar — em UANs hospitalares, escolares, corporativas ou institucionais, e querem evoluir da execução para a gestão.",
+    selo:"Garantia incondicional de 7 dias · Acesso imediato · Qualquer dispositivo",
+    cta:"Ver a Formação", destaque:false, fita:"",
+    link:"https://pay.hotmart.com/N105592583Y"
+  },
+  {
+    idx:"03", kicker:"Formação + ferramentas", nome:"Formação + Kit Profissional",
+    mini:"Formação+Kit", preco:"R$ 397",
+    tagline:"A formação somada às ferramentas que resolvem a semana.",
+    texto:"Tudo da formação mais o arsenal prático da rotina: planilhas, listas de auditoria e checklists prontos para usar. O pacote mais completo para estruturar a gestão da UAN de uma vez — sem montar nada do zero.",
+    inclui:["Formação completa UAN de Ponta a Ponta","Controle de Manutenção Preventiva (Excel)","Lista de Auditoria da Vigilância Sanitária","Encarte de Leis Trabalhistas para UAN","Checklist dos 30 pontos críticos","Ficha Técnica de Preparação editável"],
+    quem:"Quem quer aprender e aplicar na mesma semana, com as ferramentas já prontas para a unidade.",
+    selo:"Garantia incondicional de 7 dias — 100% do valor, sem perguntas · Acesso imediato",
+    cta:"Quero Formação + Kit", destaque:true, fita:"Mais vendido",
+    link:"https://pay.hotmart.com/N105935385L"
+  },
+  {
+    idx:"04", kicker:"Software licenciado · Windows", nome:"UAN PRO",
+    mini:"Software", preco:"R$ 447",
+    tagline:"Do cardápio ao lucro. A sua UAN inteira, em um app só.",
+    texto:"O software que gera cardápios profissionais de 6 semanas em segundos — feito por um nutricionista de UAN, para nutricionistas de UAN. E que acompanha o ciclo inteiro: produção, desperdício, documentos da Vigilância, fechamento e o lucro real do contrato.",
+    inclui:["Cardápio de 6 semanas em segundos","Respeita frequências contratuais","8.000+ combinações aprovadas","Análise nutricional (base TACO)","Custo por refeição na sua meta","Fichas técnicas com PDF","Lista de compras por fornecedor","100% offline, dados só no seu PC"],
+    quem:"UAN industrial, hospitalar, escolar, comercial e prisional. Licença anual com todas as atualizações incluídas — compatível com Windows 10 e 11.",
+    selo:"Licença anual · Atualizações incluídas · Teste 14 dias grátis",
+    cta:"Conhecer o UAN PRO", destaque:false, fita:"Degustação de 14 dias",
+    interno:true,
+    link:"https://uannodiaadia.com/uanpro/"
+  },
+  {
+    idx:"05", kicker:"Edição impressa", nome:"Formação Impressa",
+    mini:"Impresso", preco:"R$ 497",
+    tagline:"A formação inteira em papel, para estudar longe da tela.",
+    texto:"A edição física da formação, para quem estuda melhor com o material na mão — anotando na margem, marcando página e consultando na unidade sem depender de bateria ou sinal. O mesmo conteúdo, no formato que muita gente prefere.",
+    inclui:["Edição impressa da formação","Conteúdo completo em papel","Para anotar e consultar na operação","Envio para todo o Brasil"],
+    quem:"Quem prefere estudar no papel, ou quer deixar o material disponível para a equipe consultar dentro da unidade.",
+    selo:"Garantia de 7 dias · Produto físico — prazo e frete no checkout",
+    cta:"Quero a edição impressa", destaque:false, fita:"Novo",
+    link:"https://pay.hotmart.com/G107401964I"
+  },
+  {
+    idx:"06", kicker:"Combo · Linha completa", nome:"Combo Linha de Frente",
+    mini:"Combo", preco:"R$ 697",
+    tagline:"A linha inteira numa compra só, com o desconto já aplicado.",
+    texto:"Todos os materiais do UAN no Dia a Dia reunidos numa única compra, com o desconto já embutido — você não precisa de cupom nenhum. É a forma mais econômica de levar tudo: a formação, as ferramentas da rotina, o software que gera os cardápios e o manual de alimentação offshore.",
+    inclui:["Formação UAN de Ponta a Ponta","Kit Profissional Completo","UAN PRO · licença de 1 ano","Manual UAN Offshore","Entrega imediata de todos os materiais","A maior economia do catálogo"],
+    quem:"Quem quer a linha inteira de uma vez, com a maior economia — e não pretende montar a estante aos poucos.",
+    selo:"Garantia incondicional de 7 dias · Acesso imediato a todos os materiais",
     cta:"Ver o Combo", destaque:true, fita:"Maior economia",
-    cupom:"", desconto:"",
-    desde:"2026-08-23T00:00:00-03:00", desdeTxt:"23 de agosto",
     link:"https://pay.hotmart.com/N107018373P"
+  },
+  {
+    idx:"07", kicker:"Mentoria · 12 meses", nome:"Mentoria Anual",
+    mini:"Mentoria", preco:"R$ 1.297",
+    tagline:"Acelere em 12 meses o que leva anos para dominar sozinho.",
+    texto:"A prática não se aprende só na teoria: liderar trinta pessoas, negociar com o fiscal, calcular o custo real da refeição e passar em auditoria sem dor de cabeça. Aqui você tem o material completo mais acompanhamento direto comigo durante um ano inteiro, aplicado ao seu contexto real.",
+    inclui:["E-book completo — 9 capítulos","Kit com 10 ferramentas prontas","Planilha de Custo por Refeição","Banco de Substituições (100+ trocas)","WhatsApp direto por 12 meses","Apoio em auditorias e crises"],
+    quem:"Estudantes, recém-formados e nutricionistas de UAN, clínica, consultoria e auditoria que querem encurtar a curva de aprendizado.",
+    selo:"Garantia de 7 dias · Acesso imediato ao material · Agenda enviada em 24h",
+    cta:"Falar sobre a Mentoria", destaque:false, fita:"Acompanhamento direto",
+    link:"https://pay.hotmart.com/W102925018C"
   }
 ];
 
-/* CARDÁPIO PRO
-   Antes do lançamento (10/07/2026), o botão abre a janela de LISTA DE ESPERA (FormSubmit).
-   Depois do lançamento, ele leva à página dedicada do UAN PRO.
-   >>> COLE AQUI o link de compra do UAN PRO quando o produto estiver ativo na Hotmart. */
-var LINK_CARDAPIO_PRO = "https://uannodiaadia.com/uanpro/"; // página dedicada do UAN PRO (dentro do próprio site)
+/* página dedicada do UAN PRO — usada pelos botões da seção e do topo */
+var LINK_CARDAPIO_PRO = "https://uannodiaadia.com/uanpro/";
 
 var check = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C8A847" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>';
 
 document.getElementById('prodGrid').className = 'dossie-list';
 
-/* Campanha Mês do Nutricionista */
-var CAMP_INICIO = Date.parse('2026-08-23T00:00:00-03:00');   // abre a janela
-var CAMP_FIM    = Date.parse('2026-08-31T23:59:59-03:00');   // encerra
-var MES_FIM     = Date.parse('2026-09-01T00:00:00-03:00');   // faixa do mês sai da capa
-
-/* faixa do Mês do Nutricionista na capa: sai sozinha em 01/09 */
-(function(){
-  var f=document.getElementById('nutriFaixa');
-  if(!f) return;
-  function ver(){
-    if(Date.now()>=MES_FIM){ f.style.display='none'; return; }
-    var sub=document.getElementById('nfSub');
-    if(sub && Date.now()>=CAMP_INICIO && Date.now()<=CAMP_FIM){
-      sub.innerHTML='<span>Janela aberta \u00b7 at\u00e9 40% na linha \u00b7 UAN PRO com UANPRO20</span><span class="arr">\u2192</span>';
-    }
-  }
-  ver(); setInterval(ver,30000);
-})();
-
 function renderProdutos(){
   var agora = Date.now();
   document.getElementById('prodGrid').innerHTML = PRODUTOS.map(function(p){
     var espera = p.desde && agora < Date.parse(p.desde);
-    var promo  = agora >= CAMP_INICIO && agora <= CAMP_FIM;
     var fita   = espera ? 'Em breve · '+p.desdeTxt : p.fita;
-    var chip = '';
-    if(promo && !espera){
-      if(p.cupom){
-        chip = '<div class="chip-cupom">Cupom <b>'+p.cupom+'</b> <span>'+p.desconto+' até 31/08</span></div>';
-      } else if(p.nome.indexOf('Combo')>=0){
-        chip = '<div class="chip-cupom embutido"><b>Desconto já embutido</b> <span>não precisa de cupom</span></div>';
-      }
-    }
     var btn = espera
       ? '<span class="btn btn-ghost">Disponível em '+p.desdeTxt+'</span>'
       : '<a class="btn '+(p.destaque?'btn-gold':'btn-ghost')+'" href="'+p.link+'"'+(p.interno?'':' target="_blank" rel="noopener"')+'>'+p.cta+' <span class="arr">\u2192</span></a>';
@@ -1370,61 +1236,13 @@ function renderProdutos(){
       + '<p class="texto">'+p.texto+'</p>'
       + '<ul class="inclui">'+p.inclui.map(function(b){return '<li>'+check+'<span>'+b+'</span></li>';}).join('')+'</ul>'
       + '<p class="quem"><b>Para quem é:</b> '+p.quem+'</p>'
-      + chip
+      + (p.preco? '<div class="preco"><b>'+p.preco+'</b>'+(p.nome==='UAN PRO'?'<span>/ano</span>':'')+'</div>' : '')
       + '<div class="dossie-foot">'+btn
       + '<span class="garantia">'+p.selo+'</span>'
       + '</div></div></article>';
   }).join('');
 }
 renderProdutos();
-
-/* Contador da campanha */
-(function(){
-  var box=document.getElementById('campanha');
-  if(!box) return;
-  var D=document.getElementById('cpD'), H=document.getElementById('cpH'),
-      M=document.getElementById('cpM'), S=document.getElementById('cpS');
-  var jaAbriu=false;
-  function pad(n){ return (n<10?'0':'')+n; }
-  function tick(){
-    var agora=Date.now();
-    if(agora>CAMP_FIM){ box.hidden=true; return; }           // campanha encerrada
-    box.hidden=false;
-    var pre = agora < CAMP_INICIO;
-    var alvo = pre ? CAMP_INICIO : CAMP_FIM;
-    if(pre){
-      document.getElementById('cpEyebrow').textContent='Agosto · Mês do Nutricionista';
-      document.getElementById('cpTitulo').textContent='A janela do Mês do Nutricionista abre em breve.';
-      document.getElementById('cpSub').textContent='De 23 a 31 de agosto: até 40% na linha com NUTRI40, 20% no UAN PRO com UANPRO20, 25% na Mentoria com MENTORIA25, mais dois lançamentos e o Combo Linha de Frente.';
-      document.getElementById('cpCupom').hidden=true;
-      document.getElementById('cpCupom2').hidden=true;
-    } else {
-      document.getElementById('cpEyebrow').textContent='Janela aberta · encerra 31/08 às 23h59';
-      document.getElementById('cpTitulo').textContent='Mês do Nutricionista: descontos em toda a linha.';
-      document.getElementById('cpSub').textContent='NUTRI40 vale para Guia Essencial, Kit, FORMAÇÃO e Manual Offshore. O UAN PRO tem cupom próprio (UANPRO20, 20%) e a Mentoria Anual também (MENTORIA25, 25%). O Combo já vem com desconto embutido.';
-      document.getElementById('cpCupom').hidden=false;
-      document.getElementById('cpCupom2').hidden=false;
-      if(!jaAbriu){ jaAbriu=true; renderProdutos(); }        // acende cupons e libera os novos
-    }
-    var d=alvo-agora;
-    D.textContent=pad(Math.floor(d/864e5));
-    H.textContent=pad(Math.floor(d/36e5)%24);
-    M.textContent=pad(Math.floor(d/6e4)%60);
-    S.textContent=pad(Math.floor(d/1e3)%60);
-  }
-  tick(); setInterval(tick,1000);
-})();
-
-/* Selo do cupom UANPRO20 no bloco de preço: aparece 23/08 00h, some 31/08 23h59 */
-(function(){
-  var selo=document.getElementById('offerCupom');
-  if(!selo) return;
-  function ver(){
-    var agora=Date.now();
-    selo.hidden = !(agora>=CAMP_INICIO && agora<=CAMP_FIM);
-  }
-  ver(); setInterval(ver,30000);
-})();
 
 /* ---- header scroll ---- */
 var hdr=document.getElementById('hdr');
@@ -1525,7 +1343,6 @@ document.getElementById('yr').textContent=new Date().getFullYear();
       });
   });
 })();
-
 
 /* ---- ferramentas gratuitas: captura + download automático ---- */
 (function(){
@@ -1652,8 +1469,15 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     if(!form.checkValidity()){ form.reportValidity(); return; }
     sb.disabled=true; sb.textContent='Enviando...';
     var fd=new FormData(form);
-    var dados={}; fd.forEach(function(v,k){ if(k.charAt(0)!=='_') dados[k]=v; });
-    dados.Origem='Site — Ferramentas gratuitas';
+    var bruto={}; fd.forEach(function(v,k){ if(k.charAt(0)!=='_') bruto[k]=v; });
+    /* o Make/Brevo espera as chaves em minúsculo — é o formato que o webhook conhece */
+    var dados={
+      nome:       bruto['Nome']     || '',
+      email:      bruto['E-mail']   || '',
+      whatsapp:   bruto['WhatsApp'] || '',
+      ferramenta: bruto['Ferramenta'] || '',
+      origem:     'Site — Ferramentas gratuitas'
+    };
     fd.append('_url', window.location.href);
 
     // 1) Make -> Brevo (em paralelo, não trava o fluxo)
@@ -1673,7 +1497,6 @@ document.getElementById('yr').textContent=new Date().getFullYear();
       });
   });
 })();
-
 
 /* ---- ciclo interativo do UAN PRO: comanda as telas reais ---- */
 (function(){
@@ -1721,7 +1544,6 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   ir(0); liga();
 })();
 
-
 /* ---- medição no Google Analytics (GA4) ---- */
 (function(){
   var GA='G-G0CWJBCTMM';
@@ -1753,11 +1575,6 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     ev('lead_ferramenta', {ferramenta: f? f.value : '(não identificada)'});
   });
 
-  /* clique no cupom da campanha */
-  document.addEventListener('click', function(e){
-    var c=e.target.closest && e.target.closest('.chip-cupom, .cupom');
-    if(c) ev('viu_cupom', {texto:(c.textContent||'').replace(/\s+/g,' ').trim().slice(0,60)});
-  }, true);
 })();
 
 /* ---- aviso de cookies ---- */
