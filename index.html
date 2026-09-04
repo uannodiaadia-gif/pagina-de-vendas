@@ -78,13 +78,23 @@
       "name":"UAN no Dia a Dia",
       "inLanguage":"pt-BR",
       "publisher":{"@id":"https://uannodiaadia.com/#marca"}
+    },
+    {
+      "@type":"Service",
+      "name":"Consultoria Empresarial UAN no Dia a Dia",
+      "url":"https://uannodiaadia.com/#consultoria-empresarial",
+      "description":"Assessoria em gestão para sócios e gestores de empresas de refeições coletivas (transportadas ou não) e para consultorias de qualidade em UAN. Diagnóstico, gestão operacional, precificação, gestão de pessoas e ferramentas do ecossistema UAN no Dia a Dia — sem assumir a responsabilidade técnica (RT) da contratante.",
+      "areaServed":"BR",
+      "provider":{"@id":"https://uannodiaadia.com/#marca"},
+      "serviceType":"Consultoria empresarial e assessoria em gestão de UAN",
+      "audience":{"@type":"BusinessAudience","audienceType":"Empresas de refeições coletivas e consultorias de qualidade em UAN"}
     }
   ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --g900:#06160f; --g850:#08231a; --g800:#0B3D2E; --g700:#0F4D36; --g600:#13624a;
@@ -663,6 +673,89 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
   *{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
   html{scroll-behavior:auto}
 }
+
+/* ============================================================
+   CONSULTORIA EMPRESARIAL — linha de serviço à parte.
+   Paleta e tipografia próprias (grafite / verde-oliva / off-white /
+   ocre — Lora itálica + Poppins + JetBrains Mono), oficializadas
+   como identidade visual da linha em 2026-09-03. De propósito,
+   destoa do verde-esmeralda/dourado do resto do site: sinaliza
+   "outro patamar" para quem chega buscando gestão para a empresa,
+   não infoproduto para o indivíduo.
+   ============================================================ */
+.consultoria{
+  --ce-ink:#23221E; --ce-ink-mut:#5b594f; --ce-ink-dim:#8a887c;
+  --ce-olive:#5E6E56; --ce-olive-dk:#454f40;
+  --ce-bg:#FAF8F3; --ce-bg2:#F1EEE4;
+  --ce-ocre:#A87C2C; --ce-ocre-lt:#c99a44;
+  --ce-line:rgba(35,34,30,.14);
+  --ce-serif:'Lora',Georgia,serif; --ce-sans:'Poppins',system-ui,sans-serif; --ce-mono:'JetBrains Mono',ui-monospace,monospace;
+  background:var(--ce-bg); color:var(--ce-ink); font-family:var(--ce-sans);
+  border-top:1px solid var(--ce-ocre); padding:100px 0 108px; overflow:hidden;
+}
+.consultoria .wrap{position:relative}
+.ce-eyebrow{font-family:var(--ce-mono);font-size:11.5px;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ce-ocre);display:inline-flex;align-items:center;gap:10px}
+.ce-eyebrow::before{content:"";width:26px;height:1px;background:var(--ce-ocre);opacity:.8}
+.ce-head{max-width:760px}
+.ce-head h2{font-family:var(--ce-serif);font-weight:600;font-size:clamp(28px,3.8vw,44px);
+  line-height:1.14;letter-spacing:-.01em;margin:18px 0 0;color:var(--ce-ink)}
+.ce-head h2 em{font-style:italic;color:var(--ce-ocre)}
+.ce-head .ce-lead{color:var(--ce-ink-mut);margin-top:18px;font-size:16.5px;line-height:1.7;max-width:640px}
+.ce-quem{margin-top:20px;padding:13px 18px;border-left:2px solid var(--ce-ocre);
+  background:rgba(168,124,44,.07);border-radius:0 10px 10px 0;font-size:14px;
+  color:var(--ce-ink-mut);line-height:1.6;max-width:640px}
+.ce-quem b{color:var(--ce-ink);font-weight:600}
+
+.ce-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:60px;margin-top:56px;align-items:start}
+.ce-grid>*{min-width:0}
+@media(max-width:920px){.ce-grid{grid-template-columns:1fr;gap:40px}}
+
+.ce-pilares{display:grid;grid-template-columns:1fr 1fr;gap:26px 28px;min-width:0}
+@media(max-width:560px){.ce-pilares{grid-template-columns:1fr}}
+.ce-pilar{display:flex;gap:14px;align-items:flex-start}
+.ce-pilar .ci{width:36px;height:36px;border-radius:10px;flex:none;display:flex;align-items:center;
+  justify-content:center;background:var(--ce-bg2);border:1px solid var(--ce-line)}
+.ce-pilar .ci svg{width:18px;height:18px;stroke:var(--ce-olive);fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.ce-pilar b{display:block;font-size:14.5px;color:var(--ce-ink);font-weight:600;margin-bottom:4px}
+.ce-pilar p{font-size:13.5px;color:var(--ce-ink-mut);line-height:1.55;margin:0}
+
+.ce-panel{background:var(--ce-ink);border-radius:22px;padding:36px 34px 32px;color:var(--ce-bg);
+  box-shadow:0 26px 60px rgba(35,34,30,.16)}
+.ce-panel .ce-eyebrow{color:var(--ce-ocre-lt)}
+.ce-panel .ce-eyebrow::before{background:var(--ce-ocre-lt)}
+.ce-panel h3{font-family:var(--ce-serif);font-style:italic;font-weight:600;font-size:24px;
+  margin:14px 0 0;line-height:1.25;color:#fff}
+.ce-panel p.ce-sub{color:rgba(250,248,243,.72);font-size:14.5px;margin:12px 0 0;line-height:1.6}
+
+.ce-formato{list-style:none;margin:22px 0 0;padding:20px 0 0;border-top:1px solid rgba(250,248,243,.16);
+  display:flex;flex-direction:column;gap:11px}
+.ce-formato li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:rgba(250,248,243,.85);line-height:1.5}
+.ce-formato li svg{flex:none;margin-top:2px;stroke:var(--ce-ocre-lt);fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round}
+
+.ce-cta{margin-top:26px}
+.ce-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--ce-sans);font-weight:600;
+  font-size:14.5px;padding:14px 24px;border-radius:999px;background:var(--ce-ocre-lt);color:var(--ce-ink);
+  transition:background .2s,transform .18s;max-width:100%}
+.ce-btn:hover{background:#e0b45c;transform:translateY(-2px)}
+.ce-btn .arr{transition:transform .2s}
+.ce-btn:hover .arr{transform:translateX(3px)}
+.ce-micro{margin-top:12px;font-size:12px;color:rgba(250,248,243,.55);line-height:1.5;max-width:34ch}
+
+.ce-rt{margin-top:36px;padding:18px 22px;border:1px solid var(--ce-line);border-radius:14px;
+  background:var(--ce-bg2);display:flex;gap:14px;align-items:flex-start;max-width:820px}
+.ce-rt svg{flex:none;margin-top:2px;stroke:var(--ce-olive);fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.ce-rt p{font-size:13px;color:var(--ce-ink-mut);line-height:1.6;margin:0}
+.ce-rt p b{color:var(--ce-ink);font-weight:600}
+
+@media(max-width:640px){
+  .consultoria{padding:76px 0 84px}
+  .ce-panel{padding:28px 24px 26px}
+  .ce-btn{width:100%;justify-content:center;text-align:center}
+}
 </style>
 </head>
 <body>
@@ -685,6 +778,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
       <a href="#cardapio-pro">UAN PRO</a>
       <a href="#ferramentas">Ferramentas grátis</a>
       <a href="#sobre">Sobre</a>
+      <a href="#consultoria-empresarial">Consultoria Empresarial</a>
       <a class="btn btn-gold" href="#produtos">Começar agora <span class="arr">→</span></a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">
@@ -1003,6 +1097,68 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
   </div>
 </section>
 
+<!-- ============ CONSULTORIA EMPRESARIAL ============ -->
+<section class="consultoria" id="consultoria-empresarial">
+  <div class="wrap">
+    <div class="ce-head rv">
+      <span class="ce-eyebrow">Consultoria Empresarial · UAN no Dia a Dia</span>
+      <h2>Sua empresa também precisa de <em>gestão</em> — não só de cardápio.</h2>
+      <p class="ce-lead">Assessoria em gestão para sócios e gestores de empresas do ramo de refeições coletivas — transportadas ou não — e para consultorias de qualidade em UAN que precisam do mesmo apoio para o próprio negócio. Conduzida por quem administra uma UAN de verdade: sócio-gestor e responsável técnico da Servir Refeições Coletivas (Juiz de Fora/MG), cerca de 10 mil refeições por dia.</p>
+      <p class="ce-quem"><b>Fora do catálogo de infoprodutos.</b> É um serviço novo, contratado diretamente comigo, mediante contrato — o preço é definido a partir de um diagnóstico da sua operação, não é um pacote fechado.</p>
+    </div>
+
+    <div class="ce-grid">
+      <div class="ce-pilares rv d1">
+        <div class="ce-pilar">
+          <div class="ci"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m18 0V5a2 2 0 00-2-2h-4M9 21H5a2 2 0 01-2-2v-4m18 0v4a2 2 0 01-2 2h-4"/></svg></div>
+          <div><b>Diagnóstico inicial</b><p>Raio-x da estrutura: time, espaço físico, insumos, documentação, contratos, logística e equipamentos.</p></div>
+        </div>
+        <div class="ce-pilar">
+          <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div>
+          <div><b>Gestão operacional contínua</b><p>Apoio à rotina do dia a dia, treinamentos, cultura organizacional e relação com os clientes da sua empresa.</p></div>
+        </div>
+        <div class="ce-pilar">
+          <div class="ci"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+          <div><b>Painel comercial</b><p>Ferramenta para precificar cardápios e serviços, e apoiar a prospecção comercial da sua empresa.</p></div>
+        </div>
+        <div class="ce-pilar">
+          <div class="ci"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div><b>Gestão de pessoas</b><p>Estratégias para reter e desenvolver o time operacional — o ponto que mais pesa no dia a dia.</p></div>
+        </div>
+        <div class="ce-pilar">
+          <div class="ci"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+          <div><b>Ecossistema UAN no Dia a Dia</b><p>Materiais e ferramentas do projeto, usados como apoio prático ao longo da consultoria.</p></div>
+        </div>
+        <div class="ce-pilar">
+          <div class="ci"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 4v5"/></svg></div>
+          <div><b>UAN PRO incluso</b><p>Licença anual do software de geração de cardápios incluída, com limite de duas licenças.</p></div>
+        </div>
+      </div>
+
+      <div class="ce-panel rv d2">
+        <span class="ce-eyebrow">Formato de atendimento</span>
+        <h3>Direto, por WhatsApp e videochamada.</h3>
+        <p class="ce-sub">Sem plataforma, sem burocracia — contato humano em dias úteis, no horário comercial.</p>
+        <ul class="ce-formato">
+          <li><svg width="15" height="15" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Reunião de abertura com os sócios, online</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Contato direto em dias úteis, via WhatsApp</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Reuniões estruturadas periódicas, online</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Visita presencial opcional, com deslocamento por conta da contratante</li>
+        </ul>
+        <div class="ce-cta">
+          <a class="ce-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScFTSi3UfsyrqcR2jJe6QETWC3PQtGOSj_luuzu798qSA1GlA/viewform" target="_blank" rel="noopener">Preencher o diagnóstico da sua empresa <span class="arr">→</span></a>
+          <p class="ce-micro">Formulário rápido, para eu entender o porte e o momento da sua operação antes de conversarmos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ce-rt rv d3">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+      <p><b>Consultoria e assessoria em gestão — não responsabilidade técnica.</b> Sou RT da minha própria operação, em Juiz de Fora/MG. A RT da sua empresa permanece com o nutricionista responsável dela.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
@@ -1025,6 +1181,7 @@ footer{border-top:1px solid var(--line);background:var(--g900);padding:60px 0 34
         <a href="#produtos">Formação</a>
         <a href="#produtos">Mentoria Anual</a>
         <a href="#cardapio-pro">UAN PRO</a>
+        <a href="#consultoria-empresarial">Consultoria Empresarial</a>
       </div>
       <div class="foot-col">
         <h4>Contato</h4>
