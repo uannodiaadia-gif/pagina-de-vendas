@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consultoria Empresarial — UAN no Dia a Dia</title>
+<meta name="description" content="Assessoria em gestão para empresas de refeições coletivas e para consultorias de qualidade em UAN. O cliente é a empresa. Conduzida por Osmar Almeida, Nutricionista CRN 12979.">
+<link rel="canonical" href="https://uannodiaadia.com/consultoria-empresarial/">
+<meta property="og:title" content="Consultoria Empresarial — UAN no Dia a Dia">
+<meta property="og:description" content="Assessoria em gestão para empresas de refeições coletivas e para consultorias de qualidade em UAN.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="UAN no Dia a Dia">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://uannodiaadia.com/consultoria-empresarial/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Consultoria Empresarial — um braço do UAN no Dia a Dia">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/consultoria-empresarial/favicon.svg">
+<link rel="apple-touch-icon" href="/consultoria-empresarial/assets/apple-touch-icon.png">
+<meta property="og:url" content="https://uannodiaadia.com/consultoria-empresarial/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tinta:#23221E;
+  --corpo:#3C3A34;
+  --suave:#6B6759;
+  --oliva:#5E6E56;
+  --oliva-claro:#8A9682;
+  --papel:#FAF8F3;
+  --papel2:#F1ECE0;
+  --ocre:#A87C2C;
+  --ocre-claro:#C8A847;
+  --linha:#DDD8CB;
+  --fina:#E8E4D9;
+  --escuro:#1E2A20;
+  --col:min(1120px,100% - 2.5rem);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--papel);color:var(--corpo);
+  font:400 16.5px/1.7 'Poppins',-apple-system,'Segoe UI',Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{width:var(--col);margin-inline:auto}
+a{color:var(--ocre);text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ocre);outline-offset:3px}
+img,svg{max-width:100%}
+
+/* ================= TIPOGRAFIA ================= */
+h1,h2,h3{color:var(--tinta);margin:0;text-wrap:balance}
+h1{font:400 clamp(31px,5.6vw,56px)/1.1 'Lora',Georgia,serif;font-style:italic;letter-spacing:-.018em}
+h2{font:500 clamp(23px,3.4vw,34px)/1.2 'Lora',Georgia,serif;font-style:italic;letter-spacing:-.012em}
+h3{font:600 17px/1.35 'Poppins',sans-serif;letter-spacing:-.003em}
+p{margin:0 0 1.1em;max-width:68ch}
+.rotulo{
+  font:500 11.5px/1.4 'JetBrains Mono',Consolas,monospace;color:var(--oliva);
+  display:block;margin-bottom:14px;
+}
+.lide{font-size:clamp(17px,2.1vw,20px);line-height:1.6;color:var(--corpo);max-width:46ch}
+
+/* ================= TOPO ================= */
+.topo{
+  position:sticky;top:0;z-index:50;background:rgba(250,248,243,.94);
+  backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--fina);
+}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:66px}
+.marca{display:flex;align-items:center;gap:11px;color:var(--tinta)}
+.marca .selo{width:26px;height:29px;flex:none}
+.marca b{font:600 15px/1.1 'Poppins',sans-serif;display:block;letter-spacing:-.01em}
+.marca i{
+  font:400 10.5px/1.3 'JetBrains Mono',monospace;font-style:normal;
+  color:var(--oliva);display:block;margin-top:2px;
+}
+.topo nav{display:flex;align-items:center;gap:26px}
+.topo nav a{font-size:14.5px;color:var(--corpo)}
+.topo nav a:hover{color:var(--ocre)}
+.btn-topo{
+  background:var(--escuro);color:var(--papel)!important;padding:9px 17px;font-size:14px;
+}
+.btn-topo:hover{background:var(--oliva)}
+@media (max-width:840px){.topo nav a:not(.btn-topo){display:none}}
+
+/* ================= HERO ================= */
+.hero{padding:clamp(52px,8vw,104px) 0 0}
+.familia{
+  font:400 12px/1.5 'JetBrains Mono',monospace;color:var(--oliva);
+  display:inline-flex;align-items:center;gap:9px;margin-bottom:26px;
+}
+.familia:before{content:"";width:26px;height:1px;background:var(--ocre)}
+.hero h1{max-width:19ch;margin-bottom:24px}
+.hero .lide{margin-bottom:0}
+.hero-grade{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:end}
+.hero-nota{
+  border-left:2px solid var(--linha);padding-left:20px;font-size:15px;color:var(--suave);
+  max-width:34ch;
+}
+.hero-nota strong{color:var(--tinta);font-weight:500}
+@media (max-width:820px){.hero-grade{grid-template-columns:1fr;align-items:start}}
+
+/* ================= AS DUAS PORTAS ================= */
+.portas{margin-top:clamp(46px,7vw,84px);border-top:1px solid var(--tinta)}
+.portas-grade{display:grid;grid-template-columns:1fr 1fr}
+.porta{
+  padding:clamp(28px,3.4vw,44px) clamp(24px,3vw,40px) clamp(30px,3.4vw,44px);
+  border-right:1px solid var(--linha);display:flex;flex-direction:column;
+  background:var(--papel);
+}
+.porta:last-child{border-right:none}
+.porta-i{
+  font:400 11.5px/1.4 'JetBrains Mono',monospace;color:var(--oliva);margin-bottom:16px;
+}
+.porta h2{font-size:clamp(21px,2.5vw,27px);margin-bottom:14px}
+.porta p{font-size:15.5px;color:var(--corpo);margin-bottom:20px;max-width:38ch}
+.porta ul{list-style:none;margin:0 0 26px;padding:0}
+.porta li{
+  font-size:14.5px;line-height:1.55;padding:6px 0 6px 17px;position:relative;color:var(--suave);
+}
+.porta li:before{
+  content:"";position:absolute;left:0;top:14px;width:7px;height:1.5px;background:var(--ocre-claro);
+}
+.porta .acao{margin-top:auto}
+.btn{
+  display:inline-block;background:var(--escuro);color:var(--papel);
+  font:500 15px/1 'Poppins',sans-serif;padding:15px 24px;
+  transition:background .18s ease;
+}
+.btn:hover{background:var(--oliva)}
+.btn-sec{
+  display:inline-block;border:1px solid var(--tinta);color:var(--tinta);
+  font:500 15px/1 'Poppins',sans-serif;padding:14px 23px;
+}
+.btn-sec:hover{background:var(--tinta);color:var(--papel)}
+.porta .depois{
+  display:block;margin-top:12px;font-size:13px;color:var(--suave);font-style:italic;
+  font-family:'Lora',Georgia,serif;
+}
+@media (max-width:760px){
+  .portas-grade{grid-template-columns:1fr}
+  .porta{border-right:none;border-bottom:1px solid var(--linha)}
+  .porta:last-child{border-bottom:none}
+}
+
+/* ================= SEÇÕES ================= */
+section.bl{padding:clamp(56px,8vw,110px) 0;border-top:1px solid var(--linha)}
+section.bl.sem-linha{border-top:none}
+.dupla{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:clamp(24px,4vw,68px)}
+@media (max-width:900px){.dupla{grid-template-columns:1fr;gap:22px}}
+.cabeca h2{margin-bottom:12px}
+.cabeca .sob{font-size:15px;color:var(--suave);max-width:30ch;margin:0}
+
+/* --- sintomas em duas vozes --- */
+.vozes{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3.5vw,52px)}
+.voz h3{margin-bottom:4px}
+.voz .quem{
+  font:400 12px/1.4 'JetBrains Mono',monospace;color:var(--oliva);margin:0 0 18px;
+}
+.voz ul{list-style:none;margin:0;padding:0}
+.voz li{
+  padding:11px 0 11px 22px;border-top:1px solid var(--fina);position:relative;
+  font-size:15.5px;line-height:1.5;
+}
+.voz li:before{
+  content:"";position:absolute;left:0;top:19px;width:9px;height:9px;
+  border:1.5px solid var(--oliva-claro);transform:rotate(45deg);
+}
+@media (max-width:720px){.vozes{grid-template-columns:1fr;gap:34px}}
+.fecho-voz{
+  margin-top:34px;padding-top:22px;border-top:1px solid var(--tinta);
+  font:500 clamp(17px,2.2vw,21px)/1.45 'Lora',Georgia,serif;font-style:italic;color:var(--tinta);
+  max-width:52ch;
+}
+
+/* --- é / não é --- */
+.par{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px)}
+.painel{padding:26px 28px;background:var(--papel2)}
+.painel.nao{background:transparent;border:1px solid var(--linha)}
+.painel h3{margin-bottom:16px}
+.painel ul{list-style:none;margin:0;padding:0}
+.painel li{
+  display:flex;gap:11px;align-items:flex-start;padding:7px 0;font-size:15.5px;line-height:1.5;
+}
+.painel svg{width:15px;height:15px;flex:none;margin-top:5px;stroke-width:2.2;fill:none}
+.painel.sim svg{stroke:var(--oliva)}
+.painel.nao svg{stroke:#9A9384}
+@media (max-width:720px){.par{grid-template-columns:1fr}}
+
+/* --- frentes --- */
+.frentes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linha)}
+.frente{background:var(--papel);padding:26px 24px 28px}
+.frente .n{
+  font:400 12px/1 'JetBrains Mono',monospace;color:var(--ocre);display:block;margin-bottom:14px;
+}
+.frente h3{margin-bottom:8px}
+.frente p{font-size:14.5px;line-height:1.6;color:var(--suave);margin:0}
+.frente.larga{grid-column:span 3;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);
+  gap:clamp(16px,3vw,44px);align-items:start;padding:30px 24px 32px}
+.frente.larga .n{color:var(--ocre)}
+.frente.larga h3{margin-bottom:0}
+.frente.larga p{font-size:15px;max-width:60ch}
+@media (max-width:860px){
+  .frentes{grid-template-columns:1fr 1fr}
+  .frente.larga{grid-column:span 2}
+}
+@media (max-width:640px){.frente.larga{grid-template-columns:1fr;gap:8px}}
+@media (max-width:560px){
+  .frentes{grid-template-columns:1fr}
+  .frente.larga{grid-column:span 1}
+}
+
+/* --- fluxo --- */
+.fluxo{list-style:none;margin:0;padding:0;counter-reset:et}
+.fluxo li{
+  display:grid;grid-template-columns:52px 1fr;gap:20px;
+  padding:22px 0;border-top:1px solid var(--fina);
+}
+.fluxo li:first-child{border-top:1px solid var(--tinta)}
+.fluxo .marca-et{
+  font:500 26px/1 'Lora',Georgia,serif;color:var(--oliva-claro);
+}
+.fluxo h3{margin-bottom:5px}
+.fluxo p{font-size:15px;color:var(--suave);margin:0;max-width:56ch}
+
+/* --- cadência --- */
+.cad{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--linha)}
+.cad>div{background:var(--papel);padding:24px 26px}
+.cad h3{margin-bottom:7px}
+.cad p{font-size:14.5px;color:var(--suave);margin:0}
+@media (max-width:640px){.cad{grid-template-columns:1fr}}
+
+/* --- sigilo (escuro) --- */
+.escuro-bl{background:var(--escuro);color:#DCE0D6;border-top:none}
+.escuro-bl h2,.escuro-bl h3{color:#F4F2EB}
+.escuro-bl .rotulo{color:var(--ocre-claro)}
+.escuro-bl .sob{color:#A9B0A0}
+.escuro-bl .cad{background:rgba(255,255,255,.14)}
+.escuro-bl .cad>div{background:var(--escuro)}
+.escuro-bl .cad p{color:#A9B0A0}
+
+/* --- investimento --- */
+.criterios{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--linha);margin-top:8px}
+.crit{background:var(--papel);padding:24px 26px 28px}
+.crit .quem{font:400 12px/1.4 'JetBrains Mono',monospace;color:var(--oliva);margin:0 0 16px}
+.crit table{width:100%;border-collapse:collapse;font-size:14.5px}
+.crit th{
+  text-align:left;font:500 11.5px/1.4 'JetBrains Mono',monospace;color:var(--oliva);
+  padding:0 0 9px;border-bottom:1px solid var(--linha);font-weight:500;
+}
+.crit td{padding:11px 0;border-bottom:1px solid var(--fina);vertical-align:top}
+.crit th:first-child{padding-right:16px}
+.crit td:first-child{
+  font:500 15px/1.3 'Lora',Georgia,serif;color:var(--tinta);width:2.6em;
+}
+.crit tr:last-child td{border-bottom:none}
+@media (max-width:720px){.criterios{grid-template-columns:1fr}}
+.nota-preco{
+  margin-top:26px;padding:20px 22px;background:var(--papel2);border-left:3px solid var(--ocre);
+  font-size:15px;max-width:64ch;
+}
+.nota-preco p:last-child{margin-bottom:0}
+
+/* --- quem conduz --- */
+.conduz{font-size:16.5px}
+.conduz .assina{
+  margin-top:26px;padding-top:20px;border-top:1px solid var(--linha);
+  font:400 13px/1.7 'JetBrains Mono',monospace;color:var(--oliva);
+}
+
+/* --- perguntas --- */
+.faq{border-top:1px solid var(--tinta)}
+.faq details{border-bottom:1px solid var(--fina)}
+.faq summary{
+  cursor:pointer;padding:19px 34px 19px 0;position:relative;list-style:none;
+  font:500 16.5px/1.45 'Poppins',sans-serif;color:var(--tinta);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{
+  content:"";position:absolute;right:6px;top:50%;width:11px;height:11px;
+  border-right:1.5px solid var(--oliva);border-bottom:1.5px solid var(--oliva);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s ease;
+}
+.faq details[open] summary:after{transform:translateY(-30%) rotate(225deg)}
+.faq .resp{padding:0 0 22px;font-size:15.5px;color:var(--suave);max-width:66ch}
+.faq .resp p:last-child{margin-bottom:0}
+
+/* --- CTA final --- */
+.final{background:var(--papel2);border-top:1px solid var(--linha)}
+.final h2{margin-bottom:14px}
+.final .lide{margin-bottom:34px;max-width:50ch}
+.final .portas{margin-top:0;border-top:1px solid var(--tinta);background:var(--papel)}
+
+/* --- rodapé --- */
+footer{background:var(--escuro);color:#A9B0A0;padding:clamp(44px,6vw,72px) 0 34px;font-size:14.5px}
+footer a{color:var(--ocre-claro)}
+.rod-grade{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer strong{display:block;color:#F4F2EB;font-weight:500;margin-bottom:9px}
+footer p{margin:0;line-height:1.8}
+.rt{
+  margin-top:38px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);
+  font-size:13px;line-height:1.7;color:#8E958A;max-width:96ch;
+}
+@media (max-width:760px){.rod-grade{grid-template-columns:1fr;gap:26px}}
+
+/* --- abertura orquestrada, uma vez só --- */
+@media (prefers-reduced-motion:no-preference){
+  .ent{opacity:0;transform:translateY(14px);animation:sobe .7s cubic-bezier(.2,.7,.3,1) forwards}
+  .ent:nth-child(1){animation-delay:.05s}
+  .familia.ent{animation-delay:0s}
+  .hero h1.ent{animation-delay:.09s}
+  .hero .lide.ent{animation-delay:.18s}
+  .hero-nota.ent{animation-delay:.27s}
+  .portas.ent{animation-delay:.36s}
+  @keyframes sobe{to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="https://uannodiaadia.com">
+      <svg class="selo" viewBox="0 0 100 112" aria-hidden="true">
+        <polygon points="50,3 95,29 95,83 50,109 5,83 5,29" fill="none" stroke="#A87C2C" stroke-width="4"/>
+        <path d="M34 40 v25 q0 14 16 14 q16 0 16 -14 v-25" fill="none" stroke="#23221E" stroke-width="4.5" stroke-linecap="round"/>
+        <circle cx="50" cy="79" r="4.4" fill="#A87C2C"/>
+      </svg>
+      <span><b>UAN no Dia a Dia</b><i>Consultoria Empresarial</i></span>
+    </a>
+    <nav>
+      <a href="#frentes">Frentes</a>
+      <a href="#fluxo">Como funciona</a>
+      <a href="#sigilo">Sigilo</a>
+      <a href="#investimento">Investimento</a>
+      <a class="btn-topo" href="#comecar">Começar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grade">
+      <div>
+        <span class="familia ent">Um braço do UAN no Dia a Dia</span>
+        <h1 class="ent">A empresa cresceu. A gestão ficou do mesmo tamanho.</h1>
+        <p class="lide ent">Acompanhamento continuado para quem responde pela empresa, e não só pela unidade. Aqui o cliente é a pessoa jurídica.</p>
+      </div>
+      <div class="hero-nota ent">
+        <strong>Duas modalidades.</strong> Quem produz refeição e quem presta consultoria de qualidade chegam com problemas diferentes. Por isso o diagnóstico começa por caminhos separados.
+      </div>
+    </div>
+  </div>
+
+  <!-- AS DUAS PORTAS -->
+  <div class="wrap portas ent" id="comecar">
+    <div class="portas-grade">
+
+      <div class="porta">
+        <span class="porta-i">Modalidade 1</span>
+        <h2>Empresas de refeições coletivas</h2>
+        <p>Produção própria, servida no local ou transportada, com contrato ativo e equipe na cozinha.</p>
+        <ul>
+          <li>Fecha o mês sem saber qual contrato deu lucro</li>
+          <li>Cardápio precificado por comparação, não por custo</li>
+          <li>Apareceu um contrato maior e falta saber se a estrutura aguenta</li>
+        </ul>
+        <div class="acao">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScFTSi3UfsyrqcR2jJe6QETWC3PQtGOSj_luuzu798qSA1GlA/viewform" target="_blank" rel="noopener">Preencher o diagnóstico</a>
+          <span class="depois">24 perguntas, cerca de 12 minutos</span>
+        </div>
+      </div>
+
+      <div class="porta">
+        <span class="porta-i">Modalidade 2</span>
+        <h2>Consultorias de qualidade em UAN</h2>
+        <p>Carteira de clientes, equipe técnica em campo, e a gestão da própria casa em segundo plano.</p>
+        <ul>
+          <li>O método existe na cabeça dos sócios, não no papel</li>
+          <li>Preço por hora que nunca foi recalculado</li>
+          <li>Se os sócios param, o atendimento para</li>
+        </ul>
+        <div class="acao">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeKkzinT_5r1puyhv9OX9mZ0CQ18yn2U71aRF8L31K-EoCw2A/viewform" target="_blank" rel="noopener">Preencher o diagnóstico</a>
+          <span class="depois">33 perguntas, cerca de 15 minutos</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SINTOMAS EM DUAS VOZES ============ -->
+<section class="bl sem-linha" id="reconhecimento">
+  <div class="wrap dupla">
+    <div class="cabeca">
+      <span class="rotulo">O ponto de partida</span>
+      <h2>Se a sua semana se parece com isto</h2>
+      <p class="sob">Nenhum destes se resolve com mais um curso.</p>
+    </div>
+    <div>
+      <div class="vozes">
+        <div class="voz">
+          <h3>Quem produz refeição</h3>
+          <p class="quem">modalidade 1</p>
+          <ul>
+            <li>A empresa cresceu, a rotina continua no improviso.</li>
+            <li>Equipe entra e sai, e cada saída custa um retreinamento.</li>
+            <li>A sociedade discorda de rumo e a conversa não fecha.</li>
+            <li>O custo por refeição é uma estimativa, não uma conta.</li>
+          </ul>
+        </div>
+        <div class="voz">
+          <h3>Quem presta consultoria</h3>
+          <p class="quem">modalidade 2</p>
+          <ul>
+            <li>A carteira cresceu e a agenda virou fila de urgências.</li>
+            <li>Cada nutricionista da equipe atende do seu jeito.</li>
+            <li>Cliente antigo paga o preço de três anos atrás.</li>
+            <li>Um cliente grande sai e o mês inteiro desmonta.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="fecho-voz">Resolve com método, rotina e alguém acompanhando o que muda a cada mês.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ É / NÃO É ============ -->
+<section class="bl" id="escopo">
+  <div class="wrap dupla">
+    <div class="cabeca">
+      <span class="rotulo">Fronteiras</span>
+      <h2>O que é, e o que não é</h2>
+      <p class="sob">Deixar isso claro antes economiza a conversa de todo mundo.</p>
+    </div>
+    <div class="par">
+      <div class="painel sim">
+        <h3>É</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 13l5 5L20 6"/></svg>Assessoria em gestão empresarial, continuada.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 13l5 5L20 6"/></svg>Diagnóstico da estrutura antes de qualquer proposta.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 13l5 5L20 6"/></svg>Acompanhamento em dias úteis, com reuniões estruturadas.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 13l5 5L20 6"/></svg>Ferramenta de precificação entregue, não só orientação.</li>
+        </ul>
+      </div>
+      <div class="painel nao">
+        <h3>Não é</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Assunção de responsabilidade técnica pela sua unidade.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Elaboração de documentação de qualidade sob demanda.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Consulta pontual para resolver uma dúvida isolada.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Curso, mentoria individual ou infoproduto.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FRENTES ============ -->
+<section class="bl" id="frentes">
+  <div class="wrap dupla">
+    <div class="cabeca">
+      <span class="rotulo">Escopo</span>
+      <h2>Sete frentes de trabalho</h2>
+      <p class="sob">O escopo é o mesmo para qualquer porte e para as duas modalidades. O que muda entre as faixas é o investimento, não a entrega.</p>
+    </div>
+    <div class="frentes">
+      <div class="frente">
+        <span class="n">01</span>
+        <h3>Diagnóstico da estrutura</h3>
+        <p>Time, estrutura física, suprimentos, documentação, contratos, logística e equipamentos.</p>
+      </div>
+      <div class="frente">
+        <span class="n">02</span>
+        <h3>Gestão operacional</h3>
+        <p>Rotina do dia a dia, treinamentos, cultura, gestão de sócios e do relacionamento com os seus clientes.</p>
+      </div>
+      <div class="frente">
+        <span class="n">03</span>
+        <h3>Painel comercial</h3>
+        <p>Precificação de cardápios e serviços, e apoio à prospecção. Entregue como ferramenta.</p>
+      </div>
+      <div class="frente">
+        <span class="n">04</span>
+        <h3>Pessoas e retenção</h3>
+        <p>Artifícios comportamentais para reter equipe, na cozinha e no campo.</p>
+      </div>
+      <div class="frente">
+        <span class="n">05</span>
+        <h3>Ferramentas do ecossistema</h3>
+        <p>Os materiais do UAN no Dia a Dia usados como apoio ao longo do trabalho.</p>
+      </div>
+      <div class="frente">
+        <span class="n">06</span>
+        <h3>UAN PRO incluso</h3>
+        <p>Licença anual do software de geração de cardápios, até duas licenças no valor.</p>
+      </div>
+      <div class="frente larga">
+        <div>
+          <span class="n">07</span>
+          <h3>Inteligência artificial e software</h3>
+        </div>
+        <p>Uso prático de inteligência artificial na rotina administrativa e operacional, com orientação para a sua equipe aplicar no dia a dia — não só para você contratar uma ferramenta. E desenvolvimento de solução em software quando a operação precisa de algo que planilha não resolve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLUXO ============ -->
+<section class="bl" id="fluxo">
+  <div class="wrap dupla">
+    <div class="cabeca">
+      <span class="rotulo">Sequência</span>
+      <h2>Do primeiro contato à primeira reunião</h2>
+      <p class="sob">Cinco etapas, nesta ordem. Você lê o diagnóstico da sua estrutura antes de qualquer conversa de fechamento.</p>
+    </div>
+    <div>
+      <ol class="fluxo">
+        <li><span class="marca-et">1</span><div><h3>Formulário</h3><p>Você escolhe a modalidade e preenche o diagnóstico. É o que me permite dimensionar a empresa antes da conversa.</p></div></li>
+        <li><span class="marca-et">2</span><div><h3>Diagnóstico apresentado</h3><p>Analiso as respostas e devolvo por escrito o diagnóstico da sua estrutura, com escopo e cadência propostos e o porte já apurado. Nada de tabela genérica.</p></div></li>
+        <li><span class="marca-et">3</span><div><h3>Call de diagnóstico</h3><p>Conversa sobre o documento e sobre o que o formulário não pergunta: números de dinheiro, sociedade e o que travou até agora.</p></div></li>
+        <li><span class="marca-et">4</span><div><h3>Contrato</h3><p>Prazo, canais, confidencialidade, propriedade intelectual e a exclusão expressa de responsabilidade técnica.</p></div></li>
+        <li><span class="marca-et">5</span><div><h3>Abertura e rotina</h3><p>Reunião de abertura com os sócios e início do acompanhamento em dias úteis.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CADÊNCIA ============ -->
+<section class="bl" id="cadencia">
+  <div class="wrap dupla">
+    <div class="cabeca">
+      <span class="rotulo">Rotina</span>
+      <h2>Como é o acompanhamento</h2>
+      <p class="sob">Assíncrono no dia a dia, estruturado a cada trimestre.</p>
+    </div>
+    <div class="cad">
+      <div><h3>Reunião de abertura</h3><p>Online, com os sócios, para alinhar rumo, papéis e prioridade dos primeiros noventa dias.</p></div>
+      <div><h3>Contato em dias úteis</h3><p>Grupo de WhatsApp direto, em horário comercial. Dúvida de operação não espera a próxima reunião.</p></div>
+      <div><h3>Reuniões trimestrais</h3><p>Quatro por ano, com pauta, revisão do que foi implantado e definição do trimestre seguinte.</p></div>
+      <div><h3>Visita in loco opcional</h3><p>Semestral, com deslocamento, hospedagem e alimentação por conta da contratante.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGILO ============ -->
+<section class="bl escuro-bl" id="sigilo">
+  <div class="wrap dupla">
+    <div class="cabeca">
+      <span class="rotulo">Confidencialidade</span>
+      <h2>O que você me conta não sai daqui</h2>
+      <p class="sob">Uma empresa não abre custo, contrato e conflito de sociedade sem saber onde isso vai parar.</p>
+    </div>
+    <div class="cad">
+      <div><h3>Sigilo em cláusula</h3><p>Confidencialidade e tratamento de dados pessoais são cláusula do contrato, com base na LGPD, não promessa verbal.</p></div>
+      <div><h3>Seu caso não circula</h3><p>Nada do que aparece no diagnóstico é usado como exemplo, aula ou material do ecossistema sem sua autorização por escrito.</p></div>
+      <div><h3>Conflito declarado antes</h3><p>Se houver qualquer sobreposição de interesse entre você e outro cliente meu, eu digo antes de aceitar o trabalho.</p></div>
+      <div><h3>A decisão é sua</h3><p>Diagnóstico pago não obriga a contratar o programa. Você fica com o diagnóstico de qualquer forma.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INVESTIMENTO ============ -->
+<section class="bl" id="investimento">
+  <div class="wrap dupla">
+    <div class="cabeca">
+      <span class="rotulo">Investimento</span>
+      <h2>O preço sai do porte, e o porte sai do diagnóstico</h2>
+      <p class="sob">Três faixas, com o mesmo escopo. Cada modalidade tem o seu critério de enquadramento, porque medir consultoria por refeição por dia não faz sentido.</p>
+    </div>
+    <div>
+      <div class="criterios">
+        <div class="crit">
+          <p class="quem">modalidade 1 · refeições coletivas</p>
+          <table>
+            <thead><tr><th>Faixa</th><th>Enquadramento</th></tr></thead>
+            <tbody>
+              <tr><td>P</td><td>Até 300 refeições/dia e até 10 funcionários</td></tr>
+              <tr><td>M</td><td>De 301 a 800 refeições/dia, 11 a 25 funcionários</td></tr>
+              <tr><td>G</td><td>Acima de 800 refeições/dia, 26 funcionários ou mais</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="crit">
+          <p class="quem">modalidade 2 · consultorias de qualidade</p>
+          <table>
+            <thead><tr><th>Faixa</th><th>Enquadramento</th></tr></thead>
+            <tbody>
+              <tr><td>P</td><td>Até 5 clientes ativos e até 3 pessoas na equipe</td></tr>
+              <tr><td>M</td><td>De 6 a 15 clientes ativos, 4 a 8 pessoas</td></tr>
+              <tr><td>G</td><td>Acima de 15 clientes ativos, 9 pessoas ou mais</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="nota-preco">
+        <p>O diagnóstico inicial é pago e cobrado uma única vez. O programa é mensal, com plano de seis ou doze meses à sua escolha, reajuste anual pelo IPCA e rescisão sem multa mediante aviso de trinta dias.</p>
+        <p>Os valores não estão nesta página de propósito. Duas empresas na mesma faixa podem ter estruturas muito diferentes, e um número aqui seria um chute que atrapalha as duas. O investimento vem na proposta, depois do diagnóstico.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARA QUEM ============ -->
+<section class="bl" id="para-quem">
+  <div class="wrap dupla">
+    <div class="cabeca">
+      <span class="rotulo">Encaixe</span>
+      <h2>Para quem faz sentido</h2>
+      <p class="sob">E para quem não faz. As duas listas importam igual.</p>
+    </div>
+    <div class="par">
+      <div class="painel sim">
+        <h3>Indicado</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M4 13l5 5L20 6"/></svg>Empresas de refeições coletivas em operação, servidas no local ou transportadas.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 13l5 5L20 6"/></svg>Consultorias de qualidade em UAN que querem estruturar a própria gestão.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 13l5 5L20 6"/></svg>Sociedades que precisam alinhar rumo e papéis.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 13l5 5L20 6"/></svg>Empresas prestes a crescer e sem certeza se a estrutura aguenta.</li>
+        </ul>
+      </div>
+      <div class="painel nao">
+        <h3>Não indicado</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Quem precisa de responsável técnico para assinar pela unidade.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Quem busca apenas documentação de qualidade.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Quem quer uma resposta pontual, não um acompanhamento.</li>
+          <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Projeto em fase de ideia, sem operação para diagnosticar.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUEM CONDUZ ============ -->
+<section class="bl" id="quem-conduz">
+  <div class="wrap dupla">
+    <div class="cabeca">
+      <span class="rotulo">Quem conduz</span>
+      <h2>Osmar Almeida</h2>
+      <p class="sob">Nutricionista, CRN 12979. Juiz de Fora, Minas Gerais.</p>
+    </div>
+    <div class="conduz">
+      <p>O UAN no Dia a Dia nasceu de uma observação simples: o que trava a rotina de uma Unidade de Alimentação e Nutrição raramente é falta de conhecimento técnico. É falta de método, de rotina e de alguém que olhe a operação de fora com visão crítica e iniciativa.</p>
+      <p>O ecossistema começou voltado ao nutricionista como indivíduo, com materiais, formação e o UAN PRO. A Consultoria Empresarial é o braço em que o cliente passa a ser a empresa: os sócios, a gestão, os contratos, as pessoas. Mesma origem, outro patamar de conversa.</p>
+      <p>Faz parte do trabalho uma camada que ainda é rara no setor: usar inteligência artificial na rotina de gestão e desenvolver solução em software para o que a operação pede. O UAN PRO nasceu desse caminho.</p>
+      <p>O trabalho é de assessoria em gestão. A responsabilidade técnica pela sua unidade permanece com o nutricionista responsável pela sua empresa, como determina a legislação.</p>
+      <p class="assina">Osmar Almeida — Nutricionista CRN 12979<br>contato@uannodiaadia.com<br>uannodiaadia.com</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERGUNTAS ============ -->
+<section class="bl" id="perguntas">
+  <div class="wrap dupla">
+    <div class="cabeca">
+      <span class="rotulo">Antes de fechar</span>
+      <h2>O que costuma vir antes</h2>
+      <p class="sob">As perguntas que aparecem em quase toda primeira conversa.</p>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Você assume a responsabilidade técnica da minha unidade?</summary>
+        <div class="resp"><p>Não. O contrato é de consultoria e assessoria em gestão, e traz essa exclusão de forma expressa. A responsabilidade técnica permanece com o nutricionista responsável pela sua empresa, conforme a legislação e as normas do Conselho Federal de Nutricionistas.</p></div>
+      </details>
+      <details>
+        <summary>Preciso pagar o diagnóstico mesmo se não contratar depois?</summary>
+        <div class="resp"><p>Sim, o diagnóstico é um serviço pago e cobrado uma única vez. Ele não obriga a contratar o programa mensal, e o resultado é seu de qualquer forma: você fica com o mapa da sua estrutura e com as prioridades apontadas, contrate ou não.</p></div>
+      </details>
+      <details>
+        <summary>Em quanto tempo eu vejo resultado?</summary>
+        <div class="resp"><p>Depende do que o diagnóstico encontrar e de quantas horas por semana os sócios conseguem dedicar à implantação. Por isso o formulário pergunta isso: um plano que não cabe na agenda de vocês não sai do papel. O que eu não faço é prometer prazo antes de conhecer a operação.</p></div>
+      </details>
+      <details>
+        <summary>Minha empresa é pequena. Faz sentido para mim?</summary>
+        <div class="resp"><p>A faixa P existe exatamente para isso. O escopo entregue é o mesmo das faixas maiores — o que muda é o investimento. O que não faz sentido é projeto em fase de ideia, sem operação: aí não há estrutura para diagnosticar.</p></div>
+      </details>
+      <details>
+        <summary>O atendimento é presencial?</summary>
+        <div class="resp"><p>O acompanhamento é online, com contato direto em dias úteis e reuniões trimestrais estruturadas. Existe visita in loco opcional, semestral, com deslocamento, hospedagem e alimentação por conta da contratante.</p></div>
+      </details>
+      <details>
+        <summary>Sou de outro estado. Muda algo?</summary>
+        <div class="resp"><p>Não para o acompanhamento, que é online e atende todo o Brasil. Muda apenas o custo da visita in loco, quando ela é solicitada.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="bl final" id="diagnostico">
+  <div class="wrap">
+    <span class="rotulo">Primeiro passo</span>
+    <h2>O começo é o diagnóstico</h2>
+    <p class="lide">Escolha a modalidade que descreve a sua empresa. O formulário certo pergunta as coisas certas.</p>
+  </div>
+  <div class="wrap portas">
+    <div class="portas-grade">
+      <div class="porta">
+        <span class="porta-i">Modalidade 1</span>
+        <h2>Refeições coletivas</h2>
+        <p>Produção própria, servida no local ou transportada.</p>
+        <div class="acao">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScFTSi3UfsyrqcR2jJe6QETWC3PQtGOSj_luuzu798qSA1GlA/viewform" target="_blank" rel="noopener">Preencher o diagnóstico</a>
+          <span class="depois">24 perguntas, cerca de 12 minutos</span>
+        </div>
+      </div>
+      <div class="porta">
+        <span class="porta-i">Modalidade 2</span>
+        <h2>Consultoria de qualidade em UAN</h2>
+        <p>Carteira de clientes e equipe técnica em campo.</p>
+        <div class="acao">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeKkzinT_5r1puyhv9OX9mZ0CQ18yn2U71aRF8L31K-EoCw2A/viewform" target="_blank" rel="noopener">Preencher o diagnóstico</a>
+          <span class="depois">33 perguntas, cerca de 15 minutos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:32px">
+    <p style="font-size:15px;color:var(--suave);margin:0">Ainda não sabe qual dos dois? <a href="https://wa.me/5532984151828">Fale pelo WhatsApp</a> e eu indico o caminho.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="rod-grade">
+      <div><p><strong>Consultoria Empresarial</strong>Um braço do ecossistema UAN no Dia a Dia. Assessoria em gestão para empresas de refeições coletivas e para consultorias de qualidade em UAN.</p></div>
+      <div><p><strong>Contato</strong>
+        <a href="mailto:contato@uannodiaadia.com">contato@uannodiaadia.com</a><br>
+        <a href="https://wa.me/5532984151828">(32) 98415-1828</a><br>
+        <a href="https://uannodiaadia.com">uannodiaadia.com</a></p></div>
+      <div><p><strong>Responsável</strong>Osmar Almeida<br>Nutricionista CRN 12979<br>Juiz de Fora, MG</p></div>
+    </div>
+    <p class="rt">A Consultoria Empresarial é um serviço de assessoria em gestão. Não inclui a assunção de responsabilidade técnica pela unidade da contratante, que permanece com o nutricionista responsável pela empresa, conforme a legislação vigente e as normas do Conselho Federal de Nutricionistas.</p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "name":"Consultoria Empresarial — UAN no Dia a Dia",
+  "serviceType":"Assessoria em gestão empresarial para empresas de refeições coletivas e consultorias de qualidade em UAN",
+  "description":"Acompanhamento continuado em gestão para empresas de refeições coletivas e para consultorias de qualidade em UAN. Diagnóstico da estrutura, gestão operacional, painel comercial, pessoas e retenção, licença do UAN PRO inclusa, e uso e orientação de inteligência artificial e desenvolvimento em software.",
+  "url":"https://uannodiaadia.com/consultoria-empresarial/",
+  "provider":{
+    "@type":"Person","name":"Osmar Almeida","jobTitle":"Nutricionista CRN 12979",
+    "url":"https://uannodiaadia.com","email":"contato@uannodiaadia.com","telephone":"+5532984151828",
+    "address":{"@type":"PostalAddress","addressLocality":"Juiz de Fora","addressRegion":"MG","addressCountry":"BR"}
+  },
+  "brand":{"@type":"Brand","name":"UAN no Dia a Dia"},
+  "areaServed":{"@type":"Country","name":"Brasil"},
+  "audience":{"@type":"BusinessAudience","name":"Empresas de refeições coletivas e consultorias de qualidade em UAN"}
+}
+</script>
+
+</body>
+</html>
