@@ -185,6 +185,34 @@
 .nov-item li{position:relative;padding-left:17px;font-size:14.5px;color:var(--cinza-600);line-height:1.58}
 .nov-item li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--ouro)}
 
+/* ===== SELO DE SEGURANÇA / ASSINATURA DIGITAL ===== */
+.cert-grid{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:flex-start}
+@media(max-width:820px){.cert-grid{grid-template-columns:1fr;text-align:center}}
+.cert-badge{width:84px;height:84px;flex:none;border-radius:22px;
+  background:rgba(200,168,71,.14);border:1px solid rgba(200,168,71,.4);
+  display:flex;align-items:center;justify-content:center}
+@media(max-width:820px){.cert-badge{margin:0 auto}}
+.cert-badge svg{width:44px;height:44px;stroke:var(--ouro-claro);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.cert-txt h2{font-size:clamp(24px,3vw,32px);font-weight:900;line-height:1.22;margin:16px 0 16px;letter-spacing:-.015em;color:#fff}
+.cert-txt>p.lead{color:var(--v300);font-size:15.5px;line-height:1.7;max-width:70ch}
+@media(max-width:820px){.cert-txt>p.lead{margin-left:auto;margin-right:auto}}
+.cert-quote{margin:18px 0 0;padding:16px 22px;border-left:3px solid var(--ouro-claro);
+  background:rgba(255,255,255,.05);border-radius:0 12px 12px 0;font-style:italic;color:#fff;
+  font-size:14.5px;line-height:1.68;max-width:70ch;text-align:left}
+@media(max-width:820px){.cert-quote{margin-left:auto;margin-right:auto}}
+.cert-antes-depois{display:flex;align-items:center;gap:14px;margin-top:22px;flex-wrap:wrap}
+@media(max-width:820px){.cert-antes-depois{justify-content:center}}
+.cert-chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;font-size:13px;font-weight:700;font-family:var(--fonte)}
+.cert-chip.antes{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);color:var(--v300)}
+.cert-chip.depois{border:1px solid rgba(200,168,71,.5);background:rgba(200,168,71,.12);color:var(--ouro-claro)}
+.cert-chip svg{width:14px;height:14px;flex:none;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.cert-chip.antes svg{stroke:var(--v300)}
+.cert-chip.depois svg{stroke:var(--ouro-claro)}
+.cert-arrow{color:var(--v300);font-size:16px}
+.cert-micro{margin-top:20px;font-size:12.5px;color:var(--v300);line-height:1.65;max-width:70ch;opacity:.9}
+@media(max-width:820px){.cert-micro{margin-left:auto;margin-right:auto}}
+.cert-micro b{color:#fff;font-weight:700}
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--fonte);color:var(--v900);background:var(--papel);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -616,6 +644,29 @@ footer a:hover{color:var(--ouro-claro)}
   </div>
 </section>
 
+<!-- ---------------- SELO DE SEGURANÇA (ASSINATURA DIGITAL) ---------------- -->
+<section class="destaques" id="seguranca">
+  <div class="env cert-grid">
+    <div class="cert-badge rv">
+      <svg viewBox="0 0 24 24"><path d="M12 2l7 3.5v6c0 5-3 8.5-7 10.5-4-2-7-5.5-7-10.5v-6z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <div class="cert-txt">
+      <div class="olho">Segurança · Assinatura digital</div>
+      <h2 class="rv">Agora o Windows sabe quem fez este programa.</h2>
+      <p class="lead rv d1">O instalador do UAN PRO passou a ser assinado digitalmente, com certificado internacional de Code Signing — validado com documento oficial, em nome de Osmar Carneiro Pinto Almeida.</p>
+      <p class="cert-quote rv d2">"Durante um ano, quem instalava o UAN PRO via 'Editor desconhecido' na tela do Windows. Eu sabia do problema e adiei três vezes — por caixa, não por dúvida. Resolvi."</p>
+
+      <div class="cert-antes-depois rv d2">
+        <span class="cert-chip antes"><svg viewBox="0 0 24 24"><path d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>Antes: Editor desconhecido</span>
+        <span class="cert-arrow">→</span>
+        <span class="cert-chip depois"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Agora: Editor verificado</span>
+      </div>
+
+      <p class="cert-micro rv d3">A assinatura prova <b>autoria</b> — que o programa foi feito pelo Osmar, e não por alguém em nome dele — e <b>integridade</b>: que o instalador não foi alterado depois de assinado. Vale também para o setor de TI de hospitais, escolas e indústrias, que costuma barrar executável sem assinatura digital.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ---------------- NOVIDADES ---------------- -->
 <section class="novidades" id="novidades">
   <div class="env">
@@ -811,7 +862,7 @@ footer a:hover{color:var(--ouro-claro)}
       <div class="q rv"><button>A licença vale para quantas unidades?</button><div class="r"><p>Uma licença atende <b>uma unidade</b>. Se você é responsável técnica por mais de uma UAN, cada uma precisa da sua própria licença — fale comigo que a gente resolve.</p></div></div>
       <div class="q rv"><button>O que acontece quando a licença vence?</button><div class="r"><p>A licença é anual. Ao vencer, o programa entra em <b>modo leitura</b>: você continua abrindo, consultando e imprimindo tudo o que já fez, mas deixa de gerar cardápios novos e de editar fichas. Nada é apagado. Renovando, tudo volta a funcionar.</p></div></div>
       <div class="q rv"><button>Meus dados ficam seguros?</button><div class="r"><p>Ficam no seu computador, protegidos por uma senha que só você define. O programa mantém backup automático diário dos últimos 14 dias e permite exportar tudo num arquivo único, que você guarda onde quiser.</p></div></div>
-      <div class="q rv"><button>O Windows pode avisar que o instalador é desconhecido?</button><div class="r"><p>Pode, e é normal em programas independentes que ainda não têm assinatura digital. O guia de instalação que acompanha a compra mostra o passo a passo com imagens: <b>Mais informações → Executar assim mesmo</b>. Se o seu Windows bloquear de forma mais rígida, me chame que eu te ajudo.</p></div></div>
+      <div class="q rv"><button>O Windows pode avisar que o instalador é desconhecido?</button><div class="r"><p>Não deve mais aparecer. Desde setembro de 2026 o instalador do UAN PRO é assinado digitalmente com certificado internacional de Code Signing, validado com documento oficial em meu nome — o Windows agora reconhece o editor como <b>Osmar Carneiro Pinto Almeida</b>, em vez de "Editor desconhecido". Se você baixou o instalador antes disso, baixe a versão mais recente que ele já vem assinado.</p></div></div>
       <div class="q rv"><button>Quem está por trás do UAN PRO?</button><div class="r"><p>Osmar Almeida, nutricionista com 16 anos de UAN. O sistema nasceu do próprio dia a dia — cada tela existe porque um problema real apareceu antes dela.</p></div></div>
     </div>
   </div>
