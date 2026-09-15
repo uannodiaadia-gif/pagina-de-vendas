@@ -157,6 +157,10 @@ header.scrolled{
 .btn-ghost:hover{border-color:var(--gold);background:rgba(200,168,71,.08);transform:translateY(-2px)}
 .btn .arr{transition:transform .2s}
 .btn:hover .arr{transform:translateX(3px)}
+/* CTA dourado dentro do menu: .menu a vencia .btn-gold por especificidade
+   e pintava o texto de --txt-mut sobre o dourado (contraste 1,07). */
+.menu a.btn-gold,.menu a.btn-gold:hover{color:#1a1305}
+.menu a.btn::after{display:none}
 .menu-btn{display:none;background:none;border:0;color:var(--txt);cursor:pointer;padding:6px}
 
 /* ---------- HERO ---------- */
