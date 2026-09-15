@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) - GA4 + Ads, um unico carregamento -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G0CWJBCTMM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G0CWJBCTMM');
+  gtag('config', 'AW-18226261330');
+</script>
 <link rel="canonical" href="https://uannodiaadia.com/uanpro/">
 <meta property="og:url" content="https://uannodiaadia.com/uanpro/">
 <meta property="og:site_name" content="UAN no Dia a Dia">
@@ -20,20 +29,20 @@
 <style>
 :root{
   /* escala azul principal — do azul-quase-preto ao azul-gelo */
-  --v950:#05101F; --v900:#0B2545; --v800:#103660; --v700:#16487F;
-  --v500:#1E5A96; --v300:#8FC2EA; --v100:#DCEBF8;
+  --v950:#040C16; --v900:#081B32; --v800:#0C2745; --v700:#10345B;
+  --v500:#16416C; --v300:#8FC2EA; --v100:#DCEBF8;
   --ouro:#C8A847; --ouro-claro:#E5C76A; --ouro-escuro:#A88A30;
   --papel:#FAFAF7; --branco:#fff;
   --cinza-100:#F2F2EF; --cinza-200:#E5E5E0; --cinza-500:#8A8A84; --cinza-600:#666; --cinza-800:#333;
   --borda:#E5E5E0;
   --raio:12px; --raio-g:18px;
-  --sombra:0 4px 16px rgba(5,16,31,.09);
-  --sombra-g:0 18px 48px rgba(5,16,31,.24);
+  --sombra:0 4px 16px rgba(4,12,22,.09);
+  --sombra-g:0 18px 48px rgba(4,12,22,.24);
   --fonte:'Helvetica Neue',Arial,'Segoe UI',system-ui,sans-serif;
   --max:1180px;
   /* azul-noite: assinatura do PRO */
-  --az950:#061A33; --az900:#0D2B52; --az800:#12406F; --az700:#1A5599;
-  --az500:#28649B; --az300:#A3D0F0; --az100:#E6F1FB;
+  --az950:#041325; --az900:#091F3B; --az800:#0D2E50; --az700:#133D6E;
+  --az500:#1D4870; --az300:#A3D0F0; --az100:#E6F1FB;
 }
 
 /* ===== DEGUSTAÇÃO ===== */
@@ -69,11 +78,11 @@
 .deg-prova svg{flex:none;margin-top:3px;stroke:var(--ouro-claro);fill:none;stroke-width:2.4;
   stroke-linecap:round;stroke-linejoin:round}
 .deg-form{margin-top:28px;padding:24px;border-radius:var(--raio-g);
-  border:1px solid rgba(200,168,71,.4);background:rgba(6,26,51,.5)}
+  border:1px solid rgba(200,168,71,.4);background:rgba(4,19,37,.5)}
 .deg-form .campos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:620px){.deg-form .campos{grid-template-columns:1fr}}
 .deg-form input,.deg-form select{width:100%;padding:13px 15px;border-radius:11px;
-  border:1px solid rgba(200,168,71,.32);background:rgba(6,26,51,.72);color:#fff;
+  border:1px solid rgba(200,168,71,.32);background:rgba(4,19,37,.72);color:#fff;
   font-family:var(--fonte);font-size:15px}
 .deg-form select{grid-column:1/-1}
 .deg-form input::placeholder{color:rgba(220,235,248,.55)}
@@ -135,7 +144,7 @@
 
 /* ===== janela de avaliação ===== */
 .av-ov{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;
-  padding:20px;background:rgba(5,16,31,.84);backdrop-filter:blur(6px);overflow-y:auto}
+  padding:20px;background:rgba(4,12,22,.84);backdrop-filter:blur(6px);overflow-y:auto}
 .av-ov.on{display:flex}
 .av-modal{position:relative;width:100%;max-width:520px;background:var(--papel);
   border-radius:var(--raio-g);padding:32px 30px 26px;box-shadow:var(--sombra-g);
@@ -222,7 +231,7 @@ a{color:inherit}
 
 /* ---------- Cabeçalho ---------- */
 header{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .3s,box-shadow .3s,padding .3s;padding:18px 0}
-header.fixo{background:rgba(11,37,69,.97);box-shadow:0 6px 28px rgba(5,16,31,.30);padding:11px 0}
+header.fixo{background:rgba(8,27,50,.97);box-shadow:0 6px 28px rgba(4,12,22,.30);padding:11px 0}
 .hcont{display:flex;align-items:center;gap:28px}
 .marca{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
 .marca .sig{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center}
@@ -367,7 +376,7 @@ footer a:hover{color:var(--ouro-claro)}
 .legal{font-size:12px;color:rgba(143,194,234,.6);line-height:1.7}
 
 /* lightbox */
-.lb{position:fixed;inset:0;background:rgba(5,16,31,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:28px;cursor:zoom-out}
+.lb{position:fixed;inset:0;background:rgba(4,12,22,.94);z-index:200;display:none;align-items:center;justify-content:center;padding:28px;cursor:zoom-out}
 .lb.on{display:flex;animation:fade .25s ease}
 .lb img{max-width:100%;max-height:92vh;border-radius:10px;box-shadow:0 30px 90px rgba(0,0,0,.6)}
 .lb .x{position:absolute;top:22px;right:30px;color:#fff;font-size:38px;line-height:1;background:none;border:none;cursor:pointer;font-family:inherit}
@@ -717,8 +726,8 @@ footer a:hover{color:var(--ouro-claro)}
       <svg class="deg-ilu" viewBox="0 0 340 300" aria-hidden="true">
   <defs>
     <linearGradient id="degCal" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1E5A96" stop-opacity=".38"/>
-      <stop offset="1" stop-color="#0A2444" stop-opacity=".10"/>
+      <stop offset="0" stop-color="#16416C" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#071A31" stop-opacity=".10"/>
     </linearGradient>
     <linearGradient id="degMetal" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#E5C76A"/><stop offset=".55" stop-color="#C8A847"/>
@@ -733,7 +742,7 @@ footer a:hover{color:var(--ouro-claro)}
   <rect x="62" y="156" width="216" height="15" rx="7.5" fill="none" stroke="#C8A847" stroke-width="3.2"/>
   <path d="M62 178 a15 15 0 0 0 0 26" fill="none" stroke="#C8A847" stroke-width="3"/>
   <path d="M278 178 a15 15 0 0 1 0 26" fill="none" stroke="#C8A847" stroke-width="3"/>
-  <path d="M104 196 q34 12 68 0 q34 -12 68 0" fill="none" stroke="#1E5A96" stroke-width="2.4" opacity=".7"/>
+  <path d="M104 196 q34 12 68 0 q34 -12 68 0" fill="none" stroke="#16416C" stroke-width="2.4" opacity=".7"/>
 
   <!-- colher em destaque -->
   <g transform="rotate(-24 196 96)">
@@ -1023,6 +1032,7 @@ footer a:hover{color:var(--ouro-claro)}
         f.reset();
         m.textContent='✓ Inscrição recebida! O link para baixar o app e a sua licença de 14 dias chegam no seu e-mail em até 24h.';
         m.className='deg-msg ok';
+        try{ gtag('event','lead_ferramenta',{ferramenta:'Degustacao 14 dias',origem:'Site UAN PRO'}); }catch(e){}
         b.style.display='none';
       })
       .catch(function(){
@@ -1142,6 +1152,14 @@ footer a:hover{color:var(--ouro-claro)}
         m.className='av-nota-msg err'; b.disabled=false; b.textContent='Enviar avaliação'; });
   });
 })();
+</script>
+<script>
+/* clique_checkout - qualquer link para o checkout do UAN PRO */
+document.addEventListener('click', function(ev){
+  var a = ev.target.closest && ev.target.closest('a[href*="pay.hotmart.com"]');
+  if(!a) return;
+  try{ gtag('event','clique_checkout',{produto:'UAN PRO', preco:447, local:(a.id||a.className||'link')}); }catch(e){}
+}, true);
 </script>
 </body>
 </html>
