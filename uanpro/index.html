@@ -403,6 +403,17 @@ footer a:hover{color:var(--ouro-claro)}
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
 }
+
+/* aviso de cookies - portado do site raiz, adaptado a paleta azul */
+.cookie-bar{position:fixed;left:16px;right:16px;bottom:16px;z-index:210;max-width:780px;margin:0 auto;
+  display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  background:rgba(4,19,37,.97);backdrop-filter:blur(10px);border:1px solid rgba(200,168,71,.28);
+  border-radius:16px;padding:16px 20px;box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.cookie-bar p{font-size:13px;color:var(--az300);flex:1;min-width:240px;margin:0;line-height:1.5}
+.cookie-bar a{color:var(--ouro-claro);text-decoration:none;border-bottom:1px solid transparent}
+.cookie-bar a:hover{border-color:var(--ouro-claro)}
+.cookie-bar .btn{padding:10px 24px;font-size:13px}
+.cookie-bar.hide{display:none}
 </style>
 </head>
 <body>
@@ -910,6 +921,7 @@ footer a:hover{color:var(--ouro-claro)}
       <div style="display:flex;gap:26px;flex-wrap:wrap">
         <a href="#pilares">Módulos</a><a href="#recursos">Recursos</a><a href="#novidades">Novidades</a><a href="#faq">Dúvidas</a>
         <a href="https://www.instagram.com/uannodiaadia" target="_blank" rel="noopener">@uannodiaadia</a>
+        <a href="https://uannodiaadia.com/politica-de-privacidade.html">Política de Privacidade</a>
       </div>
     </div>
     <p class="legal">
@@ -1160,6 +1172,24 @@ document.addEventListener('click', function(ev){
   if(!a) return;
   try{ gtag('event','clique_checkout',{produto:'UAN PRO', preco:447, local:(a.id||a.className||'link')}); }catch(e){}
 }, true);
+</script>
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Aviso de cookies">
+  <p>Usamos cookies e tecnologias de medição (incluindo Google) para entender os acessos e melhorar sua experiência. Ao continuar navegando, você concorda com a nossa <a href="https://uannodiaadia.com/politica-de-privacidade.html">Política de Privacidade</a>.</p>
+  <button class="btn btn-ouro" id="cookieOk">Entendi</button>
+</div>
+
+<script>
+/* aviso de cookies - mesma chave do site raiz, entao quem ja aceitou la nao ve de novo */
+(function(){
+  var bar=document.getElementById('cookieBar'), ok=document.getElementById('cookieOk');
+  if(!bar||!ok) return;
+  var KEY='uan_cookie_ok';
+  try{ if(localStorage.getItem(KEY)) bar.classList.add('hide'); }catch(e){}
+  ok.addEventListener('click', function(){
+    bar.classList.add('hide');
+    try{ localStorage.setItem(KEY,'1'); }catch(e){}
+  });
+})();
 </script>
 </body>
 </html>
