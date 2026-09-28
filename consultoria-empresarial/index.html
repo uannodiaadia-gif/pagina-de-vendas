@@ -3,6 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1639509124556819');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1639509124556819&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <title>Consultoria Empresarial — UAN no Dia a Dia</title>
 <meta name="description" content="Assessoria em gestão para empresas de refeições coletivas e para consultorias de qualidade em UAN. O cliente é a empresa. Conduzida por Osmar Almeida, Nutricionista CRN 12979.">
 <link rel="canonical" href="https://uannodiaadia.com/consultoria-empresarial/">
@@ -760,6 +778,29 @@ footer p{margin:0;line-height:1.8}
   "areaServed":{"@type":"Country","name":"Brasil"},
   "audience":{"@type":"BusinessAudience","name":"Empresas de refeições coletivas e consultorias de qualidade em UAN"}
 }
+</script>
+
+
+<!-- Meta Pixel — eventos de conversao nos CTAs (Lead por modalidade + Contact no WhatsApp) -->
+<script>
+(function(){
+  var FORM_M1 = '1FAIpQLScFTSi3UfsyrqcR2jJe6QETWC3PQtGOSj_luuzu798qSA1GlA';
+  var FORM_M2 = '1FAIpQLSeKkzinT_5r1puyhv9OX9mZ0CQ18yn2U71aRF8L31K-EoCw2A';
+  document.addEventListener('click', function(ev){
+    var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+    if (!a || typeof window.fbq !== 'function') return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf(FORM_M1) > -1) {
+      fbq('track', 'Lead', {content_name: 'Diagnostico - Modalidade 1 - Refeicoes coletivas'});
+    } else if (href.indexOf(FORM_M2) > -1) {
+      fbq('track', 'Lead', {content_name: 'Diagnostico - Modalidade 2 - Consultorias de qualidade em UAN'});
+    } else if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp.com') > -1) {
+      fbq('track', 'Contact', {content_name: 'WhatsApp - Consultoria Empresarial'});
+    } else if (href.indexOf('mailto:') === 0) {
+      fbq('track', 'Contact', {content_name: 'E-mail - Consultoria Empresarial'});
+    }
+  }, true);
+})();
 </script>
 
 </body>
