@@ -83,6 +83,7 @@
 .deg-msg{margin:10px 0 0;font-size:13.5px;text-align:center;min-height:1px}
 .deg-msg.ok{color:var(--az300);font-weight:700}
 .deg-msg.err{color:#F0B27A}
+.deg-msg a{color:#fff;font-weight:800;text-decoration:underline;text-underline-offset:3px}
 .deg-passos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
 @media(max-width:700px){.deg-passos{grid-template-columns:1fr}}
 .deg-passos div{padding:15px 17px;border-radius:13px;border:1px solid rgba(255,255,255,.12);
@@ -1251,13 +1252,20 @@ footer a:hover{color:var(--ouro-claro)}
 </script>
 
 <script>
-/* ---- Degustação 14 dias: captura -> Make/Brevo + aviso por e-mail ---- */
+/* ---- Degustação 14 dias: captura -> Make/Brevo + aviso por e-mail ----
+   Correção 30/09/2026: usa o mesmo endereço do FormSubmit do site principal (o apelido
+   ativado, não o e-mail direto) e o sucesso não depende mais só do FormSubmit:
+   se o Make OU o FormSubmit aceitarem, a inscrição conta. Só mostra erro se os dois falharem,
+   e aí oferece o WhatsApp para a pessoa não ficar sem resposta. */
 (function(){
-  var EMAIL="uannodiaadia@gmail.com";
+  var FORM_ENDPOINT="https://formsubmit.co/ajax/71e76791deb0994a620b3aafc9a837d0";
   var MAKE="https://hook.us2.make.com/caghe7sapq41ufbe1pz6ad1mha5ij7bn";
+  var WHATS="https://wa.me/5532984151828?text="+encodeURIComponent("Olá, Osmar! Tentei pedir a degustação de 14 dias do UAN PRO pelo site e não consegui. Pode me ajudar?");
   var f=document.getElementById('degForm');
   if(!f) return;
   var b=document.getElementById('degBtn'), m=document.getElementById('degMsg');
+
+  function comTempo(p,ms){ return Promise.race([p,new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('tempo esgotado')); },ms); })]); }
 
   f.addEventListener('submit', function(e){
     e.preventDefault();
@@ -1267,6 +1275,8 @@ footer a:hover{color:var(--ouro-claro)}
 
     var fd=new FormData(f);
     var bruto={}; fd.forEach(function(v,k){ if(k.charAt(0)!=='_') bruto[k]=v; });
+    fd.append('_url', window.location.href);
+    /* o Make/Brevo espera as chaves em minúsculo */
     var d={
       nome:          bruto['Nome']   || '',
       email:         bruto['E-mail'] || '',
@@ -1276,25 +1286,33 @@ footer a:hover{color:var(--ouro-claro)}
       origem:        'Site UAN PRO — Degustação 14 dias'
     };
 
-    /* 1) Make -> Brevo (paralelo, não trava a entrega) */
-    try{ fetch(MAKE,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(d)}).catch(function(){}); }catch(err){}
+    /* 1) Make -> Brevo (lista de leads) */
+    var pMake=comTempo(fetch(MAKE,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}),15000)
+      .then(function(r){ if(!r.ok) throw new Error('Make '+r.status); return true; })
+      .catch(function(err){ console.warn('[degustação] Make falhou:',err); return false; });
 
-    /* 2) FormSubmit: é este que avisa o Osmar para emitir a licença */
-    fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',
-      headers:{'Accept':'application/json'}, body:fd})
-      .then(function(r){ return r.json(); })
-      .then(function(){
+    /* 2) FormSubmit: e-mail de aviso para o Osmar emitir a licença */
+    var pForm=comTempo(fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:fd}),15000)
+      .then(function(r){ return r.json().catch(function(){ return {success:r.ok}; }); })
+      .then(function(j){
+        var ok = j && (j.success===true || j.success==='true');
+        if(!ok) console.warn('[degustação] FormSubmit recusou:',j);
+        return ok;
+      })
+      .catch(function(err){ console.warn('[degustação] FormSubmit falhou:',err); return false; });
+
+    Promise.all([pMake,pForm]).then(function(res){
+      if(res[0]||res[1]){
         f.reset();
         m.textContent='✓ Inscrição recebida! O link para baixar o app e a sua licença de 14 dias chegam no seu e-mail em até 24h.';
         m.className='deg-msg ok';
         b.style.display='none';
-      })
-      .catch(function(){
-        m.textContent='Não foi possível enviar agora. Tente novamente em instantes ou escreva para contato@uannodiaadia.com.';
+      }else{
+        m.innerHTML='Não conseguimos registrar agora. <a href="'+WHATS+'" target="_blank" rel="noopener">Fale comigo no WhatsApp</a> que eu libero a sua degustação, ou escreva para contato@uannodiaadia.com.';
         m.className='deg-msg err';
-        b.disabled=false; b.textContent='Quero degustar';
-      });
+        b.disabled=false; b.textContent='Tentar de novo';
+      }
+    });
   });
 })();
 </script>
@@ -1397,7 +1415,9 @@ footer a:hover{color:var(--ouro-claro)}
     };
     try{ fetch(MAKE,{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify(d)}).catch(function(){}); }catch(err){}
-    fetch('https://formsubmit.co/ajax/'+EMAIL,{method:'POST',
+    fd.append('_url', window.location.href);
+    /* 30/09/2026: mesmo apelido ativado do FormSubmit usado no site principal */
+    fetch('https://formsubmit.co/ajax/71e76791deb0994a620b3aafc9a837d0',{method:'POST',
       headers:{'Accept':'application/json'}, body:fd})
       .then(function(r){ return r.json(); })
       .then(function(){ f.reset(); pintar(0); nota.value='';
