@@ -1,34 +1,34 @@
-# UAN no Dia a Dia — Site (GitHub Pages)
+# UAN no Dia a Dia — site
 
-Página única (`index.html`), autossuficiente: imagens já embutidas, sem pastas ou dependências externas. É só subir e publicar.
+Código do site **[uannodiaadia.com](https://uannodiaadia.com)**, publicado pelo GitHub Pages a partir da branch `main` (domínio próprio configurado no arquivo `CNAME`).
 
-## Publicar no GitHub Pages
-1. Crie um repositório (ex.: `uannodiaadia-site`).
-2. Envie os arquivos **`index.html`** e **`politica-de-privacidade.html`** para a raiz do repositório (os dois precisam ficar juntos, na mesma pasta).
-3. Vá em **Settings → Pages**.
-4. Em *Source*, escolha **Deploy from a branch**, branch **main** e pasta **/ (root)**. Salve.
-5. Em 1–2 minutos o site fica no ar em `https://SEU-USUARIO.github.io/uannodiaadia-site/`.
-6. (Opcional) Domínio próprio: aba **Pages → Custom domain**.
+Conteúdo, ferramentas e software para a gestão de Unidades de Alimentação e Nutrição (UAN), por Osmar Almeida, nutricionista CRN 12979.
 
-## Trocar os links da Hotmart
-Abra o `index.html` e procure pelo bloco **`>>> LINKS DOS PRODUTOS`** (perto do fim, dentro de `<script>`).
+## Estrutura
 
-Hoje todos os botões apontam para o link geral `https://hotm.io/r2ZzaYD`. Para cada produto, na Hotmart clique em **"Promover produto"**, copie o link `hotm.io` específico e cole no campo `link` correspondente:
-
-| Produto | id na lista |
+| Caminho | O que é |
 |---|---|
-| Kit Profissional Completo | `6587672` |
-| Guia Essencial | `7640894` |
-| Formação | `7784054` |
-| Mentoria Anual | `6630746` |
+| `index.html` | Página inicial: a marca, os produtos e o caminho para o UAN PRO |
+| `uanpro/` | Página do **UAN PRO** ([uannodiaadia.com/uanpro](https://uannodiaadia.com/uanpro)) e as imagens dela em `uanpro/img/` |
+| `consultoria-empresarial/` | Página da consultoria para empresas |
+| `img/` | Imagens da página inicial e de compartilhamento |
+| `Pagina_Captura_Isca_FichasTecnicas_UAN_14-07-2026.html` | Página de captura do material gratuito de fichas técnicas |
+| `crm.html` | Página de captura do CRM Comercial para nutricionistas (fora dos buscadores) |
+| `solicitar-certificado.html`, `validar.html`, `certificados.json` | Pedido e validação pública dos certificados dos cursos |
+| `politica-de-privacidade.html` | Política de privacidade |
+| `robots.txt`, `sitemap.xml`, `llms.txt` | Orientação para buscadores e assistentes de IA |
+| `CNAME` | Domínio próprio do GitHub Pages |
 
-E o link do **UAN Cardápio Pro** (lista de espera / oferta de lançamento) na variável `LINK_CARDAPIO_PRO`.
+## Como publicar uma alteração
 
-## Lançamento automático
-A contagem regressiva aponta para **10/07/2026**. Quando a data chegar, o contador vira "Disponível agora" e o botão do Cardápio Pro muda automaticamente de *"Entrar na lista de espera"* para *"Comprar agora"*. Não precisa editar nada.
+1. Edite ou suba os arquivos na branch `main` (em **Add file → Upload files**, dentro da pasta certa).
+2. O GitHub Pages publica sozinho em 1 a 2 minutos. O andamento aparece em **Deployments**.
+3. Não renomeie nem mova páginas que já circulam em links (`uanpro/`, as páginas de captura, `validar.html`): isso quebra os links divulgados.
 
-## Editar preços / textos
-Os 4 produtos são montados a partir da lista `PRODUTOS` no `<script>` — dá para ajustar nome, descrição, bullets e preço por ali, num lugar só.
+## Contato
 
----
-Osmar Almeida · Nutricionista CRN 12979 · @uannodiaadia
+- Contato geral: contato@uannodiaadia.com
+- Suporte do UAN PRO: uanpro@uannodiaadia.com
+- Instagram: [@uannodiaadia](https://www.instagram.com/uannodiaadia)
+
+Osmar Almeida · Nutricionista CRN 12979 · © UAN no Dia a Dia. Todos os direitos reservados.
