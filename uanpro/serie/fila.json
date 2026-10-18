@@ -1,0 +1,143 @@
+{
+  "serie": "UAN PRO em ação",
+  "inicio": "2026-10-21",
+  "intervaloDias": 10,
+  "horario": "19:00",
+  "episodios": [
+    {
+      "n": 1,
+      "slug": "cardapio-6-semanas",
+      "assunto": "Seis semanas de cardápio em 15 segundos",
+      "preheader": "O ciclo sai pronto, com frequência do contrato, nutrição equilibrada e custo por refeição.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/01-cardapio-6-semanas-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/01-cardapio-6-semanas-email.html",
+      "legenda": "Seis semanas de cardápio. Em 15 segundos. ⏱️\n\nVocê configura as frequências do contrato uma vez. O UAN PRO monta o ciclo, equilibra a nutrição, mostra o custo por refeição contra a meta e já deixa a lista de compras pronta.\n\nTela real do app, sem montagem.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 2,
+      "slug": "central-da-etiqueta",
+      "assunto": "Quantos dias vale o frango que sobrou ontem?",
+      "preheader": "A Central da Etiqueta calcula a validade pela CVS 3/2026 e imprime na térmica.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/02-central-da-etiqueta-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/02-central-da-etiqueta-email.html",
+      "legenda": "Etiqueta pela norma. Sem caneta. 🏷️\n\nNa Central da Etiqueta do UAN PRO você escolhe o modelo, toca nos alergênicos e aperta Enter. A validade sai calculada pela CVS 3/2026, com número e responsável, na térmica ou em A4.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 3,
+      "slug": "ficha-tecnica-e-custo",
+      "assunto": "Quanto custa a porção de frango à parmegiana?",
+      "preheader": "A ficha técnica do UAN PRO mostra o custo de cada ingrediente, com o preço que você paga.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/03-ficha-tecnica-e-custo-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/03-ficha-tecnica-e-custo-email.html",
+      "legenda": "Quanto custa cada porção? 🍽️\n\nNa ficha técnica do UAN PRO, o frango à parmegiana sai a R$ 3,53 por porção, ingrediente por ingrediente, com os preços que você cadastrou. Mudou a gramatura, muda no cardápio, nas compras e nos custos.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 4,
+      "slug": "dre-do-contrato",
+      "assunto": "Seu contrato deu lucro em setembro?",
+      "preheader": "A DRE do UAN PRO fecha o mês com receita, CMV, pessoal e despesas.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/04-dre-do-contrato-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/04-dre-do-contrato-email.html",
+      "legenda": "O contrato dá lucro? A DRE responde. 📊\n\nReceita, impostos, CMV, pessoal e despesas num demonstrativo só. Fechou o mês, a DRE congela e vira histórico, pronta em PDF para a diretoria.\n\nTela real do UAN PRO, com dados de uma unidade de demonstração.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 5,
+      "slug": "lista-de-compras",
+      "assunto": "A lista de compras da semana já está pronta",
+      "preheader": "O UAN PRO calcula a lista pelo cardápio validado, com per capita e fator de correção.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/05-lista-de-compras-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/05-lista-de-compras-email.html",
+      "legenda": "A lista de compras sai do cardápio. 🛒\n\nNo UAN PRO você escolhe o período e a lista vem pronta: per capita, necessidade, fator de correção, o que já tem no estoque e o custo de cada item. Por categoria ou por fornecedor.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 6,
+      "slug": "etiquetas-de-pacientes",
+      "assunto": "O mapa de dietas virou etiqueta de bandeja",
+      "preheader": "Cole a planilha do hospital e imprima uma etiqueta por leito, com alergia em destaque.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/06-etiquetas-de-pacientes-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/06-etiquetas-de-pacientes-email.html",
+      "legenda": "Do mapa de dietas à etiqueta da bandeja. 🏥\n\nCole a planilha do hospital e o UAN PRO imprime uma etiqueta por leito: nome, nascimento, dieta, consistência e alergia em tarja preta. Os acompanhantes também ganham a deles.\n\nTela real do app, com pacientes fictícios.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 7,
+      "slug": "analise-nutricional",
+      "assunto": "Seu cardápio tiraria quanto?",
+      "preheader": "A Análise Nutricional do UAN PRO dá nota à variedade e compara o custo com a meta.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/07-analise-nutricional-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/07-analise-nutricional-email.html",
+      "legenda": "Seu cardápio tem nota. 📈\n\nA Análise Nutricional do UAN PRO mede variedade, repetição, cores no prato e custo contra a meta, com as médias de energia, proteína, sódio e fibras do ciclo inteiro.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 8,
+      "slug": "painel-da-cozinha",
+      "assunto": "A cozinha sabe o que começar agora?",
+      "preheader": "O Painel da Cozinha leva a ordem de produção para a TV ou o tablet, ao vivo.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/08-painel-da-cozinha-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/08-painel-da-cozinha-email.html",
+      "legenda": "A cozinha vê o que fazer agora. 📺\n\nO Painel da Cozinha do UAN PRO leva a ordem de produção para a TV ou o tablet da unidade: horário de cada preparação, porções por praça e a ficha técnica num toque. Pela rede local, sem internet.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 9,
+      "slug": "fechamento-do-mes",
+      "assunto": "Quanto a unidade já faturou este mês?",
+      "preheader": "Lance as refeições do dia e o UAN PRO fecha o mês, com PDF para o cliente.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/09-fechamento-do-mes-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/09-fechamento-do-mes-email.html",
+      "legenda": "O faturamento do mês fecha sozinho. 💰\n\nLance as refeições do dia e o UAN PRO soma, aplica o preço de cada serviço e entrega o fechamento em PDF para o cliente. Os mesmos números vão para a DRE.\n\nTela real do app, com dados de uma unidade de demonstração.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 10,
+      "slug": "documentos-com-sua-marca",
+      "assunto": "51 documentos prontos, com a marca da sua unidade",
+      "preheader": "POPs, treinamentos e atas com logo, versão e assinatura do RT preenchidos.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/10-documentos-com-sua-marca-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/10-documentos-com-sua-marca-email.html",
+      "legenda": "Todo documento com a sua marca. 📄\n\n51 modelos no UAN PRO: POPs, POPs da CVS 3/2026, equipamentos, treinamentos e atas. Logo, unidade, versão e assinatura do RT preenchidos sozinhos. Você escreve só o conteúdo.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 11,
+      "slug": "ordem-de-estoque",
+      "assunto": "O que o estoquista precisa separar amanhã?",
+      "preheader": "A Ordem de Estoque do UAN PRO sai do cardápio validado, em peso bruto.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/11-ordem-de-estoque-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/11-ordem-de-estoque-email.html",
+      "legenda": "O estoquista sabe o que separar. 📦\n\nA Ordem de Estoque do UAN PRO sai do cardápio validado, em peso bruto, para o dia seguinte. E avisa antes o que vai faltar. Em PDF ou direto na tela do estoque.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 12,
+      "slug": "pasta-da-vigilancia",
+      "assunto": "Se a Vigilância chegar amanhã, a pasta está pronta?",
+      "preheader": "A Pasta da Vigilância organiza os 45 documentos e avisa 30 dias antes de vencer.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/12-pasta-da-vigilancia-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/12-pasta-da-vigilancia-email.html",
+      "legenda": "A fiscalização chegou. A pasta está pronta? 🗂️\n\nA Pasta da Vigilância do UAN PRO organiza os 45 documentos que o fiscal pede, por seção, com validade. E avisa 30 dias antes de cada vencimento.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 13,
+      "slug": "curva-abc",
+      "assunto": "Quais insumos pesam mais no seu custo?",
+      "preheader": "A Curva ABC do UAN PRO mostra onde está o dinheiro da semana.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/13-curva-abc-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/13-curva-abc-email.html",
+      "legenda": "Onde está o seu dinheiro? 💸\n\nA Curva ABC do UAN PRO cruza o consumo do cardápio com os seus preços e mostra os insumos que concentram o custo da semana. Negocie primeiro o que pesa mais.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 14,
+      "slug": "refeicao-transportada",
+      "assunto": "Até que horas a marmita da obra pode ser consumida?",
+      "preheader": "A etiqueta de refeição transportada sai com o \"consumir até\" calculado pela CVS 3/2026.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/14-refeicao-transportada-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/14-refeicao-transportada-email.html",
+      "legenda": "Refeição transportada, hora certa no rótulo. 🚚\n\nNo UAN PRO, a etiqueta de transporte sai com destino, porções e o \"consumir até\" calculado: 6 h para quente, 4 h para frio, como pede a CVS 3/2026.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    },
+    {
+      "n": 15,
+      "slug": "cardapio-validado",
+      "assunto": "Quem mudou o cardápio de quinta-feira?",
+      "preheader": "O cardápio validado congela a versão e registra cada ajuste, com motivo.",
+      "imagem": "https://uannodiaadia.com/uanpro/serie/15-cardapio-validado-feed.jpg",
+      "html": "https://uannodiaadia.com/uanpro/serie/15-cardapio-validado-email.html",
+      "legenda": "Cardápio validado não muda sozinho. ✅\n\nNo UAN PRO, validou, congelou: produção, compras e estoque seguem a mesma versão. Ajuste pontual só com motivo, e tudo fica registrado.\n\nTela real do app.\n\nTeste o UAN PRO completo por 14 dias, grátis: link na bio 🔗\n\n#UANnoDiaaDia #UANPRO #GestaoDeUAN #NutricaoEmUAN #Nutricionista #AlimentacaoColetiva"
+    }
+  ]
+}
