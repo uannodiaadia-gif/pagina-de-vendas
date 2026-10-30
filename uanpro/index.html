@@ -444,10 +444,100 @@ footer{border-top:1px solid var(--linha);padding:44px 0 36px;background:var(--bg
     if (typeof gtag === 'function') gtag('event', 'conversion', { 'send_to': 'AW-18226261330/DC56CL648bscENLa-vJD', 'value': 1.0, 'currency': 'BRL' });
   }, true);
 </script>
+<script>
+/* ===== BLACK FRIDAY 2026 — configuração única (igual à do site principal) =====
+   Depois de "fim", faixa, bloco e preço com desconto somem sozinhos. */
+window.BF={fim:'2026-11-30T23:59:59-03:00', cupom:'UAN25', pct:25};
+window.BF.ativa=function(){ return Date.now()<Date.parse(window.BF.fim); };
+if(window.BF.ativa()) document.documentElement.classList.add('bf-on');
+</script>
+<style>
+/* =================== BLACK FRIDAY 2026 =================== */
+.bf{display:none}
+html.bf-on .bf{display:block}
+html.bf-on .heroi{padding-top:192px}
+html.bf-on .preco-normal{display:none}
+.bf-bar{background:linear-gradient(90deg,#000,#15120a 50%,#000);border-bottom:1px solid rgba(200,168,71,.55);position:relative;overflow:hidden}
+.bf-bar::after{content:"";position:absolute;top:0;bottom:0;width:120px;left:-140px;
+  background:linear-gradient(90deg,transparent,rgba(227,204,122,.22),transparent);animation:bfBrilho 4.5s ease-in-out infinite}
+@keyframes bfBrilho{0%{left:-140px}60%,100%{left:110%}}
+.bf-bar-in{display:flex;align-items:center;justify-content:center;gap:16px;min-height:40px;font-size:13.5px;color:#f1ead2}
+.bf-tag{font-family:var(--tit);font-weight:700;font-size:12px;letter-spacing:.14em;color:#000;background:linear-gradient(135deg,#C8A847,#F1DC8E);padding:4px 10px;border-radius:5px;flex:none}
+.bf-bar-txt b{color:var(--ouro2)}
+.bf-bar-txt .cod{font-family:var(--mono);letter-spacing:.06em;color:#000;background:#F1DC8E;padding:1px 7px;border-radius:4px;font-weight:600}
+.bf-bar-cd{font-family:var(--mono);font-size:12.5px;color:#cfc6a8;flex:none}
+.bf-bar-cd b{color:#fff}
+.bf-bar-btn{flex:none;font-weight:600;font-size:13px;color:var(--ouro2);text-decoration:none;border-bottom:1px solid rgba(227,204,122,.6)}
+.bf-bar-btn:hover{color:#fff}
+.bf-xs-mostra{display:none}
+@media(max-width:980px){.bf-sm-esconde{display:none}}
+@media(max-width:600px){.bf-bar-in{gap:10px;font-size:12.5px}.bf-bar-cd{display:none}.bf-tag{font-size:10.5px;padding:3px 8px}
+  .bf-xs-esconde{display:none}.bf-xs-mostra{display:inline}.bf-bar-txt{white-space:nowrap}}
+
+.bf-sec{position:relative;overflow:hidden;padding:90px 0 96px;color:#f1ead2;scroll-margin-top:110px;
+  background:radial-gradient(ellipse 55% 70% at 85% 15%,rgba(200,168,71,.22),transparent 60%),
+    radial-gradient(ellipse 50% 60% at 5% 100%,rgba(207,230,138,.10),transparent 60%),
+    repeating-linear-gradient(135deg,rgba(255,255,255,.018) 0 2px,transparent 2px 14px),#050604;
+  border-top:1px solid rgba(200,168,71,.5);border-bottom:1px solid rgba(200,168,71,.5)}
+.bf-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+@media(max-width:980px){.bf-grid{grid-template-columns:1fr;gap:38px}}
+.bf-olho{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ouro2)}
+.bf-olho i{width:9px;height:9px;border-radius:50%;background:#ff4d3d;animation:bfVivo 1.6s infinite;flex:none}
+@keyframes bfVivo{0%{box-shadow:0 0 0 0 rgba(255,77,61,.65)}100%{box-shadow:0 0 0 12px rgba(255,77,61,0)}}
+.bf-tit{font-family:var(--tit);font-weight:700;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;margin:18px 0 0;font-size:clamp(54px,8.6vw,108px);color:#fff}
+.bf-tit span{display:block;background:linear-gradient(100deg,#B8962F,#F6E3A0 45%,#C8A847 70%,#F1DC8E);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bf-sub{margin-top:22px;font-size:19px;line-height:1.55;color:#d9d1b4;max-width:48ch}
+.bf-sub b{color:#fff}
+.bf-cupom{display:flex;align-items:center;gap:12px;margin-top:26px;flex-wrap:wrap}
+.bf-cupom code{font-family:var(--mono);font-weight:600;font-size:26px;letter-spacing:.14em;color:#F6E3A0;border:2px dashed rgba(241,220,142,.7);border-radius:10px;padding:6px 16px;background:rgba(200,168,71,.07)}
+.bf-copiar{font-family:var(--tit);font-weight:600;font-size:14.5px;cursor:pointer;border:1px solid rgba(241,220,142,.6);background:transparent;color:#F1DC8E;border-radius:999px;padding:10px 18px}
+.bf-copiar:hover{background:rgba(241,220,142,.12)}
+.bf-oferta{background:linear-gradient(160deg,#17140b,#0a0a07);border:1px solid rgba(200,168,71,.6);border-radius:20px;padding:32px 30px;text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 6px rgba(200,168,71,.06)}
+.bf-oferta small{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#a99c74}
+.bf-de{margin-top:14px;font-size:17px;color:#958c73}
+.bf-de s{text-decoration-color:#ff4d3d;text-decoration-thickness:2px}
+.bf-por{white-space:nowrap;font-family:var(--tit);font-weight:700;font-size:clamp(44px,6vw,72px);letter-spacing:-.03em;line-height:1;color:#F6E3A0;margin-top:4px}
+.bf-por span{font-size:20px;color:#d9d1b4;font-weight:500;letter-spacing:0}
+.bf-eco{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:13px;color:var(--volt);border:1px solid rgba(207,230,138,.35);border-radius:999px;padding:4px 12px}
+.bf-oferta .btn{width:100%;margin-top:22px;font-size:17px;padding:16px 20px}
+.bf-oferta .bf-sec-link{display:inline-block;margin-top:12px;font-size:14px;color:#cfc6a8}
+.bf-cd-tit{margin-top:24px;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#a99c74}
+.bf-cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.bf-cd div{background:#000;border:1px solid rgba(200,168,71,.3);border-radius:10px;padding:9px 4px}
+.bf-cd b{display:block;font-family:var(--mono);font-size:26px;font-weight:600;color:#fff;line-height:1.15}
+.bf-cd span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#a99c74}
+.bf-combo{margin-top:46px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+  border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 26px;background:rgba(255,255,255,.025)}
+.bf-combo b{font-family:var(--tit);font-size:19px;color:#fff;display:block}
+.bf-combo p{font-size:14.5px;color:#b8b096;margin-top:4px}
+.bf-combo p s{color:#8a826b;text-decoration-color:#ff4d3d}
+.bf-combo p strong{color:#F6E3A0;font-family:var(--tit);font-size:17px}
+.bf-combo .btn{flex:none}
+.bf-rodape{margin-top:22px;text-align:center;font-size:13px;color:#8f8770;line-height:1.6}
+.bf-rodape a{color:#d9d1b4}
+/* caixa de preço da seção Comprar durante a Black */
+.bf-caixa{margin-bottom:6px}
+.bf-caixa .de{font-family:var(--mono);font-size:15px;color:var(--txt3)}
+.bf-caixa .de s{text-decoration-color:#ff4d3d;text-decoration-thickness:2px}
+.bf-caixa .por{display:inline-flex;align-items:baseline;gap:6px;font-family:var(--tit)}
+.bf-caixa .por .valor{font-size:64px;font-weight:700;letter-spacing:-.03em;color:#F6E3A0}
+.bf-caixa .por .moeda,.bf-caixa .por .per{font-size:20px;color:var(--txt2)}
+.bf-caixa .tag{display:inline-block;margin-top:4px;font-family:var(--mono);font-size:12.5px;color:#000;background:linear-gradient(135deg,#C8A847,#F1DC8E);padding:4px 12px;border-radius:999px;font-weight:600}
+@media (prefers-reduced-motion:reduce){.bf-bar::after,.bf-olho i{animation:none}}
+</style>
 </head>
 <body>
 
 <header id="topo">
+  <div class="bf bf-bar" role="region" aria-label="Black Friday">
+    <div class="env bf-bar-in">
+      <span class="bf-tag">BLACK FRIDAY</span>
+      <span class="bf-bar-txt"><b>UAN PRO 25% OFF</b><span class="bf-xs-esconde"> com o cupom</span><span class="bf-xs-mostra"> ·</span> <span class="cod">UAN25</span><span class="bf-sm-esconde"> · de R$ 447 por R$ 335,25</span></span>
+      <span class="bf-bar-cd">termina em <b data-bf-curto>--</b></span>
+      <a class="bf-bar-btn" href="#black-friday">Ver oferta →</a>
+    </div>
+  </div>
   <div class="env hcont">
     <a href="#" class="marca" aria-label="UAN PRO, voltar ao topo">
       <span class="sig">
@@ -517,6 +607,45 @@ footer{border-top:1px solid var(--linha);padding:44px 0 36px;background:var(--bg
     </div>
   </div>
 </div>
+
+<!-- ================= BLACK FRIDAY 2026 (some sozinho depois de 30/11) ================= -->
+<section class="bf bf-sec" id="black-friday" aria-label="Black Friday UAN PRO">
+  <div class="env">
+    <div class="bf-grid">
+      <div>
+        <span class="bf-olho"><i aria-hidden="true"></i>Já começou · vai até 30 de novembro</span>
+        <h2 class="bf-tit">Black <span>Friday</span></h2>
+        <p class="bf-sub">A licença anual do <b>UAN PRO com 25% de desconto</b>. Comece 2027 com o cardápio, os custos, os contratos e a pasta da Vigilância no mesmo sistema.</p>
+        <div class="bf-cupom"><code>UAN25</code><button type="button" class="bf-copiar" id="bfCopiar">Copiar cupom</button></div>
+      </div>
+      <div class="bf-oferta">
+        <small>UAN PRO · licença de 1 ano</small>
+        <div class="bf-de">de <s>R$ 447</s></div>
+        <div class="bf-por">R$ 335,25<span> /ano</span></div>
+        <span class="bf-eco">você economiza R$ 111,75</span>
+        <a href="https://pay.hotmart.com/D106340119Y" data-bf-link class="btn btn-ouro" target="_blank" rel="noopener">Quero com 25% OFF</a>
+        <a href="#degustacao" class="bf-sec-link">Prefere testar antes? Degustação de 14 dias grátis</a>
+        <div class="bf-cd-tit">A Black Friday termina em</div>
+        <div class="bf-cd" data-bf-cd>
+          <div><b data-u="d">--</b><span>dias</span></div>
+          <div><b data-u="h">--</b><span>horas</span></div>
+          <div><b data-u="m">--</b><span>min</span></div>
+          <div><b data-u="s">--</b><span>seg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bf-combo">
+      <div>
+        <b>Quer levar tudo? Combo Linha de Frente</b>
+        <p>Formação + Kit Profissional + UAN PRO (1 ano) + Manual Offshore: de <s>R$ 697</s> por <strong>R$ 522,75</strong></p>
+      </div>
+      <a href="https://pay.hotmart.com/N107018373P" data-bf-link class="btn" target="_blank" rel="noopener">Quero o Combo com 25% OFF</a>
+    </div>
+    <p class="bf-rodape">Cupom <b>UAN25</b> válido até 30/11/2026, às 23h59 (horário de Brasília). O desconto já vai aplicado nos botões; se não aparecer no checkout, digite UAN25 no campo de cupom.<br>
+      Também com 25%: a formação, o Kit e o Manual Offshore. <a href="https://uannodiaadia.com/#black-friday">Ver todas as ofertas →</a></p>
+  </div>
+</section>
 
 <!-- ================= DORES ================= -->
 <section class="s-alt2">
@@ -1239,7 +1368,12 @@ footer{border-top:1px solid var(--linha);padding:44px 0 36px;background:var(--bg
     <div class="olho">Licença anual · atualizações incluídas</div>
     <h2>Chega de descobrir <em>o problema tarde demais.</em></h2>
     <p class="sub">Instale hoje, gere o cardápio da próxima semana ainda esta tarde e comece a montar a sua pasta da Vigilância antes que ela seja necessária.</p>
-    <div class="preco"><span class="moeda">R$</span><span class="valor">447</span><span class="per">/ano</span></div>
+    <div class="bf bf-caixa">
+      <div class="de">de <s>R$ 447</s> por</div>
+      <div class="por"><span class="moeda">R$</span><span class="valor">335,25</span><span class="per">/ano</span></div>
+      <div><span class="tag">Black Friday · 25% OFF com UAN25 · até 30/11</span></div>
+    </div>
+    <div class="preco preco-normal"><span class="moeda">R$</span><span class="valor">447</span><span class="per">/ano</span></div>
     <div class="preco-obs">Ou parcelado no cartão, direto no checkout</div>
     <div class="acoes">
       <a href="https://pay.hotmart.com/D106340119Y" class="btn btn-ouro" id="cta-compra" target="_blank" rel="noopener">Quero o UAN PRO</a>
@@ -1562,6 +1696,43 @@ footer{border-top:1px solid var(--linha);padding:44px 0 36px;background:var(--bg
     if(!lb.classList.contains('aberto')) return;
     if(e.key==='Escape') fecha(); else if(e.key==='ArrowRight') mostra(i+1); else if(e.key==='ArrowLeft') mostra(i-1);
   });
+})();
+</script>
+<script>
+/* ===== BLACK FRIDAY 2026: contagem, copiar cupom, cupom nos links de compra ===== */
+(function(){
+  if(!window.BF || !BF.ativa()) return;
+  var fim=Date.parse(BF.fim);
+  function comCupom(u){ return u+(u.indexOf('?')<0?'?':'&')+'offDiscount='+BF.cupom; }
+  /* todo botão de compra do UAN PRO (e os da seção Black) já leva o cupom */
+  document.querySelectorAll('a[href*="pay.hotmart.com/D106340119Y"], a[data-bf-link]').forEach(function(a){
+    var u=a.getAttribute('href'); if(u.indexOf('offDiscount=')<0) a.setAttribute('href',comCupom(u));
+  });
+  var bt=document.getElementById('bfCopiar');
+  if(bt) bt.addEventListener('click',function(){
+    function ok(){ bt.textContent='Copiado ✓'; setTimeout(function(){ bt.textContent='Copiar cupom'; },2200); }
+    function velho(){ var t=document.createElement('textarea'); t.value=BF.cupom; t.style.position='fixed'; t.style.opacity='0';
+      document.body.appendChild(t); t.select(); try{document.execCommand('copy');}catch(e){} document.body.removeChild(t); ok(); }
+    if(navigator.clipboard&&window.isSecureContext){ navigator.clipboard.writeText(BF.cupom).then(ok,velho); } else velho();
+  });
+  var cds=document.querySelectorAll('[data-bf-cd]'), curtos=document.querySelectorAll('[data-bf-curto]');
+  function p2(n){ return (n<10?'0':'')+n; }
+  function tick(){
+    var r=fim-Date.now();
+    if(r<=0){ /* acabou com a página aberta: volta tudo ao normal */
+      document.documentElement.classList.remove('bf-on');
+      document.querySelectorAll('a[href*="offDiscount="]').forEach(function(a){ a.setAttribute('href',a.getAttribute('href').replace(/[?&]offDiscount=[^&]*/,'')); });
+      return;
+    }
+    var d=Math.floor(r/864e5), hh=Math.floor(r%864e5/36e5), mm=Math.floor(r%36e5/6e4), ss=Math.floor(r%6e4/1e3);
+    cds.forEach(function(c){
+      c.querySelector('[data-u="d"]').textContent=p2(d); c.querySelector('[data-u="h"]').textContent=p2(hh);
+      c.querySelector('[data-u="m"]').textContent=p2(mm); c.querySelector('[data-u="s"]').textContent=p2(ss);
+    });
+    curtos.forEach(function(c){ c.textContent=(d>0?d+'d ':'')+p2(hh)+'h '+p2(mm)+'m'; });
+    setTimeout(tick,1000);
+  }
+  tick();
 })();
 </script>
 </body>
