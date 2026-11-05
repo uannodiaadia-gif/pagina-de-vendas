@@ -1652,18 +1652,28 @@ html.bf-on .preco-normal{display:none}
       ferramenta:'Avaliação UAN PRO',
       origem:    'Site UAN PRO — Avaliação'
     };
-    try{ fetch(MAKE,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(d)}).catch(function(){}); }catch(err){}
+    function comTempo(p,ms){ return Promise.race([p,new Promise(function(_,rej){ setTimeout(function(){ rej(new Error('tempo esgotado')); },ms); })]); }
+    /* 05/11/2026: o Make já manda o aviso por e-mail ao Osmar (Brevo) com a avaliação inteira.
+       O FormSubmit (fora do ar desde ~30/10) fica só de reserva: basta um dos dois funcionar. */
+    var pMake=comTempo(fetch(MAKE,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)}),15000)
+      .then(function(r){ if(!r.ok) throw new Error('Make '+r.status); return true; })
+      .catch(function(err){ console.warn('[avaliação] Make falhou:',err); return false; });
     fd.append('_url', window.location.href);
-    /* 30/09/2026: mesmo apelido ativado do FormSubmit usado no site principal */
-    fetch('https://formsubmit.co/ajax/71e76791deb0994a620b3aafc9a837d0',{method:'POST',
-      headers:{'Accept':'application/json'}, body:fd})
-      .then(function(r){ return r.json(); })
-      .then(function(){ f.reset(); pintar(0); nota.value='';
+    var pForm=comTempo(fetch('https://formsubmit.co/ajax/71e76791deb0994a620b3aafc9a837d0',{method:'POST',
+      headers:{'Accept':'application/json'}, body:fd}),15000)
+      .then(function(r){ return r.json().catch(function(){ return {success:r.ok}; }); })
+      .then(function(j){ return !!(j && (j.success===true || j.success==='true')); })
+      .catch(function(err){ console.warn('[avaliação] FormSubmit falhou:',err); return false; });
+    Promise.all([pMake,pForm]).then(function(res){
+      if(res[0]||res[1]){
+        f.reset(); pintar(0); nota.value='';
         m.textContent='✓ Avaliação enviada. Obrigado — vamos conferir e publicar em breve.';
-        m.className='av-nota-msg ok'; b.style.display='none'; })
-      .catch(function(){ m.textContent='Não foi possível enviar agora. Tente de novo em instantes.';
-        m.className='av-nota-msg err'; b.disabled=false; b.textContent='Enviar avaliação'; });
+        m.className='av-nota-msg ok'; b.style.display='none';
+      } else {
+        m.textContent='Não foi possível enviar agora. Tente de novo em instantes.';
+        m.className='av-nota-msg err'; b.disabled=false; b.textContent='Enviar avaliação';
+      }
+    });
   });
 })();
 </script>
