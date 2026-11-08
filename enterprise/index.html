@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UAN PRO Enterprise</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="UAN PRO Enterprise: a gestão completa de redes de refeições coletivas, do contrato ao resultado.">
+<!-- Site (28/10/2026, atualizado em 08/11/2026): publicar em uannodiaadia.com/enterprise/ (pasta enterprise do pagina-de-vendas) -->
+<link rel="canonical" href="https://uannodiaadia.com/enterprise/">
+<meta name="theme-color" content="#0B2D4A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="UAN PRO Enterprise">
+<meta property="og:title" content="UAN PRO Enterprise · do contrato ao resultado">
+<meta property="og:description" content="Contrato, cardápio, compras, cozinha, fechamento e resultado de cada unidade e da rede inteira, num sistema só.">
+<meta property="og:url" content="https://uannodiaadia.com/enterprise/">
+<meta property="og:image" content="https://uannodiaadia.com/enterprise/img/adm-painel.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%230B2D4A'/%3E%3Cpolygon points='56.02,41.95 41.95,56.02 22.05,56.02 7.98,41.95 7.98,22.05 22.05,7.98 41.95,7.98 56.02,22.05' fill='%23D4AF67'/%3E%3Cpath d='M23.5 22.8V32.7A8.5 8.5 0 0 0 40.5 32.7V22.8' fill='none' stroke='%230B2D4A' stroke-width='5.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  /* Layout: apresentação em faixas largas que alternam azul-marinho e gelo; cada módulo é uma faixa com texto de um lado e a tela real do outro, em janela. Identidade fixa do Enterprise (um tema só, por escolha). */
+  :root {
+    --navy: #0B2D4A; --navy-2: #12385C; --navy-3: #0A2540; --azul: #2563EB; --ouro: #D4AF67; --ouro-escuro: #A9853F; --verde: #108B81;
+    --gelo: #F4F6F8; --branco: #FFFFFF; --grafite: #1F2937; --texto-2: #4B5563; --texto-3: #6B7280; --borda: #DDE3EA; --claro-na-navy: #C9D6E3;
+    --fonte: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  body { margin: 0; background: var(--gelo); color: var(--grafite); font: 400 16px/1.65 var(--fonte); -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3 { margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  .largo { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+  .eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ouro-escuro); }
+  .navy .eyebrow { color: var(--ouro); }
+
+  /* barra de navegação */
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--navy); }
+  .barra { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(11, 45, 74, 0.96); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(212, 175, 103, 0.25); }
+  .barra .largo { display: flex; align-items: center; gap: 22px; height: 62px; }
+  .barra img { height: 34px; width: auto; }
+  .barra nav { display: flex; gap: 4px; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+  .barra nav::-webkit-scrollbar { display: none; }
+  .barra nav a { color: var(--claro-na-navy); text-decoration: none; font-size: 13.5px; font-weight: 500; padding: 7px 11px; border-radius: 8px; white-space: nowrap; }
+  .barra nav a:hover, .barra nav a:focus-visible { color: #fff; background: rgba(255, 255, 255, 0.08); outline: none; }
+  @media (max-width: 860px) { .barra nav { display: none; } }
+
+  /* abertura */
+  .navy { background: var(--navy); color: #fff; }
+  .abertura { position: relative; overflow: hidden; }
+  .abertura::after { content: ""; position: absolute; right: -180px; top: -200px; width: 620px; height: 620px; border-radius: 50%; border: 1px solid rgba(212, 175, 103, 0.18); box-shadow: 0 0 0 70px rgba(212, 175, 103, 0.04), 0 0 0 150px rgba(212, 175, 103, 0.03); pointer-events: none; }
+  .abertura .largo { padding-block: 72px 0; display: grid; gap: 28px; position: relative; z-index: 1; }
+  .abertura h1 { font-size: clamp(36px, 5.6vw, 64px); line-height: 1.05; font-weight: 800; max-width: 17ch; }
+  .abertura h1 em { font-style: normal; color: var(--ouro); }
+  .abertura .lead { font-size: clamp(17px, 1.6vw, 20px); color: var(--claro-na-navy); max-width: 62ch; line-height: 1.6; }
+  .selos { display: flex; flex-wrap: wrap; gap: 10px; }
+  .selo { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(212, 175, 103, 0.35); color: #fff; font-size: 14px; font-weight: 500; }
+  .selo::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ouro); }
+  .vitrine { margin-top: 18px; transform: translateY(40px); }
+
+  /* janela das telas */
+  .janela { border-radius: 12px; overflow: hidden; background: var(--branco); box-shadow: 0 30px 70px -20px rgba(6, 28, 48, 0.45), 0 0 0 1px rgba(11, 45, 74, 0.08); cursor: zoom-in; }
+  .janela .topo-janela { height: 30px; background: #E9EDF2; display: flex; align-items: center; gap: 7px; padding: 0 12px; }
+  .janela .topo-janela i { width: 10px; height: 10px; border-radius: 50%; background: #C7CFD9; }
+  .janela .topo-janela span { margin-left: 10px; font-size: 11.5px; color: var(--texto-3); }
+  .janela img { width: 100%; height: auto; }
+  .janela.doc { box-shadow: 0 24px 50px -24px rgba(6, 28, 48, 0.4), 0 0 0 1px rgba(11, 45, 74, 0.1); }
+  .janela:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+
+  /* faixas */
+  .faixa { padding-block: 96px; }
+  .faixa.depois-vitrine { padding-top: 150px; }
+  .faixa.branca { background: var(--branco); }
+  .cabeca { display: grid; gap: 14px; max-width: 760px; margin-bottom: 44px; }
+  .cabeca h2 { font-size: clamp(28px, 3.6vw, 42px); line-height: 1.12; font-weight: 800; color: var(--navy); }
+  .navy .cabeca h2 { color: #fff; }
+  .cabeca p { font-size: 18px; color: var(--texto-2); }
+  .navy .cabeca p { color: var(--claro-na-navy); }
+
+  /* fatos */
+  .fatos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .fato { background: var(--branco); border: 1px solid var(--borda); border-radius: 14px; padding: 22px; display: grid; gap: 4px; align-content: start; }
+  .fato b { font-size: 38px; line-height: 1; font-weight: 800; color: var(--navy); font-variant-numeric: tabular-nums; }
+  .fato span { color: var(--texto-2); font-size: 14.5px; }
+
+  /* espinha */
+  .espinha { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 0; border-radius: 14px; overflow: hidden; border: 1px solid rgba(212, 175, 103, 0.3); }
+  .espinha div { padding: 20px 16px; background: var(--navy-2); display: grid; gap: 4px; position: relative; min-width: 0; }
+  .espinha div:nth-child(even) { background: var(--navy-3); }
+  .espinha div b { font-size: 15.5px; color: #fff; }
+  .espinha div span { font-size: 13px; color: var(--claro-na-navy); line-height: 1.45; }
+  .espinha div small { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--ouro); }
+
+  /* módulo: texto + tela */
+  .modulo { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+  .modulo.inverso { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .modulo.inverso .texto { order: 2; }
+  .modulo .texto { display: grid; gap: 16px; }
+  .modulo h3 { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.15; font-weight: 800; color: var(--navy); }
+  .modulo .texto > p { color: var(--texto-2); font-size: 17px; }
+  .pontos { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .pontos li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 15.5px; line-height: 1.55; }
+  .pontos li::before { content: ""; width: 18px; height: 18px; margin-top: 3px; border-radius: 6px; background: var(--ouro) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230B2D4A' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat; }
+  .pontos b { color: var(--navy); }
+  .galeria { display: grid; gap: 16px; }
+  .galeria.duas { grid-template-columns: 1fr 1fr; }
+  .legenda { font-size: 13px; color: var(--texto-3); margin-top: 8px; }
+  .separa { height: 1px; background: var(--borda); margin-block: 72px; }
+  @media (max-width: 920px) {
+    .modulo, .modulo.inverso { grid-template-columns: 1fr; gap: 30px; }
+    .modulo.inverso .texto { order: 0; }
+    .galeria.duas { grid-template-columns: 1fr; }
+    .faixa { padding-block: 72px; }
+  }
+
+  /* destaque (IA, validação) */
+  .destaque { background: var(--navy); color: #fff; border-radius: 20px; padding: 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+  .destaque h3 { color: #fff; font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; line-height: 1.15; }
+  .destaque p { color: var(--claro-na-navy); }
+  .destaque .pontos li { color: #E6EBF0; }
+  .destaque .pontos b { color: #fff; }
+  @media (max-width: 920px) { .destaque { grid-template-columns: 1fr; padding: 28px 22px; } }
+  .leitura { background: var(--navy-3); border: 1px solid rgba(212, 175, 103, 0.3); border-radius: 14px; padding: 18px; display: grid; gap: 10px; font-size: 14px; }
+  .leitura .linha { display: grid; grid-template-columns: 150px 1fr auto; gap: 10px; align-items: center; padding-bottom: 9px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .leitura .linha:last-child { border-bottom: 0; padding-bottom: 0; }
+  .leitura .rot { color: var(--claro-na-navy); font-size: 12.5px; }
+  .leitura .val { color: #fff; font-weight: 600; }
+  .leitura .ok { font-size: 11.5px; font-weight: 700; color: #5FCBBF; }
+  .leitura .rev { font-size: 11.5px; font-weight: 700; color: var(--ouro); }
+  .leitura .cab { display: flex; justify-content: space-between; color: var(--ouro); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  @media (max-width: 520px) { .leitura .linha { grid-template-columns: 1fr auto; } .leitura .rot { grid-column: 1 / -1; } }
+
+  /* cartões de recursos */
+  .cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .cartao { background: var(--branco); border: 1px solid var(--borda); border-radius: 14px; padding: 22px; display: grid; gap: 8px; align-content: start; }
+  .cartao h4 { margin: 0; font-size: 16.5px; color: var(--navy); }
+  .cartao p { font-size: 14.5px; color: var(--texto-2); line-height: 1.55; }
+  .icone { width: 38px; height: 38px; border-radius: 10px; background: var(--gelo); display: grid; place-items: center; color: var(--navy); }
+  .icone svg { width: 20px; height: 20px; }
+  .navy .cartao { background: var(--navy-2); border-color: rgba(255, 255, 255, 0.08); }
+  .navy .cartao h4 { color: #fff; }
+  .navy .cartao p { color: var(--claro-na-navy); }
+  .navy .icone { background: rgba(212, 175, 103, 0.14); color: var(--ouro); }
+
+  /* em construção */
+  .obras { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .obra { background: var(--branco); border: 1px solid var(--borda); border-radius: 16px; padding: 26px; display: grid; gap: 14px; align-content: start; }
+  .obra .estado { justify-self: start; font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: #F3E9D4; color: #7A5B22; }
+  .obra h3 { font-size: 22px; color: var(--navy); font-weight: 800; }
+  .obra > p { color: var(--texto-2); font-size: 15px; }
+  .etapas { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: e; }
+  .etapas li { counter-increment: e; display: grid; grid-template-columns: 30px 1fr; gap: 10px; font-size: 14.5px; line-height: 1.5; }
+  .etapas li::before { content: counter(e); width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--ouro-escuro); color: var(--ouro-escuro); font-weight: 700; font-size: 12.5px; display: grid; place-items: center; }
+  .etapas b { color: var(--navy); }
+
+  /* implantação */
+  .passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; counter-reset: p; }
+  .passo { counter-increment: p; background: var(--navy-2); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 22px; display: grid; gap: 8px; }
+  .passo::before { content: "0" counter(p); font-size: 13px; font-weight: 800; color: var(--ouro); letter-spacing: 0.1em; }
+  .passo b { font-size: 16.5px; color: #fff; }
+  .passo span { font-size: 14.5px; color: var(--claro-na-navy); line-height: 1.55; }
+
+  /* encerramento */
+  .fim { text-align: center; }
+  .fim .largo { display: grid; gap: 22px; justify-items: center; padding-block: 96px; }
+  .fim h2 { font-size: clamp(30px, 4.4vw, 52px); font-weight: 800; line-height: 1.1; max-width: 20ch; }
+  .fim p { color: var(--claro-na-navy); font-size: 18px; max-width: 58ch; }
+  .contatos { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .contato { display: grid; gap: 2px; padding: 14px 20px; border-radius: 12px; border: 1px solid rgba(212, 175, 103, 0.35); text-align: left; }
+  .contato small { font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ouro); font-weight: 700; }
+  .contato span { color: #fff; font-weight: 600; user-select: all; }
+  a.contato { text-decoration: none; }
+  a.contato:hover, a.contato:focus-visible { border-color: var(--ouro); outline: none; }
+  /* chamadas para a apresentação (site) */
+  .chamadas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .fim .chamadas { justify-content: center; margin-top: 4px; }
+  .cta { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; font-weight: 700; font-size: 15.5px; text-decoration: none; }
+  .cta.ouro { background: var(--ouro); color: var(--navy); }
+  .cta.ouro:hover, .cta.ouro:focus-visible { background: #E2C27F; outline: none; }
+  .cta.linha { border: 1px solid rgba(255, 255, 255, 0.35); color: #fff; }
+  .cta.linha:hover, .cta.linha:focus-visible { border-color: #fff; outline: none; }
+  .barra .cta { padding: 8px 16px; font-size: 13.5px; margin-left: 8px; white-space: nowrap; }
+  @media (max-width: 860px) { .barra .cta { margin-left: auto; } }
+  .rodape a { color: var(--claro-na-navy); }
+  .assinatura { font-size: 14px; color: var(--claro-na-navy); }
+  .rodape { background: var(--navy-3); color: var(--claro-na-navy); font-size: 13px; }
+  .rodape .largo { padding-block: 22px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; }
+
+  /* ampliar imagem */
+  .lupa { position: fixed; inset: 0; z-index: 50; background: rgba(6, 20, 34, 0.9); display: grid; place-items: center; padding: max(20px, env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) max(20px, env(safe-area-inset-bottom, 0px)) max(20px, env(safe-area-inset-left, 0px)); cursor: zoom-out; }
+  .lupa img { max-width: min(1440px, 100%); max-height: 100%; border-radius: 10px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); }
+  .lupa[hidden] { display: none; }
+
+  /* botão fixo do WhatsApp (contato com o telefone em qualquer ponto da página) */
+  .zap { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: max(18px, env(safe-area-inset-bottom, 0px)); z-index: 40; display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px 12px 14px; border-radius: 999px; background: #1F9D55; color: #fff; font-weight: 700; font-size: 15px; text-decoration: none; box-shadow: 0 14px 34px -10px rgba(6, 28, 48, 0.55); }
+  .zap:hover, .zap:focus-visible { background: #188A49; outline: none; }
+  .zap svg { width: 22px; height: 22px; flex: none; }
+  .zap small { display: block; font-size: 11.5px; font-weight: 500; opacity: 0.9; }
+  @media (max-width: 520px) { .zap span { display: none; } .zap { padding: 14px; } }
+
+  /* economia */
+  .frentes { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .frente { background: var(--navy-2); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 22px; display: grid; gap: 8px; align-content: start; }
+  .frente small { font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ouro); }
+  .frente b { font-size: 17px; color: #fff; }
+  .frente span { font-size: 14.5px; color: var(--claro-na-navy); line-height: 1.55; }
+
+  .surge { opacity: 1; transform: none; transition: opacity 0.7s ease, transform 0.7s ease; }
+  .js .surge.fora { opacity: 0; transform: translateY(18px); }
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="largo">
+    <img alt="UAN PRO Enterprise" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 330 72'%3E%3Cg transform='translate(4 4)'%3E%3Crect width='64' height='64' rx='15' fill='%23123E64'/%3E%3Cpolygon points='56.02,41.95 41.95,56.02 22.05,56.02 7.98,41.95 7.98,22.05 22.05,7.98 41.95,7.98 56.02,22.05' fill='%23D4AF67'/%3E%3Cpath d='M23.5 22.8V32.7A8.5 8.5 0 0 0 40.5 32.7V22.8' fill='none' stroke='%230B2D4A' stroke-width='5.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Ctext x='84' y='44' font-family='Inter, Segoe UI, Arial, sans-serif' font-size='34' font-weight='800' letter-spacing='1.2' fill='%23FFFFFF'%3EUAN PRO%3C/text%3E%3Ctext x='86' y='62' font-family='Inter, Segoe UI, Arial, sans-serif' font-size='11.5' font-weight='600' letter-spacing='5.2' fill='%23D4AF67'%3EENTERPRISE%3C/text%3E%3C/svg%3E">
+    <nav aria-label="Seções">
+      <a href="#espinha">Visão geral</a>
+      <a href="#administracao">Administração</a>
+      <a href="#planejamento">Planejamento</a>
+      <a href="#suprimentos">Compras e estoque</a>
+      <a href="#unidade">Unidade</a>
+      <a href="#financeiro">Financeiro</a>
+      <a href="#economia">Economia</a>
+      <a href="#rede">Rede</a>
+      <a href="#confianca">Segurança</a>
+      <a href="#construcao">Em construção</a>
+    </nav>
+    <a class="cta ouro" href="#contato">Peça uma apresentação</a>
+  </div>
+</header>
+
+<main>
+  <section class="navy abertura">
+    <div class="largo">
+      <span class="eyebrow">Gestão para empresas de refeições coletivas</span>
+      <h1>Toda a rede de UANs, <em>do contrato ao resultado</em>, num sistema só.</h1>
+      <p class="lead">O UAN PRO Enterprise lê o contrato, monta o cardápio, calcula a compra, acompanha a cozinha de cada unidade, fecha o mês e mostra o resultado de cada contrato, de cada regional e da rede inteira. Feito por nutricionista, para quem vive a rotina de uma UAN.</p>
+      <div class="selos">
+        <span class="selo">Na nuvem, com login por pessoa</span>
+        <span class="selo">Unidade trabalha mesmo sem internet</span>
+        <span class="selo">Documentos com validação eletrônica</span>
+        <span class="selo">Implantação 100% online, sem digitação</span>
+      </div>
+      <div class="chamadas">
+        <a class="cta ouro" href="https://wa.me/5532984151828?text=Quero%20receber%20a%20apresenta%C3%A7%C3%A3o%20do%20UAN%20PRO%20Enterprise" target="_blank" rel="noopener">Peça uma apresentação</a>
+        <a class="cta linha" href="#espinha">Conheça o sistema</a>
+      </div>
+      <div class="vitrine surge">
+        <figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Painel da administração</span></div><img src="img/adm-painel.jpg" alt="Painel da administração: faturamento, margem, custo por refeição, desperdício e alertas da rede" width="1190" height="558"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa depois-vitrine" id="espinha">
+    <div class="largo">
+      <div class="cabeca surge">
+        <span class="eyebrow">A ideia central</span>
+        <h2>Cada informação nasce uma vez e segue sozinha até o fim.</h2>
+        <p>O contrato vira cardápio, o cardápio vira compra, a compra vira estoque, a cozinha vira fechamento e o fechamento vira resultado. Ninguém digita a mesma coisa duas vezes.</p>
+      </div>
+      <div class="espinha surge" style="background: var(--navy)">
+        <div><small>01</small><b>Contrato</b><span>Serviços, preços, per capitas, retenções</span></div>
+        <div><small>02</small><b>Planejamento</b><span>Cardápio, fichas, dietas</span></div>
+        <div><small>03</small><b>Compras</b><span>Necessidade, cotação, pedido</span></div>
+        <div><small>04</small><b>Estoque</b><span>Notas, saldo, balanço</span></div>
+        <div><small>05</small><b>Unidade</b><span>Produção, Vigilância, qualidade</span></div>
+        <div><small>06</small><b>Fechamento</b><span>Medição, romaneio, fatura</span></div>
+        <div><small>07</small><b>Resultado</b><span>DRE do contrato e da rede</span></div>
+      </div>
+      <div class="fatos surge" style="margin-top: 22px">
+        <div class="fato"><b>1.074</b><span>preparações com ficha técnica, nutrição pela TACO e custo pelo preço do cliente</span></div>
+        <div class="fato"><b>3</b><span>meses de cardápio que nascem do contrato, validados pela RT e aprovados pelo Planejamento</span></div>
+        <div class="fato"><b>45</b><span>documentos da Pasta da Vigilância organizados por seção, com vencimento</span></div>
+        <div class="fato"><b>3</b><span>níveis de relatório: filial, regional e rede, no escopo de cada pessoa</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa branca" id="contratos">
+    <div class="largo">
+      <div class="destaque surge">
+        <div style="display: grid; gap: 16px">
+          <span class="eyebrow">Contratos · leitura com inteligência artificial</span>
+          <h3>O contrato é a origem de tudo. E o sistema lê o contrato para você.</h3>
+          <p>Envie o PDF do contrato ou do edital. A leitura com IA preenche serviços, preços, quantidades, per capitas, frequências, retenções, reajuste e vigência. A equipe revisa campo a campo e aplica. A partir daí, o contrato manda no cardápio, na compra, no fechamento e no financeiro.</p>
+          <ul class="pontos">
+            <li><span><b>Regras do contrato viram regras do sistema:</b> estrutura do prato, gramaturas, frequências e exigências de insumo.</span></li>
+            <li><span><b>Avisos de vigência e reajuste</b> com antecedência de 90, 60 e 30 dias, e o cálculo do reajuste pronto.</span></li>
+            <li><span><b>Equipamentos e patrimônio do contrato</b> com dono, amortização e quem paga cada conserto.</span></li>
+          </ul>
+        </div>
+        <div class="leitura" aria-label="Exemplo de leitura do contrato">
+          <div class="cab"><span>Leitura do contrato</span><span>Exemplo</span></div>
+          <div class="linha"><span class="rot">Serviço</span><span class="val">Almoço · R$ 21,50 · 420/dia</span><span class="ok">lido</span></div>
+          <div class="linha"><span class="rot">Serviço</span><span class="val">Jantar · R$ 19,35 · 170/dia</span><span class="ok">lido</span></div>
+          <div class="linha"><span class="rot">Prato proteico</span><span class="val">120 g cozido · 5×/semana carne</span><span class="ok">lido</span></div>
+          <div class="linha"><span class="rot">Retenções</span><span class="val">ISS 2% · PIS/Cofins/CSLL 4,65%</span><span class="ok">lido</span></div>
+          <div class="linha"><span class="rot">Reajuste</span><span class="val">IPCA · anual na data-base</span><span class="ok">lido</span></div>
+          <div class="linha"><span class="rot">Pagamento</span><span class="val">15 dias após o fechamento</span><span class="rev">revisar</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa" id="administracao">
+    <div class="largo">
+      <div class="cabeca surge">
+        <span class="eyebrow">Administração</span>
+        <h2>A empresa inteira numa tela. A filial, num clique.</h2>
+        <p>Diretoria, financeiro, compras e planejamento olham a rede toda e fazem o recorte por filial dentro de cada setor. A regional vê só as filiais dela. O painel mostra só o que pede atenção, o mais grave primeiro.</p>
+      </div>
+      <div class="modulo surge">
+        <div class="texto">
+          <h3>O que pede atenção, o mais grave primeiro</h3>
+          <ul class="pontos">
+            <li><span><b>Caixa da empresa por contrato:</b> saldo, a receber, a pagar, atrasados e o menor saldo dos próximos 90 dias.</span></li>
+            <li><span><b>Faturamento, margem, custo por refeição e desperdício</b> da rede no mês, com o previsto ao lado.</span></li>
+            <li><span><b>Alertas por exceção:</b> custo acima do previsto, lote vencido, documento vencido, contrato vencendo, reajuste a aplicar.</span></li>
+            <li><span><b>Margem por contrato e ranking do desperdício</b>, do pior para o melhor.</span></li>
+          </ul>
+        </div>
+        <figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Financeiro da empresa</span></div><img src="img/adm-financeiro.jpg" alt="Financeiro da empresa: saldo em contas, a receber, a pagar e caixa por contrato" width="1217" height="581" loading="lazy"></figure>
+      </div>
+      <div class="separa"></div>
+      <div class="galeria duas surge">
+        <div><figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Suprimentos da empresa</span></div><img src="img/adm-suprimentos.jpg" alt="Suprimentos da empresa: estoque, compras, perdas, lotes e balanço por filial" width="1217" height="656" loading="lazy"></figure><p class="legenda">Suprimentos: estoque, compras, perdas, lotes vencendo e balanço de cada filial.</p></div>
+        <div><figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Aprovação dos cardápios</span></div><img src="img/adm-cardapios.jpg" alt="Aprovação dos cardápios: cada filial e os próximos três meses" width="1217" height="581" loading="lazy"></figure><p class="legenda">Cardápios: cada filial e os próximos três meses, com a etapa de cada um.</p></div>
+        <div><figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Contratos</span></div><img src="img/adm-contratos.jpg" alt="Contratos: faturamento mensal previsto, vencimentos e avisos de reajuste" width="1217" height="581" loading="lazy"></figure><p class="legenda">Contratos: faturamento previsto, vencimentos e reajustes avisados antes da hora.</p></div>
+        <div><figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Manutenção da empresa</span></div><img src="img/adm-manutencao.jpg" alt="Manutenção da empresa: patrimônio, ordens de serviço e preventivas" width="1217" height="581" loading="lazy"></figure><p class="legenda">Manutenção: patrimônio, ordens fora do prazo e preventivas atrasadas de todas as filiais.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa branca" id="planejamento">
+    <div class="largo">
+      <div class="cabeca surge">
+        <span class="eyebrow">Planejamento</span>
+        <h2>Um mês de cardápio para tudo: refeições grandes, pequenas e dietoterapia.</h2>
+        <p>O mês de lançamento e os dois seguintes nascem da estrutura do contrato, com harmonia, variedade e custo. A RT da unidade revisa, troca o que precisar e valida com a própria senha; o Planejamento confere as trocas e aprova ou devolve com o motivo. O mês aprovado alimenta compras, produção, etiquetas e análise.</p>
+      </div>
+      <div class="modulo surge">
+        <div class="texto">
+          <h3>Cardápio que respeita o contrato</h3>
+          <ul class="pontos">
+            <li><span><b>Estrutura contratual sempre completa:</b> arroz, feijão, guarnição, proteína e salada todos os dias, como o contrato exige.</span></li>
+            <li><span><b>Variedade controlada:</b> rodízio de proteínas, sem repetição em sequência, datas especiais com prato diferenciado.</span></li>
+            <li><span><b>Duas etapas de aprovação:</b> a RT valida a unidade dela e o Planejamento aprova a empresa, com as trocas à vista.</span></li>
+            <li><span><b>Importa a planilha do cliente</b> quando o cardápio vem pronto, e casa cada preparação com a ficha técnica.</span></li>
+            <li><span><b>Custo por refeição na hora</b>, com o preço que a empresa paga, e a meta do contrato ao lado.</span></li>
+          </ul>
+        </div>
+        <figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Cardápio gerado · 6 semanas</span></div><img src="img/cardapio.jpg" alt="Cardápio de 6 semanas gerado, por componente e dia" width="1440" height="900" loading="lazy"></figure>
+      </div>
+      <div class="separa"></div>
+      <div class="modulo inverso surge">
+        <div class="texto">
+          <h3>Ficha técnica que recalcula tudo</h3>
+          <p>Ingredientes, gramaturas prontas e o modo de preparo com as temperaturas da RDC 216. Mudou um ingrediente ou um preço, a nutrição e o custo mudam em todo o sistema.</p>
+          <ul class="pontos">
+            <li><span><b>Nutrição pela tabela TACO:</b> energia, proteína, carboidrato, lipídio, sódio e fibras por porção.</span></li>
+            <li><span><b>Porções padrão</b> definidas pela matriz, com ajuste da unidade aprovado pela gestão.</span></li>
+          </ul>
+        </div>
+        <figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Fichas técnicas</span></div><img src="img/fichas.jpg" alt="Ficha técnica com nutrição, custo, ingredientes e modo de preparo" width="1440" height="900" loading="lazy"></figure>
+      </div>
+      <div class="separa"></div>
+      <div class="galeria duas surge">
+        <div><figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Análise nutricional</span></div><img src="img/analise.jpg" alt="Análise nutricional do ciclo com metas e médias por refeição" width="1440" height="900" loading="lazy"></figure><p class="legenda">Análise nutricional do ciclo: metas do contrato, conformidade e médias por refeição.</p></div>
+        <div><figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Dietoterapia</span></div><img src="img/dieto.jpg" alt="Dietoterapia com dietas e consistências" width="1440" height="900" loading="lazy"></figure><p class="legenda">Dietoterapia hospitalar: livre, branda, diabética e as do mês (pastosa, homogênea, renal), com consistências.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa" id="suprimentos">
+    <div class="largo">
+      <div class="cabeca surge">
+        <span class="eyebrow">Compras e estoque</span>
+        <h2>Compre o que o cardápio pede, na embalagem que o fornecedor vende.</h2>
+        <p>A lista de compras sai do cardápio validado, por datas, descontando o estoque e arredondando para a embalagem real. A cotação aponta o vencedor de cada item e monta o pedido de cada fornecedor.</p>
+      </div>
+      <div class="modulo surge">
+        <div class="texto">
+          <h3>Da necessidade ao pedido</h3>
+          <ul class="pontos">
+            <li><span><b>Lista por datas</b> do cardápio validado, com margem de segurança e desconto do estoque.</span></li>
+            <li><span><b>Cotação com vários fornecedores:</b> o sistema destaca o melhor preço por item e calcula quanto se economiza dividindo a compra.</span></li>
+            <li><span><b>Entrada de nota fiscal pelo XML</b>, com contas a pagar geradas pelas duplicatas da nota.</span></li>
+            <li><span><b>Notas de amarração:</b> a entrega diária entra no estoque na hora; a nota fiscal do período amarra tudo sem pagar duas vezes.</span></li>
+            <li><span><b>Preço fora do padrão</b> avisado na entrada da nota, pela média das notas de 90 dias.</span></li>
+          </ul>
+        </div>
+        <figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Cotação de fornecedores</span></div><img src="img/cotacao.jpg" alt="Cotação de fornecedores com o vencedor de cada item" width="1440" height="900" loading="lazy"></figure>
+      </div>
+      <div class="separa"></div>
+      <div class="galeria duas surge">
+        <div><figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Lista de compras</span></div><img src="img/compras.jpg" alt="Lista de compras por fornecedor com custo total" width="1440" height="900" loading="lazy"></figure><p class="legenda">Lista de compras por categoria ou por fornecedor, com o custo total do período.</p></div>
+        <div><figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Balanço mensal</span></div><img src="img/dia-balanco.jpg" alt="Balanço mensal fechado com acuracidade, diferença e CMV real" width="1217" height="581" loading="lazy"></figure><p class="legenda">Estoque por movimentação, com lotes e validades (sai primeiro o que vence primeiro), balanço mensal com acuracidade e CMV real.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa branca" id="unidade">
+    <div class="largo">
+      <div class="cabeca surge">
+        <span class="eyebrow">A cozinha de cada unidade</span>
+        <h2>Tudo o que a RT precisa no dia, num painel só.</h2>
+        <p>O painel do dia mostra o cardápio, a produção, o estoque de amanhã e o que precisa de atenção. A cozinha acompanha a produção numa TV, e a Pasta da Vigilância fica sempre pronta para a auditoria.</p>
+      </div>
+      <figure class="janela surge" tabindex="0" style="margin:0 0 56px"><div class="topo-janela"><i></i><i></i><i></i><span>Painel do dia</span></div><img src="img/dia-painel.jpg" alt="Painel do dia da unidade: cardápio do almoço, produção, estoque de amanhã e pendências" width="1217" height="581" loading="lazy"></figure>
+      <div class="modulo surge">
+        <div class="texto">
+          <h3>Pasta da Vigilância sempre pronta</h3>
+          <p>Os 45 documentos que a Vigilância Sanitária pede, organizados por seção, com validade e aviso 60 dias antes de vencer. Exporta a pasta completa com os anexos e uma Pasta Express com o que o auditor pede primeiro.</p>
+          <ul class="pontos">
+            <li><span><b>Prontidão para auditoria</b> em porcentagem, com pendentes e vencidos à vista.</span></li>
+            <li><span><b>Anexos guardados na nuvem</b>, disponíveis para a matriz e para a regional.</span></li>
+          </ul>
+        </div>
+        <figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Pasta da Vigilância Sanitária</span></div><img src="img/visa.jpg" alt="Pasta da Vigilância com 71% de prontidão" width="1440" height="900" loading="lazy"></figure>
+      </div>
+      <div class="separa"></div>
+      <div class="modulo inverso surge">
+        <div class="texto">
+          <h3>Central da Etiqueta</h3>
+          <p>Etiqueta de produto aberto, fracionado, preparado, congelado, descongelamento, refeição transportada e amostra, com a validade calculada pela norma, número e histórico. Alergênicos com um toque.</p>
+        </div>
+        <figure class="janela" tabindex="0" style="margin:0"><div class="topo-janela"><i></i><i></i><i></i><span>Central da Etiqueta</span></div><img src="img/etiquetas.jpg" alt="Central da Etiqueta com tipos de etiqueta e prévia" width="1440" height="900" loading="lazy"></figure>
+      </div>
+      <div class="cartoes surge" style="margin-top: 56px">
+        <div class="cartao"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><h4>Painel da Cozinha na TV</h4><p>Cronograma de produção, ordem de estoque e POPs nas telas da cozinha, ao vivo.</p></div>
+        <div class="cartao"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6l1 3H8z"/><rect x="5" y="7" width="14" height="13" rx="2"/><path d="M9 12h6M9 16h4"/></svg></span><h4>Produção confirmada</h4><p>Ordem de produção do dia e baixa automática no estoque pelas fichas técnicas.</p></div>
+        <div class="cartao"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span><h4>Manutenção e patrimônio</h4><p>Preventiva por equipamento, ordens de serviço com prazo e quem paga cada conserto.</p></div>
+        <div class="cartao"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/></svg></span><h4>Indicadores e satisfação</h4><p>Resto-ingesta, sobras, temperatura, absenteísmo e pesquisa com o comensal.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa" id="financeiro">
+    <div class="largo">
+      <div class="cabeca surge">
+        <span class="eyebrow">Fechamento e financeiro</span>
+        <h2>O mês fecha com o número que vai na nota, e o resultado de cada contrato.</h2>
+        <p>A unidade lança as refeições do dia. O fechamento calcula o faturamento pelos preços do contrato, monta o romaneio para a nota fiscal com as retenções e gera a fatura no contas a receber. A DRE mostra se o contrato dá resultado.</p>
+      </div>
+      <div class="galeria duas surge">
+        <div><figure class="janela doc" tabindex="0" style="margin:0"><img src="img/doc-fechamento.jpg" alt="Documento de fechamento mensal com total a faturar" width="954" height="1002" loading="lazy"></figure><p class="legenda">Fechamento mensal de serviços, com a planilha de conferência dia a dia.</p></div>
+        <div><figure class="janela doc" tabindex="0" style="margin:0"><img src="img/doc-dre.jpg" alt="DRE do contrato" width="954" height="1002" loading="lazy"></figure><p class="legenda">DRE do contrato: receita, CMV, pessoal, despesas, resultado e ponto de equilíbrio.</p></div>
+      </div>
+      <div class="cartoes surge" style="margin-top: 28px">
+        <div class="cartao"><h4>Romaneio para a nota</h4><p>Competência, retenções (INSS, ISS, PIS, Cofins, CSLL) e o valor líquido a receber, prontos para emitir.</p></div>
+        <div class="cartao"><h4>Contas a pagar e a receber</h4><p>Boletos da nota fiscal, contas fixas, faturas do fechamento e fluxo de caixa projetado.</p></div>
+        <div class="cartao"><h4>Extrato bancário (OFX)</h4><p>O extrato do banco casa com os títulos e dá a baixa com a data e o valor do banco.</p></div>
+        <div class="cartao"><h4>Planilha para o contador</h4><p>Tudo exporta em Excel, no mesmo padrão, e em CSV quando o escritório pede.</p></div>
+        <div class="cartao"><h4>Fechamento pré-preenchido</h4><p>As refeições do mês chegam da produção confirmada e do contrato; a unidade só confere.</p></div>
+        <div class="cartao"><h4>Custo previsto × real</h4><p>A diferença entre o cardápio e o balanço explicada: produção, perdas, contagem e preço pago.</p></div>
+        <div class="cartao"><h4>Desperdício em reais</h4><p>Resto-ingesta e sobras do mês, ponderados, com meta, custo e ranking das unidades.</p></div>
+        <div class="cartao"><h4>Fechamentos na matriz</h4><p>Cada filial envia o mês fechado; a administração vê quem entregou, quem falta e o resultado.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="navy faixa" id="economia">
+    <div class="largo">
+      <div class="cabeca surge">
+        <span class="eyebrow">Economia que se mede</span>
+        <h2>O sistema que paga a própria conta.</h2>
+        <p>Menos horas em planilha, menos dinheiro escapando do contrato. Na calculadora, você coloca os números da sua rede e vê quanto o Enterprise devolve por mês.</p>
+      </div>
+      <div class="frentes surge">
+        <div class="frente"><small>Terceiros que saem</small><b>DRE sem consultoria</b><span>Análise financeira de cada contrato, conciliação pelo extrato e implantação sem digitação.</span></div>
+        <div class="frente"><small>Horas que voltam</small><b>Menos digitação</b><span>Nota fiscal pelo XML, cardápio que nasce do contrato, compras, fechamento e balanço guiados.</span></div>
+        <div class="frente"><small>Receita protegida</small><b>Menos glosa</b><span>Documentação das filiais com alertas, reajuste avisado e conserto pago por quem deve pagar.</span></div>
+        <div class="frente"><small>Perdas que param</small><b>Menos desperdício</b><span>Compra cara barrada na nota, lote que vence primeiro sai primeiro e sobra medida em reais.</span></div>
+      </div>
+      <div class="chamadas surge">
+        <a class="cta ouro" href="https://uannodiaadia.com/uanpro/economia/#calculadora" target="_blank" rel="noopener">Simular a economia da sua empresa</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa branca" id="rede">
+    <div class="largo">
+      <div class="modulo surge">
+        <div class="texto">
+          <span class="eyebrow">Gestão da rede</span>
+          <h3>O mesmo relatório para a filial, a regional e a rede.</h3>
+          <p>Cada pessoa vê o relatório do tamanho do que enxerga: a RT, a filial dela; o regional, a regional; a diretoria, a rede inteira, com uma linha por regional e as filiais embaixo.</p>
+          <ul class="pontos">
+            <li><span><b>Seis relatórios:</b> fechamento, resultado e custo por refeição, Vigilância, pendências, estoque e indicadores.</span></li>
+            <li><span><b>Mês parcial até todas validarem:</b> o sistema mostra quem falta fechar.</span></li>
+            <li><span><b>Mês congelado:</b> quando todas validam, a gestão congela os números e eles não mudam mais.</span></li>
+          </ul>
+        </div>
+        <figure class="janela doc" tabindex="0" style="margin:0"><img src="img/doc-rede.jpg" alt="Relatório da rede com regionais e filiais" width="954" height="1002" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="navy faixa" id="confianca">
+    <div class="largo">
+      <div class="cabeca surge">
+        <span class="eyebrow">Confiança</span>
+        <h2>Documento validado, dado protegido, operação que não para.</h2>
+        <p>Menos papel, com prova de quem validou. Dados de cada empresa separados no banco. A unidade continua trabalhando mesmo quando a internet cai.</p>
+      </div>
+      <div class="destaque surge" style="background: var(--navy-2)">
+        <div style="display: grid; gap: 14px">
+          <h3>Validação eletrônica dos documentos</h3>
+          <p>A RT valida o documento com a própria senha. O nome, o CRN e a hora ficam gravados na nuvem e ninguém consegue alterar nem apagar. O documento sai com um QR que qualquer pessoa confere no site.</p>
+          <ul class="pontos">
+            <li><span><b>Corrigir gera uma nova versão</b>, e a anterior aparece como substituída.</span></li>
+            <li><span><b>Aviso automático</b> quando o conteúdo muda depois da validação.</span></li>
+            <li><span><b>Imprimir e assinar à mão continua possível</b>, para quem ainda pede papel.</span></li>
+          </ul>
+        </div>
+        <figure class="janela doc" tabindex="0" style="margin:0"><img src="img/doc-validado.jpg" alt="Quadro de validação eletrônica com QR no documento" width="954" height="428" loading="lazy"></figure>
+      </div>
+      <div class="cartoes surge" style="margin-top: 22px">
+        <div class="cartao"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 11l2 2 3.5-3.5"/></svg></span><h4>Login por pessoa</h4><p>Cada pessoa com o próprio e-mail e senha. Diretoria confirma a entrada no celular.</p></div>
+        <div class="cartao"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></span><h4>Perfis e escopo</h4><p>Diretoria, gerente, regional, compras, financeiro, planejamento, contratos, acessos e RT, cada um vendo só o que pode.</p></div>
+        <div class="cartao"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.5A4.5 4.5 0 0 1 7.5 6a5.5 5.5 0 0 1 10.6 1.6A4 4 0 0 1 18 15.5H7"/><path d="M3 20l18-17"/></svg></span><h4>Funciona sem internet</h4><p>A unidade trabalha até 7 dias sem conexão e sincroniza quando volta, mesclando o que mudou.</p></div>
+        <div class="cartao"><span class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><h4>Dados separados</h4><p>Cada empresa no seu espaço, com regras no próprio banco de dados e registro de quem fez o quê.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa" id="construcao">
+    <div class="largo">
+      <div class="cabeca surge">
+        <span class="eyebrow">Em construção</span>
+        <h2>O que vem a seguir, já desenhado.</h2>
+        <p>Os próximos módulos completam a corrente: do pedido da unidade ao lote na prateleira, das pessoas ao custo de mão de obra, e do mês fechado ao escritório contábil.</p>
+      </div>
+      <div class="obras surge">
+        <article class="obra">
+          <span class="estado">Próxima etapa</span>
+          <h3>Suprimentos e Compras</h3>
+          <p>Cada documento nasce do anterior e leva o número dele, do cardápio validado até a prateleira. Lotes e validades já estão prontos.</p>
+          <ol class="etapas">
+            <li><span><b>Previsão de consumo vira pedido:</b> por produto e por período, a partir do cardápio aprovado e das fichas.</span></li>
+            <li><span><b>Ordem de compra por fornecedor:</b> aprovação por valor e conferência entre ordem, nota e o que chegou.</span></li>
+            <li><span><b>Requisição da unidade:</b> a RT confirma a semana com os comensais reais e envia até o horário de corte.</span></li>
+            <li><span><b>CD e transferências:</b> separação em embalagem fechada, guia e dados para a nota de transferência.</span></li>
+          </ol>
+        </article>
+        <article class="obra">
+          <span class="estado">Desenhado</span>
+          <h3>RH e Departamento Pessoal</h3>
+          <p>O Enterprise organiza as pessoas da operação e entrega pronto para a folha de pagamento.</p>
+          <ol class="etapas">
+            <li><span><b>Quadro do contrato contra o real:</b> posto descoberto vira alerta antes de virar desconto na fatura.</span></li>
+            <li><span><b>Saúde e treinamento do manipulador:</b> ASO, exames, EPI, uniforme e boas práticas com vencimento.</span></li>
+            <li><span><b>Escalas e ponto:</b> regras da jornada conferidas antes de publicar e ponto importado do relógio.</span></li>
+            <li><span><b>Pré-folha e custo de mão de obra</b> por contrato, com a planilha de repactuação.</span></li>
+          </ol>
+        </article>
+        <article class="obra">
+          <span class="estado">Desenhado</span>
+          <h3>Contábil</h3>
+          <p>O escritório recebe tudo certo, e a DRE do contrato conversa com o balancete.</p>
+          <ol class="etapas">
+            <li><span><b>Pasta do contador do mês</b> em um clique, com notas, extratos e retenções.</span></li>
+            <li><span><b>Lote contábil</b> no formato dos sistemas dos escritórios, sem redigitar.</span></li>
+            <li><span><b>Provisões de 13º e férias</b> no resultado de cada contrato, mês a mês.</span></li>
+            <li><span><b>Reforma tributária:</b> o efeito da CBS no preço de cada contrato, antes de 2027.</span></li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="navy faixa" id="implantacao">
+    <div class="largo">
+      <div class="cabeca surge">
+        <span class="eyebrow">Implantação</span>
+        <h2>A empresa recebe o sistema já alimentado.</h2>
+        <p>Implantação 100% online, para qualquer cidade do país.</p>
+      </div>
+      <div class="passos surge">
+        <div class="passo"><b>Conhecer a operação</b><span>Uma conversa com tela compartilhada para entender os contratos, as unidades e as pessoas.</span></div>
+        <div class="passo"><b>Importar os contratos</b><span>Cada contrato lido e conferido, com as unidades, os serviços e as regras no lugar.</span></div>
+        <div class="passo"><b>Liberar os acessos</b><span>Cada pessoa recebe o convite no próprio e-mail, com o perfil e as unidades dela. Depois, o TI da empresa administra os acessos.</span></div>
+        <div class="passo"><b>Acompanhar o primeiro mês</b><span>Suporte por e-mail e WhatsApp e atualizações automáticas, com instalador assinado digitalmente.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="navy fim" id="contato">
+    <div class="largo">
+      <span class="eyebrow">UAN PRO Enterprise</span>
+      <h2>Menos planilha, menos papel e o resultado de cada contrato à vista.</h2>
+      <p>Vamos montar juntos a implantação da sua rede.</p>
+      <div class="chamadas">
+        <a class="cta ouro" href="https://wa.me/5532984151828?text=Quero%20receber%20a%20apresenta%C3%A7%C3%A3o%20do%20UAN%20PRO%20Enterprise" target="_blank" rel="noopener">Peça uma apresentação pelo WhatsApp</a>
+        <a class="cta linha" href="mailto:osmar@uannodiaadia.com?subject=UAN%20PRO%20Enterprise%3A%20quero%20uma%20apresenta%C3%A7%C3%A3o">Escrever um e-mail</a>
+      </div>
+      <div class="contatos">
+        <a class="contato" href="mailto:osmar@uannodiaadia.com"><small>Contato direto</small><span>osmar@uannodiaadia.com</span></a>
+        <a class="contato" href="mailto:uanpro@uannodiaadia.com"><small>Suporte</small><span>uanpro@uannodiaadia.com</span></a>
+        <a class="contato" href="https://wa.me/5532984151828" target="_blank" rel="noopener"><small>WhatsApp</small><span>(32) 98415-1828</span></a>
+      </div>
+      <p class="assinatura">Osmar Almeida · Nutricionista CRN 12979</p>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="largo"><span>UAN PRO Enterprise · <a href="https://uannodiaadia.com/">uannodiaadia.com</a> · <a href="https://uannodiaadia.com/verificar/">Verificar um documento validado</a></span><span>Telas reais do sistema, com dados de demonstração.</span></div>
+</footer>
+
+<a class="zap" href="https://wa.me/5532984151828?text=Ol%C3%A1%2C%20Osmar!%20Vi%20o%20site%20do%20UAN%20PRO%20Enterprise%20e%20quero%20saber%20mais." target="_blank" rel="noopener" aria-label="Falar com o Osmar no WhatsApp, (32) 98415-1828">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+  <span>Fale com o Osmar<small>(32) 98415-1828</small></span>
+</a>
+
+<div class="lupa" hidden id="lupa" role="dialog" aria-label="Imagem ampliada"><img alt="" id="lupa-img"></div>
+
+<script>
+  document.documentElement.classList.add('js');
+  // Imagem ampliada ao clicar (ou Enter) na tela
+  const lupa = document.getElementById('lupa');
+  const lupaImg = document.getElementById('lupa-img');
+  const abrir = (img) => { lupaImg.src = img.src; lupaImg.alt = img.alt; lupa.hidden = false; };
+  document.querySelectorAll('.janela').forEach((j) => {
+    const img = j.querySelector('img');
+    j.addEventListener('click', () => abrir(img));
+    j.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrir(img); } });
+  });
+  lupa.addEventListener('click', () => { lupa.hidden = true; });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lupa.hidden = true; });
+  // Entrada suave das seções (o conteúdo já nasce visível sem script)
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const obs = new IntersectionObserver((itens) => itens.forEach((i) => { if (i.isIntersecting) { i.target.classList.remove('fora'); obs.unobserve(i.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.surge').forEach((el) => { const r = el.getBoundingClientRect(); if (r.top > innerHeight) { el.classList.add('fora'); obs.observe(el); } });
+  }
+</script>
+
+</body>
+</html>
