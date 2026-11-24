@@ -405,6 +405,29 @@ footer{border-top:1px solid var(--linha);padding:44px 0 36px;background:var(--bg
   .trilho{overflow-x:auto}
 }
 
+/* =================== FAIXA DE PARCEIROS =================== */
+.parceiros{padding:54px 0 58px;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);
+  background:linear-gradient(180deg,rgba(18,24,16,.55),rgba(14,18,11,.2))}
+.parc-cab{text-align:center;max-width:640px;margin:0 auto 30px}
+.parc-cab .olho{justify-content:center}
+.parc-cab h2{font-size:clamp(24px,3.2vw,34px);margin-top:10px}
+.parc-cab p{margin-top:10px;font-size:15.5px}
+.parc-lista{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
+.parceiro{flex:0 1 270px}
+.parceiro a{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;height:100%;
+  padding:18px 18px 16px;border:1px solid var(--linha2);border-radius:var(--raio);background:var(--sup);text-decoration:none;
+  transition:transform .25s,border-color .25s,background .25s}
+.parceiro a:hover{transform:translateY(-3px);border-color:var(--ouro);background:var(--sup2)}
+.parc-logo{display:flex;align-items:center;justify-content:center;width:100%;min-height:104px;padding:14px 16px;
+  border-radius:10px;background:#fff;margin-bottom:8px}
+.parc-logo img{width:auto;max-width:100%;max-height:78px}
+.parc-nome{font-family:var(--tit);font-weight:600;font-size:15px;color:var(--txt);line-height:1.25}
+.parc-cidade{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3)}
+.parceiro-novo a{border-style:dashed;justify-content:center}
+.parc-mais{display:flex;align-items:center;justify-content:center;width:56px;height:56px;margin-bottom:6px;border-radius:50%;
+  border:1px dashed var(--ouro);color:var(--ouro2);font-size:30px;line-height:1;font-family:var(--tit)}
+.parceiro-novo .parc-cidade{color:var(--ouro2)}
+@media(max-width:600px){.parceiro{flex-basis:100%;max-width:340px}}
 </style>
 <!-- Google tag (gtag.js) — Analytics GA4 G-G0CWJBCTMM + Google Ads AW-18226261330 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0CWJBCTMM"></script>
@@ -607,6 +630,40 @@ html.bf-on .preco-normal{display:none}
     </div>
   </div>
 </div>
+
+<!-- ================= FAIXA DE PARCEIROS =================
+     COMO ACRESCENTAR UM PARCEIRO NOVO:
+       1. Salve a logomarca em img/parceiros/ (PNG ou WEBP, fundo transparente, uns 300 px de largura).
+       2. Copie o bloco <li class="parceiro rv">...</li> do EMCOR e cole logo abaixo dele (antes do bloco "A sua unidade pode ser a próxima").
+          Troque o link, o arquivo da logo, o texto "alt", o nome e a cidade.
+       3. Só publique depois de conferir que o contrato do parceiro autoriza o uso do nome e da logomarca.
+     O bloco "A sua unidade pode ser a próxima" fica sempre por último. -->
+<section class="parceiros" id="parceiros" aria-label="Instituições parceiras do UAN PRO">
+  <div class="env">
+    <div class="parc-cab rv">
+      <div class="olho">Parceiros</div>
+      <h2>Quem já confia no <em>UAN PRO</em></h2>
+      <p>Instituições que escolheram o UAN PRO para organizar a sua UAN.</p>
+    </div>
+    <ul class="parc-lista">
+      <li class="parceiro rv">
+        <a href="https://hospitalemcor.com.br" target="_blank" rel="noopener" title="Hospital EMCOR — Nova Iguaçu, RJ">
+          <span class="parc-logo"><img src="img/parceiros/emcor.png" alt="EMCOR — Hospital do Coração e de Clínicas, Nova Iguaçu" width="316" height="126" loading="lazy" decoding="async"></span>
+          <span class="parc-nome">Hospital do Coração e de Clínicas</span>
+          <span class="parc-cidade">Nova Iguaçu · RJ</span>
+        </a>
+      </li>
+      <li class="parceiro parceiro-novo rv">
+        <a href="#degustacao">
+          <span class="parc-mais" aria-hidden="true">+</span>
+          <span class="parc-nome">A sua unidade pode ser a próxima</span>
+          <span class="parc-cidade">Degustar 14 dias grátis</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+<div class="divisor"></div>
 
 <!-- ================= BLACK FRIDAY 2026 (some sozinho depois de 30/11) ================= -->
 <section class="bf bf-sec" id="black-friday" aria-label="Black Friday UAN PRO">
